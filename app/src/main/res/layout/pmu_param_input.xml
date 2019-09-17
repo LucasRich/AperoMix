@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/playerInput"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        >
+
+        <TextView
+            android:id="@+id/display_player"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:text="Lucas"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cardContainer"
+            android:layout_below="@id/display_player"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            >
+
+            <ImageView
+                android:id="@+id/choice_card_pic_add"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_add_pmu" />
+
+            <ImageView
+                android:id="@+id/choice_card_pic_remove"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_remove_pmu"
+                android:layout_below="@+id/choice_card_pic_container"/>
+
+            <RelativeLayout
+                android:id="@+id/choice_card_pic_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/choice_card_pic_add"
+                >
+
+                <ImageView
+                    android:id="@+id/choice_card_pic"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/card_pic_pmuparam"/>
+
+                <TextView
+                    android:id="@+id/choice_card_pic_nb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:text="10"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/choice_card_coeur_add"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_add_pmu"
+                android:layout_alignRight="@id/choice_card_coeur_container"/>
+
+            <ImageView
+                android:id="@+id/choice_card_coeur_remove"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_remove_pmu"
+                android:layout_below="@+id/choice_card_coeur_container"
+                android:layout_alignRight="@id/choice_card_coeur_container"/>
+
+            <RelativeLayout
+                android:id="@+id/choice_card_coeur_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/choice_card_pic_container"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@+id/choice_card_coeur_add">
+
+                <ImageView
+                    android:id="@+id/choice_card_coeur"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/card_coeur_pmuparam"/>
+
+                <TextView
+                    android:id="@+id/choice_card_coeur_nb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:text="10"/>
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/choice_card_trefle_add"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_add_pmu"
+                android:layout_alignRight="@id/choice_card_trefle_container"/>
+
+            <ImageView
+                android:id="@+id/choice_card_trefle_remove"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_remove_pmu"
+                android:layout_below="@+id/choice_card_trefle_container"
+                android:layout_alignRight="@id/choice_card_trefle_container"/>
+
+            <RelativeLayout
+                android:id="@+id/choice_card_trefle_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/choice_card_coeur_container"
+                android:layout_below="@id/choice_card_trefle_add">
+
+                <ImageView
+                    android:id="@+id/choice_card_trefle"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/card_trefle_pmuparam"/>
+
+                <TextView
+                    android:id="@+id/choice_card_trefle_nb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:text="10" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/choice_card_caro_add"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_add_pmu"
+                android:layout_alignRight="@id/choice_card_caro_container"/>
+
+            <ImageView
+                android:id="@+id/choice_card_caro_remove"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_remove_pmu"
+                android:layout_below="@+id/choice_card_trefle_container"
+                android:layout_alignRight="@id/choice_card_caro_container"/>
+
+            <RelativeLayout
+                android:id="@+id/choice_card_caro_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/choice_card_trefle_container"
+                android:layout_below="@id/choice_card_caro_add">
+
+                <ImageView
+                    android:id="@+id/choice_card_caro"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/card_caro_pmuparam"/>
+
+                <TextView
+                    android:id="@+id/choice_card_caro_nb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:layout_centerInParent="true"
+                    android:text="10"/>
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

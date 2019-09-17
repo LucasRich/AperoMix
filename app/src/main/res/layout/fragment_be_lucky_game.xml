@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border_view">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="@drawable/border_view">
+
+        <LinearLayout
+            android:id="@+id/container1"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case1"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case2"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case3"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case4"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case5"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case6"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case7"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case8"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case9"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container2"
+            android:layout_alignParentRight="true"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case18"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case17"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case16"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/border">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case15"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case14"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case13"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case12"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case11"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border"
+                android:layout_marginBottom="5dp">
+
+                <include
+                    android:layout_margin="5dp"
+                    android:id="@+id/case10"
+                    layout="@layout/be_lucky_case"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@+id/container1"
+            android:layout_toLeftOf="@+id/container2">
+
+            <TextView
+                android:id="@+id/namePlayer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Lucas"
+                android:textColor="@android:color/black"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/game_txt_doubleScreen"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/middle_view"
+                android:layout_marginTop="100dp"
+                android:gravity="center"
+                android:text="Lucas retourne à la case départ"
+                android:textColor="@android:color/black"
+                android:textSize="20dp"/>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

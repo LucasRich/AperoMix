@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.GameContainer"
+    android:background="@drawable/border_view"
+    android:layout_below="@+id/toolbar">
+
+        <!-- CARD BACK -->
+
+        <LinearLayout
+            android:id="@+id/card_back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentLeft="true"
+            android:layout_above="@id/game_info"
+            android:layout_marginBottom="100dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+            <ImageView
+                android:id="@+id/card_back_5"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card_random"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                android:id="@+id/card_back_4"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card_random"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+
+                />
+
+            <ImageView
+                android:id="@+id/card_back_3"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card_random"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+
+                />
+
+            <ImageView
+                android:id="@+id/card_back_2"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card_random"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+
+                />
+
+            <ImageView
+                android:id="@+id/card_back_1"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card_random"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+
+                />
+
+        </LinearLayout>
+
+        <!-- CARD UP -->
+
+        <LinearLayout
+            android:id="@+id/card_up"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_alignParentRight="true"
+            android:layout_above="@id/game_info"
+            android:layout_marginBottom="100dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp">
+
+            <ImageView
+                android:id="@+id/card_up_5"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card_random"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                android:id="@+id/card_up_4"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card_random"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                android:id="@+id/card_up_3"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card_random"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                android:id="@+id/card_up_2"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card_random"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                />
+
+            <ImageView
+                android:id="@+id/card_up_1"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/card_random"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/game_info"
+            android:layout_centerHorizontal="true"
+            >
+
+
+
+            <!-- CARD PIC -->
+
+            <LinearLayout
+                android:id="@+id/card_pic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/card_pic_6"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_pic_5"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_pic_4"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_pic_3"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_pic_2"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_pic_1"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/card_pic_as"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>
+
+            <!-- CARD COEUR -->
+
+            <LinearLayout
+                android:id="@+id/card_coeur"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_toRightOf="@+id/card_pic"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/card_coeur_6"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_coeur_5"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_coeur_4"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_coeur_3"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_coeur_2"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_coeur_1"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/card_coeur_as"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>
+
+            <!-- CARD TREFLE -->
+
+            <LinearLayout
+                android:id="@+id/card_trefle"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_toRightOf="@+id/card_coeur"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/card_trefle_6"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_trefle_5"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_trefle_4"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_trefle_3"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_trefle_2"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_trefle_1"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/card_trefle_as"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>
+
+            <!-- CARD TREFLE -->
+
+            <LinearLayout
+                android:id="@+id/card_caro"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_toRightOf="@+id/card_trefle"
+                android:layout_marginBottom="10dp">
+
+                <ImageView
+                    android:id="@+id/card_caro_6"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_caro_5"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_caro_4"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_caro_3"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_caro_2"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/empty_card"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+                <ImageView
+                    android:id="@+id/card_caro_1"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/card_caro_as"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/displayTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="50dp"
+                android:layout_centerVertical="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:text=""/>
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:id="@+id/game_info"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_alignParentBottom="true">
+
+            <ImageView
+                android:id="@+id/card_random"
+                android:layout_width="60dp"
+                android:layout_height="80dp"
+                android:src="@drawable/card_random"
+                android:layout_margin="20dp"
+                />
+
+            <Button
+                android:id="@+id/piocheButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_toRightOf="@id/card_random"
+                android:layout_marginBottom="30dp"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/border_btn"
+                android:text="PIOCHE"
+                android:textSize="20dp"
+                android:textColor="@android:color/black"/>
+
+        </RelativeLayout>
+
+</RelativeLayout>
