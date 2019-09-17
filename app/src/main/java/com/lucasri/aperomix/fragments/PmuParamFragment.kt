@@ -53,7 +53,6 @@ class PmuParamFragment : Fragment() {
             playerList.add(player)
         }
 
-        println(playerList[0].playerName)
         pmuParamAdapter = PmuParamAdapter(context, playerList)
         listPlayer!!.adapter = pmuParamAdapter
     }

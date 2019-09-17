@@ -9,6 +9,15 @@ public class Player {
     private int caroNbDrink;
     private int giveDrinkNb;
     private int takeDrinkNb;
+    private int color;
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
 
     public String getPlayerName(){
         return playerName;

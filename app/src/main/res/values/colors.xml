@@ -7,4 +7,9 @@
     <color name="colorWhite">#ffff</color>
     <color name="gray">#E0DFDF</color>
 
+    <array name="player_colors">
+        <item>#FFA000</item>
+        <item>#000</item>
+    </array>
+
 </resources>

@@ -49,6 +49,10 @@ dependencies {
     implementation 'com.jakewharton:butterknife:10.0.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //COLOR PICKER
+    implementation 'com.thebluealliance:spectrum:0.7.1'
+
 }
 repositories {
     mavenCentral()

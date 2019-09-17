@@ -11,10 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import butterknife.ButterKnife
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.fragments.BeLuckyGameFragment
-import com.lucasri.aperomix.fragments.PmuGameFragment
-import com.lucasri.aperomix.fragments.PmuParamFragment
-import com.lucasri.aperomix.fragments.SelectGameFragment
+import com.lucasri.aperomix.fragments.*
 import com.lucasri.aperomix.utils.addFragment
 
 class GameContainer : AppCompatActivity() {
@@ -105,7 +102,7 @@ class GameContainer : AppCompatActivity() {
     }
 
     fun launchFragmentBeLuckyGame() {
-        val fragment = BeLuckyGameFragment()
+        val fragment = BeLuckyParamFragment()
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.activity_game_frame, fragment)
         transaction.commit()
