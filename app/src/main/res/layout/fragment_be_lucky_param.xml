@@ -8,14 +8,31 @@
     android:background="@drawable/border_view"
     >
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choisissez la couleur de vos pions !"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:textColor="@android:color/black"
+        android:gravity="center"/>
+
     <ListView
+        android:layout_below="@+id/title"
         android:id="@+id/listPlayer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@null"
         android:scrollbars="none"
         android:overScrollMode="never"
-        android:layout_margin="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="5dp"
         />
 
 </RelativeLayout>

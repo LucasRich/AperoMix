@@ -36,3 +36,12 @@ fun setToolbarTitle(activity: Activity, title: String){
     val toolbar: Toolbar = activity!!.findViewById<View>(R.id.toolbar) as Toolbar
     toolbar.title = title
 }
+
+fun random(min: Int, max: Int): Int {
+    var nbRandom: Double
+    do {
+        nbRandom = Math.random() * (max + 1)
+    } while (nbRandom < min)
+
+    return nbRandom.toInt()
+}

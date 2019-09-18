@@ -9,7 +9,20 @@
 
     <array name="player_colors">
         <item>#FFA000</item>
+        <item>#FF0000</item>
+        <item>#64DD17</item>
+        <item>#304FFE</item>
+        <item>#AA00FF</item>
+        <item>#FFDE00</item>
+        <item>#00695C</item>
+        <item>#6B4509</item>
+        <item>#F48FB1</item>
+        <item>#2E7D32</item>
         <item>#000</item>
+        <item>#64FFDA</item>
+        <item>#6200EA</item>
+        <item>#13006F</item>
+        <item>#5F6161</item>
     </array>
 
 </resources>

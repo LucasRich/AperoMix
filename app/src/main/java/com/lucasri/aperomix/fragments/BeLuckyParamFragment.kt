@@ -8,6 +8,7 @@ import com.lucasri.aperomix.R
 import com.lucasri.aperomix.View.adapter.BeLuckyParamAdapter
 import com.lucasri.aperomix.View.adapter.PlayerAdapter
 import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.utils.toast
 import kotlinx.android.synthetic.main.fragment_be_lucky_param.*
 import kotlinx.android.synthetic.main.info_dialog.view.*
 
@@ -37,7 +38,7 @@ class BeLuckyParamFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
-            R.id.done -> launchFragmentBeLuckyGame()
+            R.id.done -> clickOnDone()
             R.id.rule -> displayRule()
 
         }
@@ -59,6 +60,29 @@ class BeLuckyParamFragment : Fragment() {
     // ---------------------
     // UTILS
     // ---------------------
+
+    private fun clickOnDone(){
+        if (playerList.size < 11){
+            if (allColorAreDifferente()){
+                launchFragmentBeLuckyGame()
+            } else context!!.toast("Vous ne pouvez pas sélectionner deux fois la même couleur !")
+
+        } else context!!.toast("Vous ne pouvez pas jouer à plus de dix !")
+
+    }
+
+    private fun allColorAreDifferente() : Boolean {
+        for (player in playerList) {
+            for (players in playerList) {
+                if (player.playerName !== players.playerName){
+                    if (player.color == players.color) {
+                        return false
+                    }
+                }
+            }
+        }
+        return true
+    }
 
     fun displayRule() {
         val dialogBuilder = AlertDialog.Builder(context!!)

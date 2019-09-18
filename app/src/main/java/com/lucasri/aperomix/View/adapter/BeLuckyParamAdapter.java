@@ -85,7 +85,7 @@ public class BeLuckyParamAdapter extends BaseAdapter {
             SpectrumDialog.Builder bu = new SpectrumDialog.Builder(context);
             bu.setColors(R.array.player_colors);
             bu.setTitle("Choisis ta couleur");
-            bu.setSelectedColor(-24576);
+            bu.setSelectedColor(playerList.get(position).getColor());
             bu.setOnColorSelectedListener((positiveResult, color1) -> {
 
                 playerList.get(position).setColor(color1);

@@ -1,5 +1,6 @@
 package com.lucasri.aperomix.fragments
 
+import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.view.*
@@ -11,7 +12,9 @@ import com.lucasri.aperomix.View.adapter.BeLuckyGameAdapter
 import com.lucasri.aperomix.View.adapter.BeLuckyParamAdapter
 import com.lucasri.aperomix.View.adapter.PlayerAdapter
 import com.lucasri.aperomix.model.Player
-import kotlinx.android.synthetic.main.be_lucky_case.view.*
+import com.lucasri.aperomix.utils.random
+import com.lucasri.aperomix.utils.toast
+import kotlinx.android.synthetic.main.be_lucky_case_left.view.*
 import kotlinx.android.synthetic.main.fragment_be_lucky_game.*
 import java.util.*
 
@@ -32,8 +35,12 @@ class BeLuckyGameFragment : Fragment(){
 
         this.initPlayerList()
 
-        case1.position1.setBackgroundColor(ContextCompat.getColor(context!!, R.color.design_default_color_primary))
-        case1.position2.setBackgroundColor(ContextCompat.getColor(context!!, R.color.colorPrimary))
+        case1.position1.setColorFilter(ContextCompat.getColor(context!!, R.color.colorPrimary))
+        case1.position2.setColorFilter(ContextCompat.getColor(context!!, R.color.gray))
+
+        de.setOnClickListener {
+            println(random(1, 6).toString())
+        }
     }
 
     // ---------------------
@@ -62,4 +69,8 @@ class BeLuckyGameFragment : Fragment(){
     // ---------------------
     // UTILS
     // ---------------------
+
+    private fun displayDie(value: Int){
+
+    }
 }

@@ -28,7 +28,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case1"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_left"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -44,7 +44,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case2"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_left"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -60,7 +60,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case3"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_left"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -76,7 +76,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case4"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_left"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -92,7 +92,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case5"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_left"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -108,7 +108,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case6"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_left"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -124,7 +124,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case7"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_left"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -140,7 +140,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case8"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_left"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -150,13 +150,12 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/border"
-                android:layout_marginBottom="5dp">
+                android:background="@drawable/border">
 
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case9"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_left"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -181,7 +180,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case18"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -197,7 +196,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case17"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -213,7 +212,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case16"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -229,7 +228,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case15"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -245,7 +244,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case14"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -261,7 +260,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case13"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -277,7 +276,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case12"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -293,7 +292,7 @@
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case11"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -303,13 +302,12 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/border"
-                android:layout_marginBottom="5dp">
+                android:background="@drawable/border">
 
                 <include
                     android:layout_margin="5dp"
                     android:id="@+id/case10"
-                    layout="@layout/be_lucky_case"
+                    layout="@layout/be_lucky_case_right"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
 
@@ -333,41 +331,65 @@
                     android:id="@+id/namePlayer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:text="Lucas"
                     android:textColor="@android:color/black"
                     android:textSize="40dp"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/game_txt_doubleScreen"
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="100dp"
-                    android:gravity="center"
-                    android:text="Lucas retourne à la case départ"
-                    android:textColor="@android:color/black"
-                    android:textSize="20dp"/>
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_below="@+id/namePlayer">
+
+                    <TextView
+                        android:gravity="center"
+                        android:id="@+id/game_txt_doubleScreen"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="Retour à la case départ"
+                        android:textColor="@android:color/black"
+                        android:textSize="20dp"/>
+                </ScrollView>
+
+
 
             </RelativeLayout>
 
             <RelativeLayout
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
                 android:layout_toRightOf="@+id/container1"
-                android:layout_toLeftOf="@+id/container2">
+                android:layout_toLeftOf="@+id/container2"
+                android:background="@drawable/border"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <ImageView
+                    android:id="@+id/de"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_die"
+                    android:layout_marginTop="10dp"
+                    android:layout_centerHorizontal="true"/>
 
                 <ListView
+                    android:stackFromBottom="true"
+                    android:layout_below="@+id/de"
                     android:id="@+id/listPlayer"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:divider="@null"
                     android:scrollbars="none"
                     android:overScrollMode="never"
-                    android:layout_margin="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
                     />
 
             </RelativeLayout>
