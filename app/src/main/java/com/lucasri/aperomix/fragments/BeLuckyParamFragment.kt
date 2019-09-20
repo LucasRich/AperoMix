@@ -49,6 +49,7 @@ class BeLuckyParamFragment : Fragment() {
         for (i in PlayerAdapter.playerList.indices) {
             val player = Player()
             player.color = -24576
+            player.beLuckyCase = 1
             player.playerName = PlayerAdapter.playerList[i].playerName
             playerList.add(player)
         }

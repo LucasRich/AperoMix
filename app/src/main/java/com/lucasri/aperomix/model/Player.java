@@ -3,13 +3,37 @@ package com.lucasri.aperomix.model;
 public class Player {
 
     private String playerName;
+
+    //PmuGame
     private int picNbDrink;
     private int coeurNbDrink;
     private int trefleNbDrink;
     private int caroNbDrink;
     private int giveDrinkNb;
     private int takeDrinkNb;
+
+    //BeLuckyGame
     private int color;
+    private int beLuckyCase;
+    private int beLuckyCasePosition;
+
+
+    public int getBeLuckyCasePosition() {
+        return beLuckyCasePosition;
+    }
+
+    public void setBeLuckyCasePosition(int beLuckyCasePosition) {
+        this.beLuckyCasePosition = beLuckyCasePosition;
+    }
+
+
+    public int getBeLuckyCase() {
+        return beLuckyCase;
+    }
+
+    public void setBeLuckyCase(int beLuckyCase) {
+        this.beLuckyCase = beLuckyCase;
+    }
 
     public int getColor() {
         return color;

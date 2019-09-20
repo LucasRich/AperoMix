@@ -332,31 +332,43 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="Lucas"
+                    android:text="BeLucky !"
                     android:textColor="@android:color/black"
                     android:textSize="40dp"
                     android:textStyle="bold" />
 
                 <ScrollView
+                    android:id="@+id/displayTxt_scroolView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginBottom="5dp"
-                    android:layout_below="@+id/namePlayer">
+                    android:layout_below="@+id/namePlayer"
+                    android:layout_above="@+id/endButton">
 
                     <TextView
                         android:gravity="center"
-                        android:id="@+id/game_txt_doubleScreen"
+                        android:id="@+id/displayTxt"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="Retour à la case départ"
+                        android:text="@string/BeLuckyBegin"
                         android:textColor="@android:color/black"
                         android:textSize="20dp"/>
                 </ScrollView>
 
-
+                <Button
+                    android:id="@+id/endButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/border_btn"
+                    android:text="Fin de tour"
+                    android:layout_alignParentBottom="true"
+                    />
 
             </RelativeLayout>
 
@@ -375,7 +387,7 @@
                     android:id="@+id/de"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_die"
+                    android:src="@drawable/ic_die6"
                     android:layout_marginTop="10dp"
                     android:layout_centerHorizontal="true"/>
 
