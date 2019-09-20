@@ -176,8 +176,7 @@ class BeLuckyGameFragment : Fragment(){
 
             override fun onFinish() {
                 endButton.isEnabled = true
-                //movePlayer(dieValue, player)
-                movePlayer(3, player)
+                movePlayer(dieValue, player)
             }
         }.start()
     }
@@ -211,6 +210,7 @@ class BeLuckyGameFragment : Fragment(){
         when(player.beLuckyCase){
             2 -> {
                 displayTxt.text = getString(R.string.BeLuckyCase2)
+                iterator--
             }
             3 -> {
                 displayTxt.text = getString(R.string.BeLuckyCase3)
@@ -262,10 +262,24 @@ class BeLuckyGameFragment : Fragment(){
     }
 
     private fun getPositionThanksOtherPlayerPosition(player: Player, case: View){
-        var position = 1
+        val positionUse = ArrayList<Int>()
+        positionUse.add(10000)
+        positionUse.add(0)
+        positionUse.add(0)
+        positionUse.add(0)
+        positionUse.add(0)
+        positionUse.add(0)
+        positionUse.add(0)
+        positionUse.add(0)
+        positionUse.add(0)
+        positionUse.add(0)
+        positionUse.add(0)
+
         for (players in playerList){
-            if (players.beLuckyCase == player.beLuckyCase && players.playerName != player.playerName && players.beLuckyCasePosition == position) position++
+            if (players.beLuckyCase == player.beLuckyCase && players.playerName != player.playerName) positionUse[players.beLuckyCasePosition] = players.beLuckyCasePosition
         }
+
+        var position = positionUse.indexOf(0)
 
         player.beLuckyCasePosition = position
         displayPawn(position, case, player.color)
