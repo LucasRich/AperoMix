@@ -1,5 +1,6 @@
 package com.lucasri.aperomix.fragments
 
+import android.content.res.TypedArray
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog

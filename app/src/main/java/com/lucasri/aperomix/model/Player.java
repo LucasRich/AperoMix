@@ -15,8 +15,16 @@ public class Player {
     //BeLuckyGame
     private int color;
     private int beLuckyCase;
+    private int beLuckyPreviousCase;
     private int beLuckyCasePosition;
 
+    public int getBeLuckyPreviousCase() {
+        return beLuckyPreviousCase;
+    }
+
+    public void setBeLuckyPreviousCase(int beLuckyPreviousCase) {
+        this.beLuckyPreviousCase = beLuckyPreviousCase;
+    }
 
     public int getBeLuckyCasePosition() {
         return beLuckyCasePosition;

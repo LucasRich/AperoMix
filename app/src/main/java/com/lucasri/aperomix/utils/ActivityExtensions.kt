@@ -37,6 +37,17 @@ fun setToolbarTitle(activity: Activity, title: String){
     toolbar.title = title
 }
 
+fun random(min: Int, max: Int, valueToIgnore: Int): Int {
+    var nbRandom: Double
+    do {
+        do {
+            nbRandom = Math.random() * (max + 1)
+        } while (nbRandom.toInt() == valueToIgnore)
+    } while (nbRandom < min)
+
+    return nbRandom.toInt()
+}
+
 fun random(min: Int, max: Int): Int {
     var nbRandom: Double
     do {
