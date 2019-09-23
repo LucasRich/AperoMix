@@ -78,6 +78,11 @@ public class PmuParamAdapter extends BaseAdapter{
             holder.nb_trefle = (TextView) convertView.findViewById(R.id.choice_card_trefle_nb);
             holder.nb_caro = (TextView) convertView.findViewById(R.id.choice_card_caro_nb);
 
+            holder.nb_pic.setText("0");
+            holder.nb_coeur.setText("0");
+            holder.nb_trefle.setText("0");
+            holder.nb_caro.setText("0");
+
             holder.add_pic = (ImageView) convertView.findViewById(R.id.choice_card_pic_add);
             holder.add_coeur = (ImageView) convertView.findViewById(R.id.choice_card_coeur_add);
             holder.add_trefle = (ImageView) convertView.findViewById(R.id.choice_card_trefle_add);
@@ -95,10 +100,6 @@ public class PmuParamAdapter extends BaseAdapter{
         }
 
         holder.playerEditText.setText(playerList.get(position).getPlayerName());
-        holder.nb_pic.setText("0");
-        holder.nb_coeur.setText("0");
-        holder.nb_trefle.setText("0");
-        holder.nb_caro.setText("0");
 
         //ADD BUTTON
 
@@ -167,7 +168,6 @@ public class PmuParamAdapter extends BaseAdapter{
                 playerList.get(position).setCaroNbDrink(nbCaro);
             }
         });
-
 
         return convertView;
     }

@@ -11,7 +11,6 @@ import com.lucasri.aperomix.View.adapter.BeLuckyGameAdapter
 import com.lucasri.aperomix.View.adapter.BeLuckyParamAdapter
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.utils.random
-import kotlinx.android.synthetic.main.be_lucky_case_left.*
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.*
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.position1
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.position10
@@ -144,7 +143,6 @@ class BeLuckyGameFragment : Fragment(){
     }
 
     private fun translate(viewToMove: View, target: View) {
-        println("yes")
         viewToMove.animate()
                 .x(target.x)
                 .y(target.y)

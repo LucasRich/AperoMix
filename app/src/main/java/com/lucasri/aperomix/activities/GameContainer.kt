@@ -39,7 +39,6 @@ class GameContainer : AppCompatActivity() {
             "Le PMU" -> launchFragmentPmuParam()
             "Be lucky Game" -> launchFragmentBeLuckyGame()
         }
-
     }
 
     // ---------------------
