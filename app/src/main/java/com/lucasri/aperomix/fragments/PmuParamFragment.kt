@@ -61,7 +61,7 @@ class PmuParamFragment : Fragment() {
     // UTILS
     // ---------------------
 
-    fun displayRule() {
+    private fun displayRule() {
         val dialogBuilder = AlertDialog.Builder(context!!)
         val inflater = this.layoutInflater
         val dialogView = inflater.inflate(R.layout.info_dialog, null)
@@ -75,7 +75,7 @@ class PmuParamFragment : Fragment() {
         alertDialog.show()
     }
 
-    fun launchFragmentPmuGame() {
+    private fun launchFragmentPmuGame() {
         val pmuGameFragment = PmuGameFragment()
         activity!!.supportFragmentManager.beginTransaction()
                 .replace(R.id.activity_game_frame, pmuGameFragment, "findThisFragment")

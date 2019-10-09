@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AperoMixTextView">
+        <attr name="fontName" format="enum">
+            <enum name="Boogaloo_Regular" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>

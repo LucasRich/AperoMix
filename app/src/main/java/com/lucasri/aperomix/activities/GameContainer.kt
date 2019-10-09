@@ -30,12 +30,10 @@ class GameContainer : AppCompatActivity() {
         this.configureToolbar()
 
         val bundle = intent.extras
-        //var bundleValue: String = ""
         if (bundle != null) bundleValue = bundle.getString("startParameter", "")
 
         when(bundleValue){
-            "" -> addFragment(SelectGameFragment.newInstance(), mainFrameLayout)
-            "Papin Game" -> launchPapinGameActivity()
+            "Papin Game" -> launchFragmentPapinGame()
             "Le PMU" -> launchFragmentPmuParam()
             "Be lucky Game" -> launchFragmentBeLuckyGame()
         }
@@ -81,6 +79,13 @@ class GameContainer : AppCompatActivity() {
                 .setPositiveButton("Quitter") { dialog, which -> launchMainActivity() }
                 .setNegativeButton("Annuler") { dialog, which -> }
                 .create().show()
+    }
+
+    fun launchFragmentPapinGame() {
+        val fragment = PapinGameFragment()
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.activity_game_frame, fragment)
+        transaction.commit()
     }
 
     fun launchFragmentPmuParam() {

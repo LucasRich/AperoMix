@@ -1,117 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/Main_activity"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".activities.GameContainer"
     android:background="@color/colorPrimary">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/display_title"
+    <FrameLayout
+        android:id="@+id/activity_main_frame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
-        android:background="@drawable/border_view"
-        android:layout_margin="5dp"
-        >
+        android:layout_margin="5dp"/>
 
-        <TextView
-            android:id="@+id/txt_ready"
-            android:layout_width="wrap_content"
-            android:layout_height="75dp"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            android:text="ApéroMix"
-            android:textColor="@android:color/black"
-            android:textSize="60dp"
-            android:textStyle="bold"
-            android:fontFamily=""/>
-
-        <TextView
-            android:id="@+id/txt_subReady"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_ready"
-            android:layout_centerHorizontal="true"
-            android:text="Jeu d'alcool"
-            android:textColor="@android:color/black"
-            android:textSize="35dp"
-            android:textStyle="bold"
-            android:fontFamily=""/>
-
-        <TextView
-            android:id="@+id/txt_enterPlayer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="20dp"
-            android:layout_below="@+id/txt_subReady"
-            android:layout_centerHorizontal="true"
-            android:textColor="@android:color/black"
-            android:textStyle="bold"
-            android:textSize="25dp"
-            android:text="Entrer le nom des joueurs :"/>
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_enterPlayer"
-            android:layout_marginLeft="100dp"
-            android:layout_marginBottom="118dp"
-            android:layout_marginRight="56dp"
-            >
-
-            <ListView
-                android:id="@+id/list"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_toLeftOf="@+id/plus_one"
-                android:divider="@null"
-                android:scrollbars="none"
-                android:overScrollMode="never"
-                />
-
-            <ImageView
-                android:id="@+id/plus_one"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="2dp"
-                android:layout_marginLeft="2dp"
-                android:background="@drawable/border"
-                android:src="@drawable/ic_add_black_48dp"
-                />
-
-        </RelativeLayout>
-
-
-
-        <Button
-            android:id="@+id/startButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp"
-            android:layout_alignParentBottom="true"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
-            android:paddingTop="10dp"
-            android:textSize="20dp"
-            android:paddingBottom="10dp"
-            android:layout_marginRight="200dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/border_btn"
-            android:text="PLAY"
-            android:textColor="@android:color/black"
-            />
-
-    </RelativeLayout>
 
 </RelativeLayout>

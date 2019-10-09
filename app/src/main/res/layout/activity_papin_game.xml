@@ -6,7 +6,7 @@
     android:id="@+id/Main_activity"
     android:background="@color/colorPrimary">
 
-    <include
+   <!-- <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"
         android:layout_width="match_parent"
@@ -192,6 +192,6 @@
             />
 
 
-    </RelativeLayout>
+    </RelativeLayout>   -->
 
 </RelativeLayout>

@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">AperoMix</string>
 
+    <!-- FONT ID -->
+    <string name="Boogaloo_Regular">Boogaloo-Regular</string>
+
     <!-- BeLucky -->
     <string name="BeLuckyBegin">Bienvenue à BeLucky Land, êtes-vous prêt pour une folle aventure ? \n\n &#127881;&#127866;&#128513;&#128513;&#127866;&#127881;</string>
 
@@ -8,7 +11,7 @@
     <string name="BeLuckyCase3">La partie commence bien pour toi ! Bois 2 gorgées et plus vite que ça ! &#127866;</string>
     <string name="BeLuckyCase4">Retour case départ pour toi ! &#128074; \nEt au passage bois 1 gorgée &#127866;</string>
     <string name="BeLuckyCase7">Retour case départ pour toi ! &#128074; \nEt au passage bois 1 gorgée &#127866;</string>
-    <string name="BeLuckyCase8">Bah dit donc, tu étais à deux doigts d\'arriver au tunnel &#128527; \nCa sera pour le prochain tour ! En attendant bois 3 gorgées ! &#127866;</string>
+    <string name="BeLuckyCase8">Bah dis donc, tu étais à deux doigts d\'arriver au tunnel &#128527; \nCa sera pour le prochain tour ! En attendant bois 3 gorgées ! &#127866;</string>
     <string name="BeLuckyCase9">Hop là, pas si vite ! &#9995; \nSi tu veux aller de l\'autre côté tu dois d\'abord payer la taxe de tunnel. Bois 1 gorgée par joueur ayant déjà utilisé ce tunnel, si tu es le premier bois 2 gorgées pour le mettre en marche ! &#127866;</string>
     <string name="BeLuckyCase10">Bienvenue de l\'autre côté ! Tous les joueurs qui n\'ont pas encore pris le tunnel boivent une gorgée, à la vôtre les nazes ! &#127866;</string>
     <string name="BeLuckyCase11">Aie aie aie ! \nJ\'en connais un(e) qui va pouvoir se venger de toutes les crasses que les autres joueurs lui ont faites ! &#128520; \ndistrubu 3 gorgées &#127866;</string>
@@ -16,7 +19,7 @@
     <string name="BeLuckyCase15">Tu pensais peut-être gagner directement sans boire un dernier coup ? &#128514;&#128514; \nC\'est pas le genre de la maison, aller bois 3 gorgées &#127866;</string>
     <string name="BeLuckyCase16">Tu pensais peut-être gagner directement sans boire un dernier coup ? &#128514;&#128514; \nC\'est pas le genre de la maison, aller bois 4 gorgées &#127866;</string>
     <string name="BeLuckyCase17">Aie ! Coup dur pour toi.. Tu retourne au tunnel, ca t\'apprendra à vouloir griller les étapes ! Bois 2 gorgées au passage &#127866;</string>
-    <string name="BeLuckyCase18">&#127881; BIEN JOUÉ &#127881; \n\nQui lu cru, nous avons un gagnant ! Aller champion distribu aux joueurs de ton choix autant de gorgées qu\'il reste de joueur &#127866;</string>
+    <string name="BeLuckyCase18">&#127881; BIEN JOUÉ &#127881; \n\nQui l\'eu cru, nous avons un gagnant ! Aller champion distribu aux joueurs de ton choix autant de gorgées qu\'il reste de joueur &#127866;</string>
 
     <string name="BeLuckyCarde1">&#127808; Carte chance &#127808; \n\nAvance de 3 cases !</string>
     <string name="BeLuckyCarde2">&#127808; Carte chance &#127808; \n\nRecule de 3 cases !</string>

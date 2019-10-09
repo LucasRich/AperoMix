@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/game_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/toolbar"
+    android:background="@drawable/border_view">
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/nameGame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="PAPIN GAME"
+        android:textColor="@android:color/black"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/game_txt_doubleScreen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/middle_view"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="PAPIN GAME"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"/>
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/game_txt_inverse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:layout_above="@+id/middle_view"
+        android:gravity="center"
+        android:text="PAPIN GAME"
+        android:textColor="@android:color/black"
+        android:textSize="40dp"
+        android:rotation="180"/>
+
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout="@+id/nameGameInverse"
+        android:layout_below="@id/nameGame"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/counter_doubleScreen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout="@+id/nameGameInverse"
+        android:layout_below="@id/middle_view"
+        android:layout_centerHorizontal="true"
+        />
+
+    <TextView
+        android:id="@+id/counter_doubleScreen_inverse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout="@+id/nameGameInverse"
+        android:layout_above="@id/middle_view"
+        android:layout_centerHorizontal="true"
+        android:rotation="180"
+        />
+
+    <RelativeLayout
+        android:id="@+id/middle_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <com.lucasri.aperomix.views.AperoMixTextView
+            android:id="@+id/nameGame_doubleScreen_inverse"
+            android:rotation="180"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="PAPIN GAME"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="50dp"
+            android:textStyle="bold"/>
+
+        <com.lucasri.aperomix.views.AperoMixTextView
+            android:id="@+id/nameGame_doubleScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="10dp"
+            android:text="PAPIN GAME"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="50dp"
+            />
+
+    </RelativeLayout>
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/game_txt_alone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="REFERENDUM"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="59dp" />
+
+    <View
+        android:id="@+id/line_double_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="4dp"
+        android:layout_centerVertical="true"
+        android:background="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/middle_view">
+
+        <ImageView
+            app:srcCompat="@drawable/ic_arrow_left"
+            android:tint="@android:color/black"
+            android:id="@+id/previous_rule"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentLeft="true"/>
+
+        <ImageView
+            app:srcCompat="@drawable/ic_arrow_right"
+            android:tint="@android:color/black"
+            android:id="@+id/next_rule"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/bottom_btn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/border_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginBottom="20dp"
+        android:text="Compte à rebours"
+        android:textSize="18dp"
+        android:textColor="@android:color/black"
+        android:padding="10dp"
+        />
+
+    <ImageView
+        android:id="@+id/info_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_info_48dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        />
+
+
+</RelativeLayout>

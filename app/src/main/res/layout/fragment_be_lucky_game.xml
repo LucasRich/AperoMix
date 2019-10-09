@@ -12,18 +12,6 @@
         android:layout_margin="5dp"
         android:background="@drawable/border_view">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/testanimate"
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_marginTop="7dp"
-            android:src="@drawable/ic_color"
-            android:layout_marginLeft="5dp"
-            android:layout_marginBottom="60dp"
-            android:layout_marginRight="20dp"
-            android:tint="@android:color/holo_green_light"
-            android:layout_alignParentLeft="true"/>
-
         <LinearLayout
             android:id="@+id/container1"
             android:layout_width="80dp"
@@ -340,7 +328,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <TextView
+                <com.lucasri.aperomix.views.AperoMixTextView
                     android:id="@+id/namePlayer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -361,7 +349,7 @@
                     android:layout_below="@+id/namePlayer"
                     android:layout_above="@+id/endButton">
 
-                    <TextView
+                    <com.lucasri.aperomix.views.AperoMixTextView
                         android:gravity="center"
                         android:id="@+id/displayTxt"
                         android:layout_width="match_parent"
@@ -375,7 +363,7 @@
 
                 <Button
                     android:id="@+id/endButton"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
                     android:layout_marginLeft="20dp"
@@ -384,6 +372,8 @@
                     android:text="Fin de tour"
                     android:layout_alignParentBottom="true"
                     />
+
+                <!--
 
                 <EditText
                     android:id="@+id/inputCheat"
@@ -408,6 +398,8 @@
                     android:text="GO"
                     android:layout_alignParentBottom="true"
                     />
+
+                    -->
 
             </RelativeLayout>
 

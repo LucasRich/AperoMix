@@ -52,14 +52,14 @@ class BeLuckyGameFragment : Fragment(){
         endButton.text = "Commencer !!"
         de.isEnabled = false
 
-        debugBtn.setOnClickListener {
+        /*debugBtn.setOnClickListener {
             endButton.isEnabled = true
 
             movePlayer(inputCheat.text.toString().toInt(), playerList[iterator])
             iterator++
 
             if (iterator > playerList.size -1) iterator = 0
-        }
+        }*/
 
         endButton.setOnClickListener {
             if (!gameBegin){
@@ -102,10 +102,9 @@ class BeLuckyGameFragment : Fragment(){
         }
 
         de.setOnClickListener {
-            /*launchDie(playerList[iterator])
+            launchDie(playerList[iterator])
             iterator++
-            if (iterator > playerList.size -1) iterator = 0*/
-            translate(testanimate, case1.position5)
+            if (iterator > playerList.size -1) iterator = 0
         }
     }
 
@@ -361,9 +360,9 @@ class BeLuckyGameFragment : Fragment(){
                 nbMoveCaseToEnd = -3
             }
 
-            5 -> getLuckyCard(random(5, 7), player)
+            5 -> getLuckyCard(random(1, 7), player)
 
-            6 -> getLuckyCard(random(5, 7), player)
+            6 -> getLuckyCard(random(1, 7), player)
 
             7 -> {
                 displayTxt.text = getString(R.string.BeLuckyCase7)
@@ -394,10 +393,10 @@ class BeLuckyGameFragment : Fragment(){
                 }
             }
             13 -> {
-                if (player.beLuckyPreviousCase < 9) movePlayer(-4, player) else getLuckyCard(random(5, 7), player)
+                if (player.beLuckyPreviousCase < 9) movePlayer(-4, player) else getLuckyCard(random(1, 7), player)
             }
             14 -> {
-                if (player.beLuckyPreviousCase < 9) movePlayer(-5, player) else getLuckyCard(random(5, 7), player)
+                if (player.beLuckyPreviousCase < 9) movePlayer(-5, player) else getLuckyCard(random(1, 7), player)
             }
             15 -> {
                 displayTxt.text = getString(R.string.BeLuckyCase15)

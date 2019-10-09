@@ -13,6 +13,7 @@ import com.lucasri.aperomix.R
 import com.lucasri.aperomix.activities.GameContainer
 import com.lucasri.aperomix.model.Game
 import com.lucasri.aperomix.utils.setToolbarTitle
+import kotlinx.android.synthetic.main.activity_game_container.*
 import kotlinx.android.synthetic.main.fragment_select_game.*
 import kotlinx.android.synthetic.main.game_entry.view.*
 
@@ -33,7 +34,6 @@ class SelectGameFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setToolbarTitle(activity!!, "GALERIE")
         gameList.add(Game("Papin Game", R.drawable.logo_v1))
         gameList.add(Game("Le PMU", R.drawable.logo_v1))
         gameList.add(Game("Be lucky Game", R.drawable.logo_v1))
@@ -76,7 +76,7 @@ class SelectGameFragment : Fragment() {
             gameView.tvName.text = game.name!!
 
             gameView.setOnClickListener {
-                launchMainFragment(game.name.toString())
+                launchGame(game.name.toString())
             }
 
             return gameView
@@ -86,7 +86,7 @@ class SelectGameFragment : Fragment() {
         // UTILS
         // ---------------------
 
-        private fun launchMainFragment(gameTitle: String) {
+        private fun launchGame(gameTitle: String) {
 
             val myIntent = Intent(context, GameContainer::class.java)
             val bundle = Bundle()
