@@ -149,17 +149,17 @@
 
     </RelativeLayout>
 
-    <Button
+    <com.lucasri.aperomix.views.AperoMixButton
         android:id="@+id/bottom_btn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/border_btn"
         android:layout_alignParentBottom="true"
-        android:layout_marginRight="100dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginRight="@dimen/marginRightAndLeftButton"
+        android:layout_marginLeft="@dimen/marginRightAndLeftButton"
         android:layout_marginBottom="20dp"
         android:text="Compte à rebours"
-        android:textSize="18dp"
+        android:textSize="@dimen/TextSizeButton"
         android:textColor="@android:color/black"
         android:padding="10dp"
         />

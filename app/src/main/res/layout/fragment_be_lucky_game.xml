@@ -362,7 +362,7 @@
 
                 </ScrollView>
 
-                <Button
+                <com.lucasri.aperomix.views.AperoMixButton
                     android:id="@+id/endButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -370,6 +370,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/border_btn"
+                    android:textSize="@dimen/TextSizeButton"
                     android:text="Fin de tour"
                     android:layout_alignParentBottom="true"
                     />

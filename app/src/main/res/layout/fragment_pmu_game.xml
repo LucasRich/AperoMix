@@ -435,7 +435,7 @@
                 android:layout_margin="20dp"
                 />
 
-            <Button
+            <com.lucasri.aperomix.views.AperoMixButton
                 android:id="@+id/piocheButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -450,7 +450,7 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/border_btn"
                 android:text="PIOCHE"
-                android:textSize="20dp"
+                android:textSize="@dimen/TextSizeButton"
                 android:textColor="@android:color/black"/>
 
         </RelativeLayout>

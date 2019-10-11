@@ -77,7 +77,7 @@
 
 
 
-    <Button
+    <com.lucasri.aperomix.views.AperoMixButton
         android:id="@+id/startButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -86,9 +86,10 @@
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         android:paddingTop="10dp"
-        android:textSize="20dp"
+        android:textSize="@dimen/TextSizeButton"
         android:paddingBottom="10dp"
-        android:layout_marginRight="200dp"
+        android:layout_marginRight="@dimen/marginRightAndLeftButton"
+        android:layout_marginLeft="@dimen/marginRightAndLeftButton"
         android:layout_centerHorizontal="true"
         android:background="@drawable/border_btn"
         android:text="PLAY"
