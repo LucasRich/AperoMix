@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         launchMainActivity()
+        println("github test")
     }
 
     private fun launchMainActivity() {
