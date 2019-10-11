@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.View.adapter.PmuParamAdapter
+import com.lucasri.aperomix.view.adapter.PmuParamAdapter
 import com.lucasri.aperomix.activities.MainActivity
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.utils.InitGame
@@ -103,7 +103,7 @@ class PmuGameFragment : Fragment() {
     }
 
     private fun initPlayerList() {
-        playerList.addAll(PmuParamAdapter.playerList)
+        playerList.addAll(MainFragment.playerList)
     }
 
     // ---------------------

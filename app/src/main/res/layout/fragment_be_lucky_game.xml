@@ -423,10 +423,10 @@
                     android:layout_marginTop="10dp"
                     android:layout_centerHorizontal="true"/>
 
-                <ListView
+                <androidx.recyclerview.widget.RecyclerView
                     android:stackFromBottom="true"
                     android:layout_below="@+id/de"
-                    android:id="@+id/listPlayer"
+                    android:id="@+id/beLucky_game_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:divider="@null"

@@ -52,8 +52,8 @@
         android:layout_marginRight="56dp"
         >
 
-        <ListView
-            android:id="@+id/list"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_fragment_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_toLeftOf="@+id/plus_one"

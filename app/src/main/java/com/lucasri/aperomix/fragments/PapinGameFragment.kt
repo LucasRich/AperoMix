@@ -7,13 +7,12 @@ import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.View.adapter.PlayerAdapter
+import com.lucasri.aperomix.view.adapter.PlayerAdapter
 import com.lucasri.aperomix.activities.MainActivity
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.utils.InitGame
 import com.lucasri.aperomix.utils.longToast
 import com.lucasri.aperomix.utils.random
-import com.lucasri.aperomix.utils.toast
 import kotlinx.android.synthetic.main.fragment_papin_game.*
 import kotlinx.android.synthetic.main.info_dialog.view.*
 import java.util.ArrayList
@@ -148,7 +147,7 @@ class PapinGameFragment: Fragment(){
     }
 
     private fun initPlayerList() {
-        playerList.addAll(PlayerAdapter.playerList)
+        playerList.addAll(MainFragment.playerList)
     }
 
     private fun initScreen() {
@@ -263,8 +262,8 @@ class PapinGameFragment: Fragment(){
         AlertDialog.Builder(context!!)
                 .setTitle("Mixité ?")
                 .setMessage("Êtes vous un groupe mixte ? Juste des garçons, ou juste des filles ?")
-                .setPositiveButton("Mixte") { dialog, which -> boyAndGirl = true }
-                .setNegativeButton("Non Mixte") { dialog, which -> boyAndGirl = false }
+                .setPositiveButton("Mixte") { _, _ -> boyAndGirl = true }
+                .setNegativeButton("Non Mixte") { _, _ -> boyAndGirl = false }
                 .show()
     }
 

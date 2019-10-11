@@ -1,27 +1,20 @@
 package com.lucasri.aperomix.activities
 
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.widget.ListView
 
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.View.adapter.PlayerAdapter
+import com.lucasri.aperomix.view.adapter.PlayerAdapter
 import com.lucasri.aperomix.model.Player
 
 import java.util.ArrayList
 
-import butterknife.BindView
-import butterknife.ButterKnife
-import butterknife.OnClick
 import com.lucasri.aperomix.fragments.MainFragment
-import com.lucasri.aperomix.fragments.PmuParamFragment
-import com.lucasri.aperomix.fragments.SelectGameFragment
 import com.lucasri.aperomix.utils.addFragment
 import kotlinx.android.synthetic.main.activity_main.*
 

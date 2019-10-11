@@ -6,22 +6,25 @@ import android.os.CountDownTimer
 import android.view.*
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.View.adapter.BeLuckyGameAdapter
-import com.lucasri.aperomix.View.adapter.BeLuckyParamAdapter
+import com.lucasri.aperomix.view.adapter.BeLuckyGameAdapter
+import com.lucasri.aperomix.view.adapter.BeLuckyParamAdapter
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.utils.random
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.*
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.position1
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.position10
 import kotlinx.android.synthetic.main.fragment_be_lucky_game.*
+import kotlinx.android.synthetic.main.fragment_be_lucky_param.*
 import kotlin.collections.ArrayList
 
+@Suppress("NAME_SHADOWING")
 class BeLuckyGameFragment : Fragment(){
 
     private val playerList = ArrayList<Player>()
     private val caseList = ArrayList<View>()
-    private var beLuckyGameAdapter: BeLuckyGameAdapter? = null
+    private var adapter: BeLuckyGameAdapter? = null
     private var iterator = 0
     private var gameBegin = false
     private var launchDieAgain = false
@@ -46,6 +49,7 @@ class BeLuckyGameFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         this.initPlayerList()
+        this.configureRecyclerView()
         this.initCaseList()
         this.initCaseImg()
         this.initPlayerPositionDisplay()
@@ -112,6 +116,12 @@ class BeLuckyGameFragment : Fragment(){
     // CONFIGURATION
     // ---------------------
 
+    private fun configureRecyclerView() {
+        this.adapter = BeLuckyGameAdapter(MainFragment.playerList)
+        this.beLucky_game_recycler_view.adapter = this.adapter
+        this.beLucky_game_recycler_view.layoutManager = LinearLayoutManager(context)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.clear()
         inflater.inflate(R.menu.toolbar_pmu_game_menu, menu)
@@ -119,15 +129,13 @@ class BeLuckyGameFragment : Fragment(){
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item?.itemId) {
+        when (item.itemId) {
         }
         return super.onOptionsItemSelected(item)
     }
 
     private fun initPlayerList() {
-        playerList.addAll(BeLuckyParamAdapter.playerList)
-        beLuckyGameAdapter = BeLuckyGameAdapter(context, playerList)
-        listPlayer!!.adapter = beLuckyGameAdapter
+        playerList.addAll(MainFragment.playerList)
     }
 
     // ---------------------

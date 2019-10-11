@@ -21,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.lucasri.aperomix.R;
-import com.lucasri.aperomix.View.adapter.PlayerAdapter;
+import com.lucasri.aperomix.view.adapter.PlayerAdapter;
 import com.lucasri.aperomix.utils.InitGame;
 
 import java.util.ArrayList;
@@ -102,9 +102,9 @@ public class PapinGame extends AppCompatActivity {
     }
 
     public void initPlayerList(){
-        for (int i = 0; i < PlayerAdapter.playerList.size(); i++){
-            playerList.add(PlayerAdapter.playerList.get(i).getPlayerName());
-        }
+        /*for (int i = 0; i < PlayerAdapter.Companion.getPlayerList().size(); i++){
+            playerList.add(PlayerAdapter.Companion.getPlayerList().get(i).getPlayerName());
+        }*/
     }
 
     public void initScreen(){

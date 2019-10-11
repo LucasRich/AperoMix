@@ -4,21 +4,23 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.View.adapter.PlayerAdapter
-import com.lucasri.aperomix.View.adapter.PmuParamAdapter
+import com.lucasri.aperomix.view.adapter.PlayerAdapter
+import com.lucasri.aperomix.view.adapter.PmuParamAdapter
 import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
+import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_pmu_param.*
 import kotlinx.android.synthetic.main.info_dialog.view.*
 import java.util.*
 
 class PmuParamFragment : Fragment() {
 
-    private var pmuParamAdapter: PmuParamAdapter? = null
-    private var playerList = ArrayList<Player>()
+    private var adapter: PmuParamAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        this.initPlayerListView()
+        this.configureRecyclerView()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -30,6 +32,12 @@ class PmuParamFragment : Fragment() {
     // CONFIGURATION
     // ---------------------
 
+    private fun configureRecyclerView() {
+        this.adapter = PmuParamAdapter(MainFragment.playerList)
+        this.pmu_param_recycler_view.adapter = this.adapter
+        this.pmu_param_recycler_view.layoutManager = LinearLayoutManager(context)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         menu.clear()
         inflater.inflate(R.menu.toolbar_pmu_param_menu, menu)
@@ -37,24 +45,12 @@ class PmuParamFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item?.itemId) {
+        when (item.itemId) {
             R.id.done -> launchFragmentPmuGame()
             R.id.rule -> displayRule()
 
         }
         return super.onOptionsItemSelected(item)
-    }
-
-    private fun initPlayerListView() {
-        for (i in PlayerAdapter.playerList.indices) {
-            val player = Player()
-            player.picNbDrink = 0
-            player.playerName = PlayerAdapter.playerList[i].playerName
-            playerList.add(player)
-        }
-
-        pmuParamAdapter = PmuParamAdapter(context, playerList)
-        listPlayer!!.adapter = pmuParamAdapter
     }
 
     // ---------------------

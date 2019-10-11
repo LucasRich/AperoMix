@@ -5,23 +5,24 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 
-import androidx.appcompat.widget.AppCompatTextView;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.lucasri.aperomix.R;
 
-public class AperoMixTextView extends AppCompatTextView {
+public class AperoMixButton extends AppCompatButton {
+    public AperoMixButton(Context context) {
+        super(context);
+    }
 
-    public AperoMixTextView(Context context, AttributeSet attrs) {
+    public AperoMixButton(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.applyStyle(context, attrs);
     }
 
-    public AperoMixTextView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
+    public AperoMixButton(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
         this.applyStyle(context, attrs);
     }
-
-    // ---
 
     private void applyStyle(Context context, AttributeSet attrs){
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.AperoMixFont);
