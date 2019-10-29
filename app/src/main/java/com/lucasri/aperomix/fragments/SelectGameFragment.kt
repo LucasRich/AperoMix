@@ -25,6 +25,7 @@ import kotlinx.android.synthetic.main.fragment_select_game_item.view.*
 import androidx.recyclerview.widget.GridLayoutManager
 import android.view.animation.AnimationUtils
 import com.lucasri.aperomix.utils.ItemClickSupport
+import kotlinx.android.synthetic.main.fragment_main.*
 
 
 class SelectGameFragment : Fragment() {
@@ -52,6 +53,11 @@ class SelectGameFragment : Fragment() {
         this.fragment_select_game_recycler_view.adapter = this.adapter
         this.fragment_select_game_recycler_view.layoutManager = GridLayoutManager(activity, 2)
 
+        //ANIM
+        val controller = AnimationUtils.loadLayoutAnimation(activity, R.anim.layout_animation_fall_down)
+        this.fragment_select_game_recycler_view.layoutAnimation = controller
+        this.fragment_select_game_recycler_view.scheduleLayoutAnimation()
+
         //CLICK
         ItemClickSupport.addTo(fragment_select_game_recycler_view, R.layout.fragment_select_game_item)
                 .setOnItemClickListener { recyclerView, position, v ->
@@ -78,13 +84,5 @@ class SelectGameFragment : Fragment() {
         myIntent.putExtras(bundle)
 
         startActivity(myIntent)
-
-        // Start Animation
-        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            var options: ActivityOptions = ActivityOptions.makeSceneTransitionAnimation(activity, viewClicked, getString(R.string.animation_main_to_detail))
-            startActivity(myIntent, options.toBundle())
-        } else {
-            startActivity(myIntent)
-        }*/
     }
 }

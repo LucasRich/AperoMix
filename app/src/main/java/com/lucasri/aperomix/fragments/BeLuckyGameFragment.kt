@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.*
+import android.view.animation.AnimationUtils
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.be_lucky_case_left.view.position1
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.position10
 import kotlinx.android.synthetic.main.fragment_be_lucky_game.*
 import kotlinx.android.synthetic.main.fragment_be_lucky_param.*
+import kotlinx.android.synthetic.main.fragment_main.*
 import kotlin.collections.ArrayList
 
 @Suppress("NAME_SHADOWING")
@@ -117,9 +119,15 @@ class BeLuckyGameFragment : Fragment(){
     // ---------------------
 
     private fun configureRecyclerView() {
+        //INIT
         this.adapter = BeLuckyGameAdapter(MainFragment.playerList)
         this.beLucky_game_recycler_view.adapter = this.adapter
         this.beLucky_game_recycler_view.layoutManager = LinearLayoutManager(context)
+
+        //ANIM
+        val controller = AnimationUtils.loadLayoutAnimation(activity, R.anim.layout_animation_fall_down)
+        this.beLucky_game_recycler_view.layoutAnimation = controller
+        this.beLucky_game_recycler_view.scheduleLayoutAnimation()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

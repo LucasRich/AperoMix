@@ -2,6 +2,7 @@ package com.lucasri.aperomix.fragments
 
 import android.os.Bundle
 import android.view.*
+import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,9 +35,15 @@ class BeLuckyParamFragment : Fragment() {
     // ---------------------
 
     private fun configureRecyclerView() {
+        //INIT
         this.adapter = BeLuckyParamAdapter(MainFragment.playerList)
         this.beLucky_param_recycler_view.adapter = this.adapter
         this.beLucky_param_recycler_view.layoutManager = LinearLayoutManager(context)
+
+        //ANIM
+        val controller = AnimationUtils.loadLayoutAnimation(activity, R.anim.layout_animation_fall_down)
+        this.beLucky_param_recycler_view.layoutAnimation = controller
+        this.beLucky_param_recycler_view.scheduleLayoutAnimation()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

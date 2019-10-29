@@ -10,6 +10,8 @@ import com.lucasri.aperomix.R
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
+import android.view.animation.AnimationUtils
+
 
 class MainFragment : Fragment() {
 
@@ -46,9 +48,15 @@ class MainFragment : Fragment() {
     // ---------------------
 
     private fun configureRecyclerView() {
+        //INIT
         this.adapter = MainFragmentAdapter(playerList)
         this.main_fragment_recycler_view.adapter = this.adapter
         this.main_fragment_recycler_view.layoutManager = LinearLayoutManager(context)
+
+        //ANIM
+        val controller = AnimationUtils.loadLayoutAnimation(activity, R.anim.layout_animation_fall_down)
+        this.main_fragment_recycler_view.layoutAnimation = controller
+        this.main_fragment_recycler_view.scheduleLayoutAnimation()
     }
 
     private fun initPlayerList(){
