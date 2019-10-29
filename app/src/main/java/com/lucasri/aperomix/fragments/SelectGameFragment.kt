@@ -1,5 +1,6 @@
 package com.lucasri.aperomix.fragments
 
+import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
@@ -26,6 +27,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import android.view.animation.AnimationUtils
 import com.lucasri.aperomix.utils.ItemClickSupport
 import kotlinx.android.synthetic.main.fragment_main.*
+import org.greenrobot.eventbus.util.ErrorDialogManager
 
 
 class SelectGameFragment : Fragment() {
@@ -61,7 +63,9 @@ class SelectGameFragment : Fragment() {
         //CLICK
         ItemClickSupport.addTo(fragment_select_game_recycler_view, R.layout.fragment_select_game_item)
                 .setOnItemClickListener { recyclerView, position, v ->
-                    launchGame(gameList[position].name!!, v)
+                    DetailsGamesFragment
+                            .newInstance(gameList[position].name)
+                            .show(activity!!.supportFragmentManager, "DETAILS_GAMES")
                 }
     }
 

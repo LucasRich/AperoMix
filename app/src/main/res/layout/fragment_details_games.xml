@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/fragment_details_games_txt"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Un simple Adapter permettant de faire le lien entre la RecyclerView et le ViewHolder. Rien d'exceptionnel, vous devriez être capables de tout comprendre sans problème..."
+        />
+</LinearLayout>
