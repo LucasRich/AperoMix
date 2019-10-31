@@ -1,12 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/fragment_details_games_txt"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Un simple Adapter permettant de faire le lien entre la RecyclerView et le ViewHolder. Rien d'exceptionnel, vous devriez être capables de tout comprendre sans problème..."
-        />
-</LinearLayout>
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fragment_details_game_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:cardCornerRadius="10dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="@android:color/holo_blue_dark">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/logo_v1"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/fragment_details_games_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/fragment_details_game_img"
+            android:text="Papin game"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            />
+
+        <TextView
+            android:id="@+id/fragment_details__games_nbPlayer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_details_games_title"
+            android:layout_toRightOf="@+id/fragment_details_game_img"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:text="3 à 10 joueurs"/>
+
+        <TextView
+            android:id="@+id/fragment_details_duration"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fragment_details__games_nbPlayer"
+            android:layout_toRightOf="@+id/fragment_details_game_img"
+            android:layout_marginLeft="20dp"
+            android:text="30 minutes à 1 heure"/>
+
+        <Button
+            android:id="@+id/fragment_details__games_playBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fragment_details_duration"
+            android:layout_marginTop="50dp"
+            android:text="Jouer"
+            android:textAllCaps="false"
+            android:background="@drawable/border_btn"
+            android:textStyle="bold"
+            android:layout_marginBottom="100dp"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
