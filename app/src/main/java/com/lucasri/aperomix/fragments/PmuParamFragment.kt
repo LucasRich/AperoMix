@@ -7,14 +7,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.view.adapter.PlayerAdapter
 import com.lucasri.aperomix.view.adapter.PmuParamAdapter
-import com.lucasri.aperomix.model.Player
-import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
-import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.fragment_pmu_param.*
 import kotlinx.android.synthetic.main.info_dialog.view.*
-import java.util.*
 
 class PmuParamFragment : Fragment() {
 

@@ -8,12 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasri.aperomix.R
 import com.lucasri.aperomix.view.adapter.BeLuckyParamAdapter
-import com.lucasri.aperomix.view.adapter.PlayerAdapter
-import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.utils.toast
-import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_be_lucky_param.*
-import kotlinx.android.synthetic.main.fragment_main.*
 import kotlinx.android.synthetic.main.info_dialog.view.*
 
 class BeLuckyParamFragment : Fragment() {

@@ -11,9 +11,11 @@ import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import android.view.animation.AnimationUtils
+import com.lucasri.aperomix.utils.toast
+import kotlinx.android.synthetic.main.fragment_main_item.*
+import android.widget.Toast
 
-
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
     lateinit var adapter: MainFragmentAdapter
 
@@ -34,11 +36,11 @@ class MainFragment : Fragment() {
         this.initPlayerList()
         this.configureRecyclerView()
 
-        startButton.setOnClickListener {
+        fragment_main_start_btn.setOnClickListener {
             launchSelectGameFragment()
         }
 
-        plus_one.setOnClickListener {
+        fragment_main_addPlayer.setOnClickListener {
             addPlayer()
         }
     }
@@ -49,14 +51,14 @@ class MainFragment : Fragment() {
 
     private fun configureRecyclerView() {
         //INIT
-        this.adapter = MainFragmentAdapter(playerList)
-        this.main_fragment_recycler_view.adapter = this.adapter
-        this.main_fragment_recycler_view.layoutManager = LinearLayoutManager(context)
+        this.adapter = MainFragmentAdapter(playerList, this)
+        this.fragment_main_recycler_view.adapter = this.adapter
+        this.fragment_main_recycler_view.layoutManager = LinearLayoutManager(context)
 
         //ANIM
         val controller = AnimationUtils.loadLayoutAnimation(activity, R.anim.layout_animation_fall_down)
-        this.main_fragment_recycler_view.layoutAnimation = controller
-        this.main_fragment_recycler_view.scheduleLayoutAnimation()
+        this.fragment_main_recycler_view.layoutAnimation = controller
+        this.fragment_main_recycler_view.scheduleLayoutAnimation()
     }
 
     private fun initPlayerList(){
@@ -70,15 +72,41 @@ class MainFragment : Fragment() {
     }
 
     // ---------------------
+    // ACTION
+    // ---------------------
+
+    override fun onClickDeleteButton(position: Int) {
+        if (playerList.size > 3){
+            playerList.removeAt(position)
+            configureRecyclerView()
+        } else {
+            context!!.toast(getString(R.string.fragment_main_delete_player_error))
+        }
+    }
+
+    // ---------------------
     // UTILS
     // ---------------------
 
     private fun addPlayer() {
         val player = Player()
-        player.playerName = "Joueur ${playerList.size+1}"
-        playerList.add(player)
+        var iterator: Int = 1
 
+        do {
+            if (playerListSameName("Joueur $iterator")) iterator++
+        } while (playerListSameName("Joueur $iterator"))
+
+        player.playerName = "Joueur $iterator"
+        playerList.add(player)
         adapter.updateData(playerList)
+    }
+
+    private fun playerListSameName(playerName: String): Boolean{
+        var result: Boolean = false
+        for (player in playerList){
+            if (player.playerName.contains(playerName))  result = true
+        }
+        return result
     }
 
     private fun launchSelectGameFragment() {

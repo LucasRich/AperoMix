@@ -1,7 +1,6 @@
 package com.lucasri.aperomix.view.adapter
 
 import android.content.Context
-import android.util.Property
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,18 +9,24 @@ import com.lucasri.aperomix.R
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.view.MainFragmentViewHolder
 
-class MainFragmentAdapter (var playerList: MutableList<Player>) : RecyclerView.Adapter<MainFragmentViewHolder>() {
+class MainFragmentAdapter (var playerList: MutableList<Player>, callbacks: Listener) : RecyclerView.Adapter<MainFragmentViewHolder>() {
+
+    interface Listener {
+        fun onClickDeleteButton(position: Int)
+    }
+
+    private var callback: Listener? = callbacks
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainFragmentViewHolder {
         val context: Context = parent.context
         val inflater: LayoutInflater = LayoutInflater.from(context)
-        val view: View = inflater.inflate(R.layout.main_fragment_item, parent, false)
+        val view: View = inflater.inflate(R.layout.fragment_main_item, parent, false)
 
         return MainFragmentViewHolder(view)
     }
 
     override fun onBindViewHolder(viewHolder: MainFragmentViewHolder, position: Int) {
-        viewHolder.updateWithPlayerList(this.playerList[position])
+        viewHolder.updateWithPlayerList(this.playerList[position], this.callback!!)
     }
 
     override fun getItemCount(): Int {

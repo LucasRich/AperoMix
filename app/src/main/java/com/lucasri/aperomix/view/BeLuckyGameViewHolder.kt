@@ -12,7 +12,7 @@ import com.thebluealliance.spectrum.SpectrumDialog
 import kotlinx.android.synthetic.main.fragment_be_lucky_game_item.view.*
 import kotlinx.android.synthetic.main.fragment_be_lucky_param_item.view.*
 import kotlinx.android.synthetic.main.fragment_be_lucky_param_item.view.playerName
-import kotlinx.android.synthetic.main.main_fragment_item.view.*
+import kotlinx.android.synthetic.main.fragment_main_item.view.*
 
 class BeLuckyGameViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 

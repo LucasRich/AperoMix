@@ -7,7 +7,6 @@ import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.view.adapter.PlayerAdapter
 import com.lucasri.aperomix.activities.MainActivity
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.utils.InitGame

@@ -4,6 +4,13 @@
     <!-- FONT ID -->
     <string name="Boogaloo_Regular">Boogaloo-Regular</string>
 
+    <!-- FragmentMain -->
+    <string name="fragment_main_subtitle">Jeu d\'alcool</string>
+    <string name="fragment_main_start_btn">Jouer</string>
+    <string name="fragment_main_delete_player_error">Vous ne pouvez, jouer à moins de 3 joueurs</string>
+
+
+
     <!-- BeLucky -->
     <string name="BeLuckyBegin">Bienvenue à BeLucky Land, êtes-vous prêt pour une folle aventure ? \n\n &#127881;&#127866;&#128513;&#128513;&#127866;&#127881;</string>
 

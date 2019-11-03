@@ -24,7 +24,7 @@
             android:layout_height="120dp"
             app:srcCompat="@drawable/background" />
 
-        <TextView
+        <com.lucasri.aperomix.views.AperoMixTextView
             android:id="@+id/GameName"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
@@ -34,7 +34,7 @@
             android:gravity="center"
             android:text="French Fries"
             android:layout_centerInParent="true"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="20sp" />
 

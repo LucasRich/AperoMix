@@ -2,6 +2,7 @@
 <resources>
 
     <dimen name="marginRightAndLeftButton">100dp</dimen>
+    <dimen name="marginRightAndLeftButtonMainFragment">40dp</dimen>
     <dimen name="TextSizeButton">20sp</dimen>
 
 </resources>

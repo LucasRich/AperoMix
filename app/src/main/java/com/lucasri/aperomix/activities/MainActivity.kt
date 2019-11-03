@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.view.adapter.PlayerAdapter
 import com.lucasri.aperomix.model.Player
 
 import java.util.ArrayList
@@ -22,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
     private val toolbar: Toolbar? = null
     var playerList = ArrayList<Player>()
-    private var playerAdapter: PlayerAdapter? = null
     private var counter = 4
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

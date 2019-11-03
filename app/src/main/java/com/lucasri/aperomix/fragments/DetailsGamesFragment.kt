@@ -7,14 +7,21 @@ import com.lucasri.aperomix.R
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.annotation.Nullable
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasri.aperomix.activities.GameContainer
+import com.lucasri.aperomix.view.adapter.BeLuckyParamAdapter
+import com.lucasri.aperomix.view.adapter.GamesDetailsAdapter
+import kotlinx.android.synthetic.main.fragment_be_lucky_param.*
 import kotlinx.android.synthetic.main.fragment_details_games.*
 
 
 class DetailsGamesFragment : BottomSheetDialogFragment(){
 
     private lateinit var gameName : String
+    private var adapter: GamesDetailsAdapter? = null
+    private val pictureList = ArrayList<Int>()
 
     // FOR CONSTRUCTING
     companion object {
@@ -37,14 +44,36 @@ class DetailsGamesFragment : BottomSheetDialogFragment(){
         gameName = arguments!!.getString("KEY_GAME_NAME")!!
         fragment_details_games_title.text = gameName
 
-        fragment_details__games_playBtn.setOnClickListener {
+        initPictureList()
+        configureRecyclerView()
+
+        fragment_details_games_playBtn.setOnClickListener {
             launchGame(gameName, view)
         }
     }
 
     // ---------------------
+    // CONFIGURATION
+    // ---------------------
+
+    private fun configureRecyclerView() {
+        //INIT
+        this.adapter = GamesDetailsAdapter(pictureList)
+        this.fragment_details_games_recyclerView.adapter = this.adapter
+        this.fragment_details_games_recyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL ,false)
+    }
+
+    // ---------------------
     // UTILS
     // ---------------------
+
+    private fun initPictureList(){
+        pictureList.add(R.drawable.img_papigame_1)
+        pictureList.add(R.drawable.img_papigame_2)
+        pictureList.add(R.drawable.img_papigame_3)
+        pictureList.add(R.drawable.img_papigame_4)
+        pictureList.add(R.drawable.img_papigame_5)
+    }
 
     private fun launchGame(gameTitle: String, viewClicked: View) {
 

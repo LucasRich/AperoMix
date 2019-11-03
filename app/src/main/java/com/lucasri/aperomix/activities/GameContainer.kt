@@ -95,11 +95,6 @@ class GameContainer : AppCompatActivity() {
         transaction.commit()
     }
 
-    private fun launchPapinGameActivity() {
-        val myIntent = Intent(this, PapinGame::class.java)
-        this.startActivity(myIntent)
-    }
-
     private fun launchMainActivity() {
         val myIntent: Intent = Intent(this, MainActivity::class.java)
         this.startActivity(myIntent)
