@@ -9,7 +9,22 @@
     <string name="fragment_main_start_btn">Jouer</string>
     <string name="fragment_main_delete_player_error">Vous ne pouvez, jouer à moins de 3 joueurs</string>
 
+    <!-- FragmentLogin -->
+    <string name="fragment_login_title">Connexion</string>
+    <string name="fragment_login_email">Adresse email</string>
+    <string name="fragment_login_login">Connexion</string>
+    <string name="fragment_login_password">Mot de passe</string>
+    <string name="fragment_login_no_account">Vous n\'avez pas encore de compte ?</string>
+    <string name="fragment_login_register">Inscrivez vous.</string>
 
+    <!-- FragmentRegister -->
+    <string name="fragment_register_title">Inscription</string>
+    <string name="fragment_register_email">Adresse email</string>
+    <string name="fragment_register_password">Mot de passe</string>
+    <string name="fragment_register_phone_numbre">Numéro de téléphone</string>
+    <string name="fragment_register_birthday">Date de naissance :</string>
+    <string name="fragment_register_confirm">Je confirme avoir 18 ans ou plus</string>
+    <string name="fragment_register_next">Suivant</string>
 
     <!-- BeLucky -->
     <string name="BeLuckyBegin">Bienvenue à BeLucky Land, êtes-vous prêt pour une folle aventure ? \n\n &#127881;&#127866;&#128513;&#128513;&#127866;&#127881;</string>

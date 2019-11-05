@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".activities.GameContainer"
     android:background="@drawable/border_view"
-    android:layout_below="@+id/toolbar">
+    android:layout_below="@+id/activity_game_container_toolbar">
 
         <!-- CARD BACK -->
 

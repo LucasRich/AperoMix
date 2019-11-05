@@ -12,13 +12,10 @@ import androidx.appcompat.widget.Toolbar
 import butterknife.ButterKnife
 import com.lucasri.aperomix.R
 import com.lucasri.aperomix.fragments.*
-import com.lucasri.aperomix.utils.addFragment
 
 class GameContainer : AppCompatActivity() {
 
     private var toolbar: Toolbar? = null
-    private val pmuGameFragment: PmuGameFragment? = null
-    private var mainFrameLayout: Int = R.id.activity_game_frame
     private var bundleValue: String = ""
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -43,9 +40,8 @@ class GameContainer : AppCompatActivity() {
     // CONFIGURATION
     // ---------------------
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private fun configureToolbar() {
-        this.toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        this.toolbar = findViewById<View>(R.id.activity_game_container_toolbar) as Toolbar
         setSupportActionBar(toolbar)
         val ab = supportActionBar
         ab!!.setDisplayHomeAsUpEnabled(true)
@@ -81,17 +77,17 @@ class GameContainer : AppCompatActivity() {
                 .create().show()
     }
 
-    fun launchFragmentPapinGame() {
+    private fun launchFragmentPapinGame() {
         val fragment = PapinGameFragment()
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.activity_game_frame, fragment)
+        transaction.replace(R.id.activity_game_container_frame, fragment)
         transaction.commit()
     }
 
-    fun launchFragmentPmuParam() {
+    private fun launchFragmentPmuParam() {
         val fragment = PmuParamFragment()
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.activity_game_frame, fragment)
+        transaction.replace(R.id.activity_game_container_frame, fragment)
         transaction.commit()
     }
 
@@ -100,10 +96,10 @@ class GameContainer : AppCompatActivity() {
         this.startActivity(myIntent)
     }
 
-    fun launchFragmentBeLuckyGame() {
+    private fun launchFragmentBeLuckyGame() {
         val fragment = BeLuckyParamFragment()
         val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.activity_game_frame, fragment)
+        transaction.replace(R.id.activity_game_container_frame, fragment)
         transaction.commit()
     }
 

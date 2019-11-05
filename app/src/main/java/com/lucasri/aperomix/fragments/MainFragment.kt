@@ -1,5 +1,6 @@
 package com.lucasri.aperomix.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +12,9 @@ import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import android.view.animation.AnimationUtils
+import com.lucasri.aperomix.activities.AccountActivity
+import com.lucasri.aperomix.activities.MainActivity
 import com.lucasri.aperomix.utils.toast
-import kotlinx.android.synthetic.main.fragment_main_item.*
-import android.widget.Toast
 
 class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
@@ -42,6 +43,10 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
         fragment_main_addPlayer.setOnClickListener {
             addPlayer()
+        }
+
+        fragment_main_account_btn.setOnClickListener {
+            launchAccountActivity()
         }
     }
 
@@ -114,5 +119,10 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
         val transaction = activity!!.supportFragmentManager.beginTransaction()
         transaction.replace(R.id.activity_main_frame, fragment)
         transaction.commit()
+    }
+
+    private fun launchAccountActivity() {
+        val myIntent: Intent = Intent(context!!, AccountActivity::class.java)
+        this.startActivity(myIntent)
     }
 }

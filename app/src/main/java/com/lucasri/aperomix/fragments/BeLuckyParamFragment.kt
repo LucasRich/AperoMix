@@ -108,7 +108,7 @@ class BeLuckyParamFragment : Fragment() {
     private fun launchFragmentBeLuckyGame() {
         val beLuckyGameFragment = BeLuckyGameFragment()
         activity!!.supportFragmentManager.beginTransaction()
-                .replace(R.id.activity_game_frame, beLuckyGameFragment, "findThisFragment")
+                .replace(R.id.activity_game_container_frame, beLuckyGameFragment, "findThisFragment")
                 .addToBackStack(null)
                 .commit()
     }

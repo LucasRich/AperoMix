@@ -76,7 +76,7 @@ class PmuParamFragment : Fragment() {
     private fun launchFragmentPmuGame() {
         val pmuGameFragment = PmuGameFragment()
         activity!!.supportFragmentManager.beginTransaction()
-                .replace(R.id.activity_game_frame, pmuGameFragment, "findThisFragment")
+                .replace(R.id.activity_game_container_frame, pmuGameFragment, "findThisFragment")
                 .addToBackStack(null)
                 .commit()
     }

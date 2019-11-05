@@ -12,7 +12,6 @@ import com.lucasri.aperomix.view.adapter.PmuParamAdapter
 import com.lucasri.aperomix.activities.MainActivity
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.utils.InitGame
-import com.lucasri.aperomix.utils.setToolbarTitle
 import kotlinx.android.synthetic.main.fragment_pmu_game.*
 import kotlinx.android.synthetic.main.info_dialog.view.*
 import java.util.*
@@ -42,8 +41,6 @@ class PmuGameFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setToolbarTitle(activity!!, "Le PMU")
-
         piocheButton.setOnClickListener {
             if (rank.size != 3) {
 

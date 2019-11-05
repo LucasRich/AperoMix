@@ -13,6 +13,7 @@
         <!-- Color of the title text in the Toolbar -->
         <item name="android:textColorPrimary">#000</item>
         <item name="colorControlNormal">@color/colorAccent</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_up_button</item>
     </style>
 
     <style name="ToolBarStyle" parent="AppTheme">
@@ -24,6 +25,14 @@
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">21sp</item>
         <item name="android:textStyle">italic</item>
+    </style>
+
+    <!-- TOOLBAR LOGIN THEME -->
+    <style name="ToolbarLoginTheme" parent="@style/ThemeOverlay.AppCompat.Light">
+        <!-- Color of the title text in the Toolbar -->
+        <item name="android:textColorPrimary">#000</item>
+        <item name="colorControlNormal">@android:color/black</item>
+        <item name="android:homeAsUpIndicator">@drawable/ic_up_button</item>
     </style>
 
 </resources>

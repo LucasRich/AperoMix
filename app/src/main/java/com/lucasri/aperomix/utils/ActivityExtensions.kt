@@ -32,11 +32,6 @@ fun isTablet(context: Context): Boolean {
     return context.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
 }
 
-fun setToolbarTitle(activity: Activity, title: String){
-    val toolbar: Toolbar = activity!!.findViewById<View>(R.id.toolbar) as Toolbar
-    toolbar.title = title
-}
-
 fun random(min: Int, max: Int, valueToIgnore: Int): Int {
     var nbRandom: Double
     do {
