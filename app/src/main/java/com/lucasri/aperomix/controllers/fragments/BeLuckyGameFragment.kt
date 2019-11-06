@@ -1,4 +1,4 @@
-package com.lucasri.aperomix.fragments
+package com.lucasri.aperomix.controllers.fragments
 
 import android.os.Build
 import android.os.Bundle
@@ -10,15 +10,12 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasri.aperomix.R
 import com.lucasri.aperomix.view.adapter.BeLuckyGameAdapter
-import com.lucasri.aperomix.view.adapter.BeLuckyParamAdapter
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.utils.random
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.*
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.position1
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.position10
 import kotlinx.android.synthetic.main.fragment_be_lucky_game.*
-import kotlinx.android.synthetic.main.fragment_be_lucky_param.*
-import kotlinx.android.synthetic.main.fragment_main.*
 import kotlin.collections.ArrayList
 
 @Suppress("NAME_SHADOWING")

@@ -1,4 +1,4 @@
-package com.lucasri.aperomix.activities
+package com.lucasri.aperomix.controllers.activities
 
 import android.content.Intent
 import android.os.Build
@@ -9,9 +9,10 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import butterknife.ButterKnife
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.fragments.*
+import com.lucasri.aperomix.controllers.fragments.BeLuckyParamFragment
+import com.lucasri.aperomix.controllers.fragments.PapinGameFragment
+import com.lucasri.aperomix.controllers.fragments.PmuParamFragment
 
 class GameContainer : AppCompatActivity() {
 
@@ -22,7 +23,6 @@ class GameContainer : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_container)
-        ButterKnife.bind(this)
 
         this.configureToolbar()
 

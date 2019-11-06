@@ -1,25 +1,25 @@
-package com.lucasri.aperomix.activities
+package com.lucasri.aperomix.controllers.activities
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.fragments.RegisterFragment
+import com.lucasri.aperomix.controllers.fragments.LoginFragment
 import com.lucasri.aperomix.utils.addFragment
-import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.activity_account.*
 
-class RegisterActivity : AppCompatActivity(){
+class AccountActivity : AppCompatActivity(){
 
     private var toolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_account)
 
         this.configureToolbar()
 
-        addFragment(RegisterFragment.newInstance(), activity_register_frame.id)
+        addFragment(LoginFragment.newInstance(), activity_account_frame.id)
     }
 
     // ---------------------
@@ -27,7 +27,7 @@ class RegisterActivity : AppCompatActivity(){
     // ---------------------
 
     private fun configureToolbar() {
-        this.toolbar = findViewById<View>(R.id.activity_register_toolbar) as Toolbar
+        this.toolbar = findViewById<View>(R.id.activity_account_toolbar) as Toolbar
         setSupportActionBar(toolbar)
         val ab = supportActionBar
         ab!!.setDisplayHomeAsUpEnabled(true)

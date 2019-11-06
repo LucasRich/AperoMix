@@ -1,4 +1,4 @@
-package com.lucasri.aperomix.fragments
+package com.lucasri.aperomix.controllers.fragments
 
 import android.content.Intent
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -7,13 +7,10 @@ import com.lucasri.aperomix.R
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View
-import android.view.animation.AnimationUtils
 import androidx.annotation.Nullable
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lucasri.aperomix.activities.GameContainer
-import com.lucasri.aperomix.view.adapter.BeLuckyParamAdapter
+import com.lucasri.aperomix.controllers.activities.GameContainer
 import com.lucasri.aperomix.view.adapter.GamesDetailsAdapter
-import kotlinx.android.synthetic.main.fragment_be_lucky_param.*
 import kotlinx.android.synthetic.main.fragment_details_games.*
 
 

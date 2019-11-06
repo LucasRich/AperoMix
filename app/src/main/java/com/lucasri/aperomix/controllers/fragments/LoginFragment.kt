@@ -1,4 +1,4 @@
-package com.lucasri.aperomix.fragments
+package com.lucasri.aperomix.controllers.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,15 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.activities.MainActivity
-import com.lucasri.aperomix.activities.RegisterActivity
-import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.controllers.activities.RegisterActivity
 import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment(){
 
     companion object {
-        fun newInstance(): LoginFragment{
+        fun newInstance(): LoginFragment {
             return LoginFragment()
         }
     }

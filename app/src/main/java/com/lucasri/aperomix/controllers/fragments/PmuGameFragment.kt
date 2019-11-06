@@ -1,4 +1,4 @@
-package com.lucasri.aperomix.fragments
+package com.lucasri.aperomix.controllers.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,7 @@ import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.view.adapter.PmuParamAdapter
-import com.lucasri.aperomix.activities.MainActivity
+import com.lucasri.aperomix.controllers.activities.MainActivity
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.utils.InitGame
 import kotlinx.android.synthetic.main.fragment_pmu_game.*

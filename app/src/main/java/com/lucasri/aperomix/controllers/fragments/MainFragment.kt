@@ -1,4 +1,4 @@
-package com.lucasri.aperomix.fragments
+package com.lucasri.aperomix.controllers.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,8 +12,7 @@ import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import android.view.animation.AnimationUtils
-import com.lucasri.aperomix.activities.AccountActivity
-import com.lucasri.aperomix.activities.MainActivity
+import com.lucasri.aperomix.controllers.activities.AccountActivity
 import com.lucasri.aperomix.utils.toast
 
 class MainFragment : Fragment(), MainFragmentAdapter.Listener {
@@ -21,7 +20,7 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
     lateinit var adapter: MainFragmentAdapter
 
     companion object {
-        fun newInstance(): MainFragment{
+        fun newInstance(): MainFragment {
             return MainFragment()
         }
         var playerList = mutableListOf<Player>()

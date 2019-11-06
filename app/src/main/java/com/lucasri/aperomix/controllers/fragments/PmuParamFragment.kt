@@ -1,4 +1,4 @@
-package com.lucasri.aperomix.fragments
+package com.lucasri.aperomix.controllers.fragments
 
 import android.os.Bundle
 import android.view.*
@@ -7,23 +7,23 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.view.adapter.BeLuckyParamAdapter
-import com.lucasri.aperomix.utils.toast
-import kotlinx.android.synthetic.main.fragment_be_lucky_param.*
+import com.lucasri.aperomix.controllers.fragments.MainFragment
+import com.lucasri.aperomix.controllers.fragments.PmuGameFragment
+import com.lucasri.aperomix.view.adapter.PmuParamAdapter
+import kotlinx.android.synthetic.main.fragment_pmu_param.*
 import kotlinx.android.synthetic.main.info_dialog.view.*
 
-class BeLuckyParamFragment : Fragment() {
+class PmuParamFragment : Fragment() {
 
-    private var adapter: BeLuckyParamAdapter? = null
+    private var adapter: PmuParamAdapter? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        this.initPlayerListView()
         this.configureRecyclerView()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
-        return inflater.inflate(R.layout.fragment_be_lucky_param, container, false)
+        return inflater.inflate(R.layout.fragment_pmu_param, container, false)
     }
 
     // ---------------------
@@ -32,14 +32,14 @@ class BeLuckyParamFragment : Fragment() {
 
     private fun configureRecyclerView() {
         //INIT
-        this.adapter = BeLuckyParamAdapter(MainFragment.playerList)
-        this.beLucky_param_recycler_view.adapter = this.adapter
-        this.beLucky_param_recycler_view.layoutManager = LinearLayoutManager(context)
+        this.adapter = PmuParamAdapter(MainFragment.playerList)
+        this.pmu_param_recycler_view.adapter = this.adapter
+        this.pmu_param_recycler_view.layoutManager = LinearLayoutManager(context)
 
         //ANIM
         val controller = AnimationUtils.loadLayoutAnimation(activity, R.anim.layout_animation_fall_down)
-        this.beLucky_param_recycler_view.layoutAnimation = controller
-        this.beLucky_param_recycler_view.scheduleLayoutAnimation()
+        this.pmu_param_recycler_view.layoutAnimation = controller
+        this.pmu_param_recycler_view.scheduleLayoutAnimation()
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -50,46 +50,16 @@ class BeLuckyParamFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.done -> clickOnDone()
+            R.id.done -> launchFragmentPmuGame()
             R.id.rule -> displayRule()
 
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun initPlayerListView() {
-        for (player in MainFragment.playerList) {
-            player.color = -24576
-            player.beLuckyCase = 1
-        }
-    }
-
     // ---------------------
     // UTILS
     // ---------------------
-
-    private fun clickOnDone(){
-        if (MainFragment.playerList.size < 11){
-            if (allColorAreDifferente()){
-                launchFragmentBeLuckyGame()
-            } else context!!.toast("Vous ne pouvez pas sélectionner deux fois la même couleur !")
-
-        } else context!!.toast("Vous ne pouvez pas jouer à plus de dix !")
-
-    }
-
-    private fun allColorAreDifferente() : Boolean {
-        for (player in MainFragment.playerList) {
-            for (players in MainFragment.playerList) {
-                if (player.playerName !== players.playerName){
-                    if (player.color == players.color) {
-                        return false
-                    }
-                }
-            }
-        }
-        return true
-    }
 
     private fun displayRule() {
         val dialogBuilder = AlertDialog.Builder(context!!)
@@ -105,10 +75,10 @@ class BeLuckyParamFragment : Fragment() {
         alertDialog.show()
     }
 
-    private fun launchFragmentBeLuckyGame() {
-        val beLuckyGameFragment = BeLuckyGameFragment()
+    private fun launchFragmentPmuGame() {
+        val pmuGameFragment = PmuGameFragment()
         activity!!.supportFragmentManager.beginTransaction()
-                .replace(R.id.activity_game_container_frame, beLuckyGameFragment, "findThisFragment")
+                .replace(R.id.activity_game_container_frame, pmuGameFragment, "findThisFragment")
                 .addToBackStack(null)
                 .commit()
     }

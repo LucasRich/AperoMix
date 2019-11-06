@@ -20,11 +20,21 @@
     <!-- FragmentRegister -->
     <string name="fragment_register_title">Inscription</string>
     <string name="fragment_register_email">Adresse email</string>
+    <string name="fragment_register_pseudo">Pseudonyme</string>
     <string name="fragment_register_password">Mot de passe</string>
+    <string name="fragment_register_password_info">Le mot de passe doit contenir au moins 8 caractères, une majuscule ainsi qu\'un chiffre.</string>
+    <string name="fragment_register_confirmpassword">Confirmer votre mot de passe</string>
     <string name="fragment_register_phone_numbre">Numéro de téléphone</string>
     <string name="fragment_register_birthday">Date de naissance :</string>
     <string name="fragment_register_confirm">Je confirme avoir 18 ans ou plus</string>
     <string name="fragment_register_next">Suivant</string>
+    <string name="fragment_register_register_success">Compte créé avec succès</string>
+    <string name="fragment_register_register_faield">Le compte n\'a pas peu être créé</string>
+    <string name="fragment_register_register_email_toats">Veuillez entrer une adresse mail valide.</string>
+    <string name="fragment_register_mustadult_toats">Vous devez avoir 18 ou plus pour utiliser cette application</string>
+
+    <!-- UtilsAccountBasefragment -->
+    <string name="basefragment_utils_account">Erreur  inconnue</string>
 
     <!-- BeLucky -->
     <string name="BeLuckyBegin">Bienvenue à BeLucky Land, êtes-vous prêt pour une folle aventure ? \n\n &#127881;&#127866;&#128513;&#128513;&#127866;&#127881;</string>

@@ -1,4 +1,4 @@
-package com.lucasri.aperomix.activities
+package com.lucasri.aperomix.controllers.activities
 
 import android.content.Intent
 import android.os.Build
@@ -13,7 +13,7 @@ import com.lucasri.aperomix.model.Player
 
 import java.util.ArrayList
 
-import com.lucasri.aperomix.fragments.MainFragment
+import com.lucasri.aperomix.controllers.fragments.MainFragment
 import com.lucasri.aperomix.utils.addFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
