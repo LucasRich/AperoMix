@@ -5,7 +5,7 @@
     <color name="colorAccent">#ffff</color>
 
     <color name="colorWhite">#ffff</color>
-    <color name="gray">#E0DFDF</color>
+    <color name="gray">#F1F1F1</color>
 
     <array name="player_colors">
         <item>#FFA000</item>

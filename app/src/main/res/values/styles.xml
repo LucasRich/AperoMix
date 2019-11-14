@@ -11,7 +11,7 @@
     <!-- TOOLBAR THEME -->
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.Light">
         <!-- Color of the title text in the Toolbar -->
-        <item name="android:textColorPrimary">#000</item>
+        <item name="android:textColorPrimary">@android:color/transparent</item>
         <item name="colorControlNormal">@color/colorAccent</item>
         <item name="android:homeAsUpIndicator">@drawable/ic_up_button</item>
     </style>

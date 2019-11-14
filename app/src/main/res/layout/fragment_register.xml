@@ -71,22 +71,11 @@
                 android:layout_margin="15dp"
                 android:inputType="textPassword"/>
 
-            <EditText
-                android:id="@+id/fragment_register_phone_number_edt"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/fragment_register_confirmpassword_edt"
-                android:background="@drawable/background_edt"
-                android:hint="@string/fragment_register_phone_numbre"
-                android:padding="15dp"
-                android:layout_margin="15dp"
-                android:inputType="phone"/>
-
             <TextView
                 android:id="@+id/fragment_register_birthday"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/fragment_register_phone_number_edt"
+                android:layout_below="@id/fragment_register_confirmpassword_edt"
                 android:hint="@string/fragment_register_birthday"
                 android:padding="15dp"
                 android:textSize="18dp"

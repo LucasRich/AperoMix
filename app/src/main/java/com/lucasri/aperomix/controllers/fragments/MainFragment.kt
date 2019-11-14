@@ -18,6 +18,7 @@ import com.lucasri.aperomix.utils.toast
 class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
     lateinit var adapter: MainFragmentAdapter
+    private var iterator: Boolean = true
 
     companion object {
         fun newInstance(): MainFragment {
@@ -34,13 +35,14 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
         super.onViewCreated(view, savedInstanceState)
 
         this.initPlayerList()
-        this.configureRecyclerView()
+        this.configureRecyclerView(true)
 
         fragment_main_start_btn.setOnClickListener {
             launchSelectGameFragment()
         }
 
         fragment_main_addPlayer.setOnClickListener {
+            btnAddAnimation()
             addPlayer()
         }
 
@@ -49,20 +51,33 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
         }
     }
 
+    private fun btnAddAnimation(){
+        if(iterator) {
+            fragment_main_addPlayer.animate().rotation(90f).duration = 600
+            iterator = false
+        } else {
+            fragment_main_addPlayer.animate().rotation(-90f).duration = 600
+            iterator = true
+        }
+    }
+
     // ---------------------
     // CONFIGURATION
     // ---------------------
 
-    private fun configureRecyclerView() {
+    private fun configureRecyclerView(animation: Boolean) {
         //INIT
         this.adapter = MainFragmentAdapter(playerList, this)
         this.fragment_main_recycler_view.adapter = this.adapter
         this.fragment_main_recycler_view.layoutManager = LinearLayoutManager(context)
 
         //ANIM
-        val controller = AnimationUtils.loadLayoutAnimation(activity, R.anim.layout_animation_fall_down)
-        this.fragment_main_recycler_view.layoutAnimation = controller
-        this.fragment_main_recycler_view.scheduleLayoutAnimation()
+        if (animation){
+            val controller = AnimationUtils.loadLayoutAnimation(activity, R.anim.layout_animation_fall_down)
+            this.fragment_main_recycler_view.layoutAnimation = controller
+            this.fragment_main_recycler_view.scheduleLayoutAnimation()
+        }
+
     }
 
     private fun initPlayerList(){
@@ -82,7 +97,7 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
     override fun onClickDeleteButton(position: Int) {
         if (playerList.size > 3){
             playerList.removeAt(position)
-            configureRecyclerView()
+            configureRecyclerView(false)
         } else {
             context!!.toast(getString(R.string.fragment_main_delete_player_error))
         }

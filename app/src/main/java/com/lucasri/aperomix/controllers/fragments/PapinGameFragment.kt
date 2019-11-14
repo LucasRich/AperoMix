@@ -15,6 +15,9 @@ import com.lucasri.aperomix.utils.random
 import kotlinx.android.synthetic.main.fragment_papin_game.*
 import kotlinx.android.synthetic.main.info_dialog.view.*
 import java.util.ArrayList
+import android.view.animation.AnimationUtils.loadAnimation
+import android.view.animation.Animation
+
 
 class PapinGameFragment: Fragment(){
     private var mediaPlayer = MediaPlayer()
@@ -33,10 +36,11 @@ class PapinGameFragment: Fragment(){
     private var infoRule: String? = null
     private var previousRule = "null"
     private var caseSong: String? = null
-    private val btnTxt: String? = null
 
     private var doubleScreen: Boolean = false
     private var boyAndGirl = true
+
+    private var textPop: Animation? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_papin_game, container, false)
@@ -47,9 +51,8 @@ class PapinGameFragment: Fragment(){
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        game_txt_alone.text = "Cliquez sur l'écran pour commencer et activer le son"
-        info_btn.visibility = View.INVISIBLE
-        bottom_btn.visibility = View.INVISIBLE
+        fragment_papin_game_rule_txt_single.text = "Cliquez sur l'écran pour commencer et activer le son"
+        textPop = loadAnimation(context!!, R.anim.item_animation_pop)
 
         this.initScreen()
         this.displayNavigationRule(false)
@@ -88,32 +91,105 @@ class PapinGameFragment: Fragment(){
             }
         }
 
-        previous_rule.setOnClickListener {
+        fragment_papin_game_previous_rule_single.setOnClickListener {
             displayPreviousRule()
         }
 
-        next_rule.setOnClickListener {
+        fragment_papin_game_next_rule_single.setOnClickListener {
             displayNextRule()
         }
 
-        info_btn.setOnClickListener {
+        fragment_papin_game_previous_rule_doubleScreen1.setOnClickListener {
+            displayPreviousRule()
+        }
+
+        fragment_papin_game_next_rule_doubleScreen1.setOnClickListener {
+            displayNextRule()
+        }
+
+        fragment_papin_game_previous_rule_doubleScreen2.setOnClickListener {
+            displayPreviousRule()
+        }
+
+        fragment_papin_game_next_rule_doubleScreen2.setOnClickListener {
+            displayNextRule()
+        }
+
+        fragment_papin_game_info_btn_single.setOnClickListener {
             displayAlertDialog(infoRule!!)
         }
 
-        bottom_btn.setOnClickListener {
+        fragment_papin_game_info_btn_doubleScreen1.setOnClickListener {
+            displayAlertDialog(infoRule!!)
+        }
+
+        fragment_papin_game_info_btn_doubleScreen2.setOnClickListener {
+            displayAlertDialog(infoRule!!)
+        }
+
+        fragment_papin_game_bottom_btn_single.setOnClickListener {
             if (count > 52) launchMainActivity() else playCountDown()
+        }
+
+        fragment_papin_game_bottom_btn_doubleScreen1.setOnClickListener {
+            if (count > 52) launchMainActivity() else playCountDown()
+        }
+
+        fragment_papin_game_bottom_btn_doubleScreen2.setOnClickListener {
+            if (count > 52) launchMainActivity() else playCountDown()
+        }
+
+        fragment_papin_game_double_screen_btn_single.setOnClickListener {
+            if (count != 0) {
+                doubleScreen()
+                doubleScreen = true
+                initRuleInfo(ruleList[random])
+            }
+            else {
+                context!!.longToast("La partie n'a pas encore commencé")
+            }
+        }
+
+        fragment_papin_game_double_screen_btn_doubleScreen1.setOnClickListener {
+            initScreen()
+            doubleScreen = false
+            initRuleInfo(ruleList[random])
+        }
+
+        fragment_papin_game_double_screen_btn_doubleScreen2.setOnClickListener {
+            initScreen()
+            doubleScreen = false
+            initRuleInfo(ruleList[random])
+        }
+
+        fragment_papin_game_navigate_btn_single.setOnClickListener {
+            if (count != 0) {
+                displayNavigationRule(true)
+            } else {
+                context!!.longToast("La partie n'a pas encore commencé")
+            }
+        }
+
+        fragment_papin_game_navigate_btn_doubleScreen1.setOnClickListener {
+            if (count != 0) {
+                displayNavigationRule(true)
+            } else {
+                context!!.longToast("La partie n'a pas encore commencé")
+            }
+        }
+
+        fragment_papin_game_navigate_btn_doubleScreen2.setOnClickListener {
+            if (count != 0) {
+                displayNavigationRule(true)
+            } else {
+                context!!.longToast("La partie n'a pas encore commencé")
+            }
         }
     }
 
     // ---------------------
     // CONFIGURATION
     // ---------------------
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        menu.clear()
-        inflater.inflate(R.menu.toolbar_papin_menu, menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -150,17 +226,53 @@ class PapinGameFragment: Fragment(){
     }
 
     private fun initScreen() {
-        nameGame.visibility = View.VISIBLE
-        game_txt_alone.visibility = View.VISIBLE
-        counter.visibility = View.VISIBLE
+        fragment_papin_game_name_single.visibility = View.VISIBLE
+        fragment_papin_game_rule_txt_single.visibility = View.VISIBLE
+        fragment_papin_game_counter_single.visibility = View.VISIBLE
+        fragment_papin_game_btn_container_single.visibility = View.VISIBLE
+        fragment_papin_game_bottom_btn_single.visibility = View.VISIBLE
 
-        nameGame_doubleScreen.visibility = View.INVISIBLE
-        nameGame_doubleScreen_inverse.visibility = View.INVISIBLE
-        game_txt_doubleScreen.visibility = View.INVISIBLE
-        game_txt_inverse.visibility = View.INVISIBLE
-        counter_doubleScreen.visibility = View.INVISIBLE
-        counter_doubleScreen_inverse.visibility = View.INVISIBLE
+        fragment_papin_game_next_rule_doubleScreen1.visibility = View.INVISIBLE
+        fragment_papin_game_next_rule_doubleScreen2.visibility = View.INVISIBLE
+        fragment_papin_game_previous_rule_doubleScreen1.visibility = View.INVISIBLE
+        fragment_papin_game_previous_rule_doubleScreen2.visibility = View.INVISIBLE
+        fragment_papin_game_name_doubleScreen1.visibility = View.INVISIBLE
+        fragment_papin_game_name_doubleScreen2.visibility = View.INVISIBLE
+        fragment_papin_game_rule_txt_doubleScreen1.visibility = View.INVISIBLE
+        fragment_papin_game_rule_txt_doubleScreen2.visibility = View.INVISIBLE
+        fragment_papin_game_counter_doubleScreen1.visibility = View.INVISIBLE
+        fragment_papin_game_counter_doubleScreen2.visibility = View.INVISIBLE
+        fragment_papin_game_info_btn_doubleScreen1.visibility = View.GONE
+        fragment_papin_game_info_btn_doubleScreen2.visibility = View.GONE
+        fragment_papin_game_bottom_btn_doubleScreen1.visibility = View.INVISIBLE
+        fragment_papin_game_bottom_btn_doubleScreen2.visibility = View.INVISIBLE
+        fragment_papin_game_btn_container_doubleScreen1.visibility = View.INVISIBLE
+        fragment_papin_game_btn_container_doubleScreen2.visibility = View.INVISIBLE
+        fragment_papin_game_info_btn_single.visibility = View.INVISIBLE
         line_double_screen.visibility = View.INVISIBLE
+    }
+
+    private fun doubleScreen() {
+        fragment_papin_game_name_single.visibility = View.INVISIBLE
+        fragment_papin_game_rule_txt_single.visibility = View.INVISIBLE
+        fragment_papin_game_counter_single.visibility = View.INVISIBLE
+        fragment_papin_game_info_btn_single.visibility = View.INVISIBLE
+        fragment_papin_game_bottom_btn_single.visibility = View.INVISIBLE
+        fragment_papin_game_btn_container_single.visibility = View.INVISIBLE
+        fragment_papin_game_next_rule_single.visibility = View.INVISIBLE
+        fragment_papin_game_previous_rule_single.visibility = View.INVISIBLE
+
+        fragment_papin_game_name_doubleScreen1.visibility = View.VISIBLE
+        fragment_papin_game_name_doubleScreen2.visibility = View.VISIBLE
+        fragment_papin_game_rule_txt_doubleScreen1.visibility = View.VISIBLE
+        fragment_papin_game_rule_txt_doubleScreen2.visibility = View.VISIBLE
+        fragment_papin_game_counter_doubleScreen1.visibility = View.VISIBLE
+        fragment_papin_game_counter_doubleScreen2.visibility = View.VISIBLE
+        fragment_papin_game_btn_container_doubleScreen1.visibility = View.VISIBLE
+        fragment_papin_game_btn_container_doubleScreen2.visibility = View.VISIBLE
+        fragment_papin_game_btn_container_doubleScreen1.visibility = View.VISIBLE
+        fragment_papin_game_btn_container_doubleScreen2.visibility = View.VISIBLE
+        line_double_screen.visibility = View.VISIBLE
     }
 
     // ---------------------
@@ -168,19 +280,40 @@ class PapinGameFragment: Fragment(){
     // ---------------------
 
     private fun displayNavigationRule(display: Boolean){
-        if (display) {
-            next_rule.visibility = View.VISIBLE
-            previous_rule.visibility = View.VISIBLE
+        if (!doubleScreen){
+            if (display) {
+                fragment_papin_game_next_rule_single.visibility = View.VISIBLE
+                fragment_papin_game_previous_rule_single.visibility = View.VISIBLE
+            } else{
+                fragment_papin_game_next_rule_single.visibility = View.INVISIBLE
+                fragment_papin_game_previous_rule_single.visibility = View.INVISIBLE
+            }
         } else{
-            next_rule.visibility = View.INVISIBLE
-            previous_rule.visibility = View.INVISIBLE
+            if (display) {
+                fragment_papin_game_next_rule_doubleScreen1.visibility = View.VISIBLE
+                fragment_papin_game_next_rule_doubleScreen2.visibility = View.VISIBLE
+                fragment_papin_game_previous_rule_doubleScreen1.visibility = View.VISIBLE
+                fragment_papin_game_previous_rule_doubleScreen2.visibility = View.VISIBLE
+            } else{
+                fragment_papin_game_next_rule_doubleScreen1.visibility = View.INVISIBLE
+                fragment_papin_game_next_rule_doubleScreen2.visibility = View.INVISIBLE
+                fragment_papin_game_previous_rule_doubleScreen1.visibility = View.INVISIBLE
+                fragment_papin_game_previous_rule_doubleScreen2.visibility = View.INVISIBLE
+            }
         }
     }
 
     private fun displayRule(rule: String){
-        game_txt_alone.text = rule
-        game_txt_doubleScreen.text = rule
-        game_txt_inverse.text = rule
+        fragment_papin_game_rule_txt_single.text = rule
+        fragment_papin_game_rule_txt_doubleScreen1.text = rule
+        fragment_papin_game_rule_txt_doubleScreen2.text = rule
+
+        if (doubleScreen){
+            fragment_papin_game_rule_txt_doubleScreen1.startAnimation(textPop)
+            fragment_papin_game_rule_txt_doubleScreen2.startAnimation(textPop)
+        } else{
+            fragment_papin_game_rule_txt_single.startAnimation(textPop)
+        }
     }
 
     private fun getRandom(){
@@ -250,9 +383,9 @@ class PapinGameFragment: Fragment(){
     private fun gameFinish() {
         count = 53
         navigationRuleCount = 53
-        info_btn.visibility = View.INVISIBLE
-        bottom_btn.visibility = View.VISIBLE
-        bottom_btn.text = "Continuer"
+        fragment_papin_game_info_btn_single.visibility = View.INVISIBLE
+        fragment_papin_game_bottom_btn_single.visibility = View.VISIBLE
+        fragment_papin_game_bottom_btn_single.text = "Continuer"
         displayRule("Partie fini!")
         displayPlayerName("PAIPIN GAME")
     }
@@ -267,88 +400,107 @@ class PapinGameFragment: Fragment(){
     }
 
     private fun displayCounter(count: Int) {
-        counter.text = "$count/52"
-        counter_doubleScreen.text = "$count/52"
-        counter_doubleScreen_inverse.text = "$count/52"
+        fragment_papin_game_counter_single.text = "$count/52"
+        fragment_papin_game_counter_doubleScreen1.text = "$count/52"
+        fragment_papin_game_counter_doubleScreen2.text = "$count/52"
     }
 
     private fun displayPlayerName(name: String) {
-        nameGame.text = name
-        nameGame_doubleScreen.text = name
-        nameGame_doubleScreen_inverse.text = name
+        fragment_papin_game_name_single.text = name
+        fragment_papin_game_name_doubleScreen1.text = name
+        fragment_papin_game_name_doubleScreen2.text = name
     }
 
-    private fun doubleScreen() {
-        nameGame.visibility = View.INVISIBLE
-        game_txt_alone.visibility = View.INVISIBLE
-        counter.visibility = View.INVISIBLE
-
-        nameGame_doubleScreen.visibility = View.VISIBLE
-        nameGame_doubleScreen_inverse.visibility = View.VISIBLE
-        game_txt_doubleScreen.visibility = View.VISIBLE
-        game_txt_inverse.visibility = View.VISIBLE
-        counter_doubleScreen.visibility = View.VISIBLE
-        counter_doubleScreen_inverse.visibility = View.VISIBLE
-        line_double_screen.visibility = View.VISIBLE
-    }
-
-    fun playCountDown() {
+    private fun playCountDown() {
         mediaPlayer = MediaPlayer.create(context!!, R.raw.count_down)
         mediaPlayer.start()
     }
 
-    fun playLeverLesDeuxBras() {
+    private fun playLeverLesDeuxBras() {
         mediaPlayer = MediaPlayer.create(context!!, R.raw.lever_les_deux_bras)
         mediaPlayer.start()
     }
 
-    fun playLeverLaJambeGauche() {
+    private fun playLeverLaJambeGauche() {
         mediaPlayer = MediaPlayer.create(context!!, R.raw.lever_la_jambe_gauche)
         mediaPlayer.start()
     }
 
-    fun playLeverLeBrasDroit() {
+    private fun playLeverLeBrasDroit() {
         mediaPlayer = MediaPlayer.create(context!!, R.raw.lever_le_bras_droit)
         mediaPlayer.start()
     }
 
-    fun playLeverLeBrasGauche() {
+    private fun playLeverLeBrasGauche() {
         mediaPlayer = MediaPlayer.create(context!!, R.raw.lever_le_bras_gauche)
         mediaPlayer.start()
     }
 
+    private fun navigateBtnIsClickable(enable: Boolean){
+        if (enable){
+            fragment_papin_game_navigate_btn_single.isClickable = true
+            fragment_papin_game_navigate_btn_doubleScreen1.isClickable = true
+            fragment_papin_game_navigate_btn_doubleScreen2.isClickable = true
+        } else {
+            fragment_papin_game_navigate_btn_single.isClickable = false
+            fragment_papin_game_navigate_btn_doubleScreen1.isClickable = false
+            fragment_papin_game_navigate_btn_doubleScreen2.isClickable = false
+        }
+    }
+
     private fun initRuleInfo(rule: String) {
-        bottom_btn.visibility = View.INVISIBLE
-        info_btn.visibility = View.VISIBLE
+        if (!doubleScreen){
+            fragment_papin_game_bottom_btn_single.visibility = View.INVISIBLE
+            fragment_papin_game_info_btn_single.visibility = View.VISIBLE
+        } else{
+            fragment_papin_game_bottom_btn_doubleScreen1.visibility = View.INVISIBLE
+            fragment_papin_game_bottom_btn_doubleScreen2.visibility = View.INVISIBLE
+            fragment_papin_game_info_btn_doubleScreen1.visibility = View.VISIBLE
+            fragment_papin_game_info_btn_doubleScreen2.visibility = View.VISIBLE
+        }
+
+        navigateBtnIsClickable(true)
 
         when (rule) {
             "INVENTE UNE REGLE" -> infoRule = "Le joueur invente une règle. Exemple : Boire de la main gauche, si quelqu'un ne respect pas cette règle il boit une gorgée"
-            "DONNE 2 GORGEES" -> info_btn.visibility = View.INVISIBLE
-            "BOIS 2 GORGEES" -> info_btn.visibility = View.INVISIBLE
-            "DONNE 3 GORGEES" -> info_btn.visibility = View.INVISIBLE
-            "BOIS 3 GORGEES" -> info_btn.visibility = View.INVISIBLE
+            "DONNE 2 GORGEES" -> infoRule = "Distribue 2 gorgées"
+            "BOIS 2 GORGEES" -> infoRule = "Bois 2 gorgées"
+            "DONNE 3 GORGEES" -> infoRule = "Distribue 3 gorgées"
+            "BOIS 3 GORGEES" -> infoRule = "Bois 3 gorgées"
             "LES GARCONS BOIVENT" -> infoRule = "Les garçons boivent 1 gorgée"
             "LES FILLES BOIVENT" -> infoRule = "Les filles boivent 1 gorgée"
             "ACOLYTE" -> infoRule = "Choisisser un joueur qui deviendra votre acolyte, celui-ci deviendra votre partenaire de boisson. A chaque fois que l'un de vous deux bois, l'autre l'accompagne (il ne peut y avoir qu'un seul binôme d'acolyte, si la règle tombe sur un autre joueur lui et son partenaire prendront la place des précédents)"
             "REFERENDUM" -> {
                 infoRule = "Désigner du doigt tous en même temps un joueur, le joueur avec le plus de voie boit une gorgée !"
-                bottom_btn.visibility = View.VISIBLE
-                bottom_btn.text = "GO"
+                if (!doubleScreen){
+                    fragment_papin_game_bottom_btn_single.visibility = View.VISIBLE
+                    fragment_papin_game_bottom_btn_single.text = "Compte à rebours"
+                } else{
+                    fragment_papin_game_bottom_btn_doubleScreen1.visibility = View.VISIBLE
+                    fragment_papin_game_bottom_btn_doubleScreen2.visibility = View.VISIBLE
+                    fragment_papin_game_bottom_btn_doubleScreen1.text = "Compte à rebours"
+                    fragment_papin_game_bottom_btn_doubleScreen2.text = "Compte à rebours"
+                }
+
                 caseSong = "countdown"
             }
             "RAPIDITE : BRAS GAUCHE" -> {
+                navigateBtnIsClickable(false)
                 infoRule = "Le dernier à lever son bras gauche boit une gorgée"
                 playLeverLeBrasGauche()
             }
             "RAPIDITE : BRAS DROIT" -> {
+                navigateBtnIsClickable(false)
                 infoRule = "Le dernier à lever son bras droit boit une gorgée"
                 playLeverLeBrasDroit()
             }
             "RAPIDITE : JAMBE GAUCHE" -> {
+                navigateBtnIsClickable(false)
                 infoRule = "Le dernier à lever sa jambe gauche boit une gorgée"
                 playLeverLaJambeGauche()
             }
             "RAPIDITE : LES BRAS" -> {
+                navigateBtnIsClickable(false)
                 infoRule = "Le dernier à lever ses deux bras boit une gorgée"
                 playLeverLesDeuxBras()
             }

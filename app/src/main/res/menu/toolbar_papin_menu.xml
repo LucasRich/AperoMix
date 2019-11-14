@@ -12,7 +12,7 @@
     <item
         android:id="@+id/doubleScreen"
         android:title="Double écran"
-        android:icon="@drawable/ic_mobile_screen_share_black_48dp"
+        android:icon="@drawable/ic_mobile_double_screen_48dp"
         app:showAsAction="ifRoom"
         />
 </menu>

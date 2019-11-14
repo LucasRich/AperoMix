@@ -53,7 +53,6 @@ class RegisterFragment : UtilsAccountBasefragment() {
         fragment_register_next_btn.setOnClickListener {
             if (android.util.Patterns.EMAIL_ADDRESS.matcher(fragment_register_email_edt.text).matches()){
                 if (userIsAdult(fragment_register_datePicker) && fragment_register_confirmadult_checkBox.isChecked){
-
                     fragment_register_loading.visibility = View.VISIBLE
                     activity!!.window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
 
@@ -118,19 +117,6 @@ class RegisterFragment : UtilsAccountBasefragment() {
 
             }
         })
-
-        fragment_register_phone_number_edt.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-            }
-
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                displayRegisterButtonIfInputNotNull()
-            }
-
-            override fun afterTextChanged(editable: Editable) {
-
-            }
-        })
     }
 
     // --------------------
@@ -163,10 +149,9 @@ class RegisterFragment : UtilsAccountBasefragment() {
                                 val uid = this.getCurrentUser()!!.uid
                                 val username = fragment_register_pseudo_edt.text.toString()
                                 val email = fragment_register_email_edt.text.toString()
-                                val phoneNumber = fragment_register_phone_number_edt.text.toString()
                                 val birthday = "${fragment_register_datePicker.dayOfMonth}/${fragment_register_datePicker.month +1}/${fragment_register_datePicker.year}"
 
-                                UserHelper.createUser(uid, username, email, phoneNumber, birthday).addOnFailureListener(this.onFailureListener())
+                                UserHelper.createUser(uid, username, email, birthday).addOnFailureListener(this.onFailureListener())
                                 fragment_register_loading.visibility = View.GONE
                                 context!!.toast(getString(R.string.fragment_register_register_success))
                             }
@@ -196,7 +181,7 @@ class RegisterFragment : UtilsAccountBasefragment() {
     }
 
     private fun displayRegisterButtonIfInputNotNull(){
-        if (fragment_register_email_edt.text.toString() != "" && fragment_register_pseudo_edt.text.toString() != "" && fragment_register_phone_number_edt.text.toString() != "" &&
+        if (fragment_register_email_edt.text.toString() != "" && fragment_register_pseudo_edt.text.toString() != "" &&
                 fragment_register_email_edt.text.toString() != "" && passwordGood && confirmPasswordGood) displayRegisterButton(true) else displayRegisterButton(false)
     }
 

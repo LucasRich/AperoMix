@@ -20,8 +20,8 @@ object UserHelper {
 
     // --- CREATE ---
 
-    fun createUser(uid: String, username: String,  email: String, phoneNumber: String, birthDay: String): Task<Void> {
-        val userToCreate = User(uid, username, email, phoneNumber, birthDay)
+    fun createUser(uid: String, username: String,  email: String, birthDay: String): Task<Void> {
+        val userToCreate = User(uid, username, email, birthDay)
         return UserHelper.getUsersCollection().document(uid).set(userToCreate)
     }
 

@@ -4,10 +4,10 @@
     android:id="@+id/activity_game_container_toolbar"
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
+    android:background="@android:color/transparent"
     app:theme="@style/ToolbarTheme"
     app:subtitleTextAppearance="@style/Toolbar.TitleText"
-    app:titleTextColor="@color/colorPrimary"
+    app:titleTextColor="@android:color/transparent"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" />
 
