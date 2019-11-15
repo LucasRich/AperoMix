@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lucasri.aperomix.R
+import com.lucasri.aperomix.controllers.fragments.MainFragment
 import com.lucasri.aperomix.model.Player
 import com.lucasri.aperomix.view.MainFragmentViewHolder
 
@@ -34,7 +35,11 @@ class MainFragmentAdapter (var playerList: MutableList<Player>, callbacks: Liste
     }
 
     fun updateData(playerList: MutableList<Player>) {
-        this.playerList = playerList
+        for (player in playerList){
+            println("adapter :: ${player.playerName}")
+        }
+        this.playerList.clear()
+        this.playerList.addAll(playerList)
         this.notifyDataSetChanged()
     }
 }

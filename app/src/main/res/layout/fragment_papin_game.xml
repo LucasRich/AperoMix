@@ -12,7 +12,7 @@
         android:id="@+id/fragment_papin_game_name_single"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:text="PAPIN GAME"
         android:textColor="@android:color/black"
@@ -344,10 +344,11 @@
 
     </RelativeLayout>
 
-    <com.lucasri.aperomix.views.AperoMixButton
+    <com.lucasri.aperomix.views.AperoMixTextView
         android:id="@+id/fragment_papin_game_bottom_btn_single"
         android:layout_width="match_parent"
         android:layout_height="60dp"
+        android:gravity="center"
         android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="90dp"
@@ -357,10 +358,11 @@
         android:padding="10dp"
         />
 
-    <com.lucasri.aperomix.views.AperoMixButton
+    <com.lucasri.aperomix.views.AperoMixTextView
         android:id="@+id/fragment_papin_game_bottom_btn_doubleScreen1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:gravity="center"
         android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="60dp"
@@ -370,10 +372,11 @@
         android:padding="5dp"
         />
 
-    <com.lucasri.aperomix.views.AperoMixButton
+    <com.lucasri.aperomix.views.AperoMixTextView
         android:id="@+id/fragment_papin_game_bottom_btn_doubleScreen2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:gravity="center"
         android:background="@color/colorPrimary"
         android:layout_alignParentTop="true"
         android:layout_marginTop="60dp"

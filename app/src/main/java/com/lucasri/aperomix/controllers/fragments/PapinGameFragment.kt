@@ -32,6 +32,7 @@ class PapinGameFragment: Fragment(){
     private var count = 0
     private var navigationRuleCount: Int = 0
     private var random: Int = 0
+    private var previousRandomValue: Int = 0
 
     private var infoRule: String? = null
     private var previousRule = "null"
@@ -143,7 +144,7 @@ class PapinGameFragment: Fragment(){
             if (count != 0) {
                 doubleScreen()
                 doubleScreen = true
-                initRuleInfo(ruleList[random])
+                initRuleInfo(ruleList[previousRandomValue])
             }
             else {
                 context!!.longToast("La partie n'a pas encore commencé")
@@ -153,13 +154,13 @@ class PapinGameFragment: Fragment(){
         fragment_papin_game_double_screen_btn_doubleScreen1.setOnClickListener {
             initScreen()
             doubleScreen = false
-            initRuleInfo(ruleList[random])
+            initRuleInfo(ruleList[previousRandomValue])
         }
 
         fragment_papin_game_double_screen_btn_doubleScreen2.setOnClickListener {
             initScreen()
             doubleScreen = false
-            initRuleInfo(ruleList[random])
+            initRuleInfo(ruleList[previousRandomValue])
         }
 
         fragment_papin_game_navigate_btn_single.setOnClickListener {
@@ -320,8 +321,12 @@ class PapinGameFragment: Fragment(){
         if (ruleList.size > 4) {
             do {
                 random = random(0, ruleList.size-1)
+                previousRandomValue = random
             } while (ruleList[random] == previousRule)
-        } else random = random(0, ruleList.size-1)
+        } else {
+            random = random(0, ruleList.size-1)
+            previousRandomValue = random
+        }
     }
 
     private fun play() {
@@ -436,15 +441,15 @@ class PapinGameFragment: Fragment(){
         mediaPlayer.start()
     }
 
-    private fun navigateBtnIsClickable(enable: Boolean){
+    private fun doubleScreenBtnIsClickable(enable: Boolean){
         if (enable){
-            fragment_papin_game_navigate_btn_single.isClickable = true
-            fragment_papin_game_navigate_btn_doubleScreen1.isClickable = true
-            fragment_papin_game_navigate_btn_doubleScreen2.isClickable = true
+            fragment_papin_game_double_screen_btn_single.isEnabled = true
+            fragment_papin_game_double_screen_btn_doubleScreen1.isEnabled = true
+            fragment_papin_game_double_screen_btn_doubleScreen2.isEnabled = true
         } else {
-            fragment_papin_game_navigate_btn_single.isClickable = false
-            fragment_papin_game_navigate_btn_doubleScreen1.isClickable = false
-            fragment_papin_game_navigate_btn_doubleScreen2.isClickable = false
+            fragment_papin_game_double_screen_btn_single.isEnabled = false
+            fragment_papin_game_double_screen_btn_doubleScreen1.isEnabled = false
+            fragment_papin_game_double_screen_btn_doubleScreen2.isEnabled = false
         }
     }
 
@@ -459,7 +464,7 @@ class PapinGameFragment: Fragment(){
             fragment_papin_game_info_btn_doubleScreen2.visibility = View.VISIBLE
         }
 
-        navigateBtnIsClickable(true)
+        doubleScreenBtnIsClickable(true)
 
         when (rule) {
             "INVENTE UNE REGLE" -> infoRule = "Le joueur invente une règle. Exemple : Boire de la main gauche, si quelqu'un ne respect pas cette règle il boit une gorgée"
@@ -485,22 +490,22 @@ class PapinGameFragment: Fragment(){
                 caseSong = "countdown"
             }
             "RAPIDITE : BRAS GAUCHE" -> {
-                navigateBtnIsClickable(false)
+                doubleScreenBtnIsClickable(false)
                 infoRule = "Le dernier à lever son bras gauche boit une gorgée"
                 playLeverLeBrasGauche()
             }
             "RAPIDITE : BRAS DROIT" -> {
-                navigateBtnIsClickable(false)
+                doubleScreenBtnIsClickable(false)
                 infoRule = "Le dernier à lever son bras droit boit une gorgée"
                 playLeverLeBrasDroit()
             }
             "RAPIDITE : JAMBE GAUCHE" -> {
-                navigateBtnIsClickable(false)
+                doubleScreenBtnIsClickable(false)
                 infoRule = "Le dernier à lever sa jambe gauche boit une gorgée"
                 playLeverLaJambeGauche()
             }
             "RAPIDITE : LES BRAS" -> {
-                navigateBtnIsClickable(false)
+                doubleScreenBtnIsClickable(false)
                 infoRule = "Le dernier à lever ses deux bras boit une gorgée"
                 playLeverLesDeuxBras()
             }

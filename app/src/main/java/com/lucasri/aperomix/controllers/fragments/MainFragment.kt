@@ -109,7 +109,7 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
     private fun addPlayer() {
         val player = Player()
-        var iterator: Int = 1
+        var iterator = playerList.size +1
 
         do {
             if (playerListSameName("Joueur $iterator")) iterator++
@@ -117,7 +117,7 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
         player.playerName = "Joueur $iterator"
         playerList.add(player)
-        adapter.updateData(playerList)
+        configureRecyclerView(false)
     }
 
     private fun playerListSameName(playerName: String): Boolean{
