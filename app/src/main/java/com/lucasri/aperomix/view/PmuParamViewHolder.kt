@@ -1,12 +1,8 @@
 package com.lucasri.aperomix.view
 
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.lucasri.aperomix.R
-import com.lucasri.aperomix.model.Player
-import kotlinx.android.synthetic.main.fragment_main_item.view.*
+import com.lucasri.aperomix.models.Player
 import kotlinx.android.synthetic.main.pmu_param_item.view.*
 
 class PmuParamViewHolder(view: View) : RecyclerView.ViewHolder(view) {

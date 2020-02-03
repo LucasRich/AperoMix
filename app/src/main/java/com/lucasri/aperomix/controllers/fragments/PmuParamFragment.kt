@@ -68,7 +68,7 @@ class PmuParamFragment : Fragment() {
         dialogBuilder.setView(dialogView)
 
         //INIT
-        dialogView.text_info.text = "Que faire ?\n\nCe jeu est un jeu de hasard. Miser le nombre de gorgées de votre choix sur la carte de votre choix. Une fois misé, buvez le nombre de gorgées que vous avez misé. Ensuite cliquez en haut à droite et laissez le jeu faire, vous découvrirez si vous avez misé sur les bons chevaux !"
+        dialogView.text_info.text = getString(R.string.PmuParamRule)
 
         //DISPLAY DIALOG
         val alertDialog = dialogBuilder.create()
@@ -81,5 +81,19 @@ class PmuParamFragment : Fragment() {
                 .replace(R.id.activity_game_container_frame, pmuGameFragment, "findThisFragment")
                 .addToBackStack(null)
                 .commit()
+    }
+
+    private fun clearPlayerListNbDrink(){
+        for (player in MainFragment.playerList){
+            player.caroNbDrink = 0
+            player.coeurNbDrink = 0
+            player.trefleNbDrink = 0
+            player.picNbDrink = 0
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        clearPlayerListNbDrink()
     }
 }

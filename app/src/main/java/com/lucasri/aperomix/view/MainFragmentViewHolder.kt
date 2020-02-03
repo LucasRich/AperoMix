@@ -4,7 +4,8 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.controllers.fragments.MainFragment
+import com.lucasri.aperomix.models.Player
 import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_main_item.view.*
 import java.lang.ref.WeakReference
@@ -15,7 +16,11 @@ class MainFragmentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     private var callbackWeakRef: WeakReference<MainFragmentAdapter.Listener>? = null
 
 
-    fun updateWithPlayerList(player: Player, callback: MainFragmentAdapter.Listener) {
+    fun updateWithPlayerList(player: Player, position: Int, callback: MainFragmentAdapter.Listener) {
+
+        var list: MutableList<Player> = MainFragment.playerList
+
+
         if (player.playerName.contains("Joueur")) {
             view.fragment_main_item_enter_players.hint = player.playerName
         } else {
@@ -28,7 +33,7 @@ class MainFragmentViewHolder(view: View) : RecyclerView.ViewHolder(view) {
             }
 
             override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-                player.playerName = view.fragment_main_item_enter_players.text.toString()
+                list[position].playerName = view.fragment_main_item_enter_players.text.toString()
             }
 
             override fun afterTextChanged(editable: Editable) {

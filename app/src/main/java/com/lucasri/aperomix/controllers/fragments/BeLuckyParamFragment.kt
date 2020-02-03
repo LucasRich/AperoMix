@@ -72,9 +72,9 @@ class BeLuckyParamFragment : Fragment() {
         if (MainFragment.playerList.size < 11){
             if (allColorAreDifferente()){
                 launchFragmentBeLuckyGame()
-            } else context!!.toast("Vous ne pouvez pas sélectionner deux fois la même couleur !")
+            } else context!!.toast(getString(R.string.BeLuckyParamSameColor))
 
-        } else context!!.toast("Vous ne pouvez pas jouer à plus de dix !")
+        } else context!!.toast(getString(R.string.BeLuckyParamMaxPlayer))
 
     }
 
@@ -98,7 +98,7 @@ class BeLuckyParamFragment : Fragment() {
         dialogBuilder.setView(dialogView)
 
         //INIT
-        dialogView.text_info.text = "Que faire ?\n\nCe jeu est un jeu de hasard. Miser le nombre de gorgées de votre choix sur la carte de votre choix. Une fois misé, buvez le nombre de gorgées que vous avez misé. Ensuite cliquez en haut à droite et laissez le jeu faire, vous découvrirez si vous avez misé sur les bons chevaux !"
+        dialogView.text_info.text = ""
 
         //DISPLAY DIALOG
         val alertDialog = dialogBuilder.create()

@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.controllers.fragments.MainFragment
-import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.models.Player
 import com.lucasri.aperomix.view.MainFragmentViewHolder
 
 class MainFragmentAdapter (var playerList: MutableList<Player>, callbacks: Listener) : RecyclerView.Adapter<MainFragmentViewHolder>() {
@@ -27,19 +26,14 @@ class MainFragmentAdapter (var playerList: MutableList<Player>, callbacks: Liste
     }
 
     override fun onBindViewHolder(viewHolder: MainFragmentViewHolder, position: Int) {
-        viewHolder.updateWithPlayerList(this.playerList[position], this.callback!!)
+        viewHolder.updateWithPlayerList(this.playerList[position], position, this.callback!!)
     }
 
     override fun getItemCount(): Int {
         return this.playerList.size
     }
 
-    fun updateData(playerList: MutableList<Player>) {
-        for (player in playerList){
-            println("adapter :: ${player.playerName}")
-        }
-        this.playerList.clear()
-        this.playerList.addAll(playerList)
+    fun updateData() {
         this.notifyDataSetChanged()
     }
 }

@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@drawable/border_view">
 
     <include
         android:id="@+id/activity_account_toolbar"
@@ -16,7 +16,6 @@
     <FrameLayout
         android:id="@+id/activity_account_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="5dp"/>
+        android:layout_height="match_parent" />
 
 </LinearLayout>

@@ -2,9 +2,9 @@ package com.lucasri.aperomix.view
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.fragment_details_games_item.view.*
+import kotlinx.android.synthetic.main.fragment_game_details_item.view.*
 
-class GamesDetailsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+class GameDetailsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
     private val view: View = view
 

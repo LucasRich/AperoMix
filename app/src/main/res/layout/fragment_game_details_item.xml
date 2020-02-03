@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+
+        <ImageView
+            android:id="@+id/fragment_details_item_img"
+            android:layout_width="100dp"
+            android:layout_height="200dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/img_papin_1"/>
+
+</LinearLayout>

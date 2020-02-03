@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/border_view"
+    android:paddingTop="30dp">
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/fragment_end_game_GameName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text=""
+        android:textColor="@android:color/black"
+        android:textSize="50dp"
+        android:textStyle="bold" />
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/fragment_end_game_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/fragment_end_game_GameName"
+        android:layout_above="@+id/fragment_end_game_btn"
+        android:gravity="center"
+        />
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/fragment_end_game_btn"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60dp"
+        android:text="@string/EndGame_continuer"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:padding="5dp"
+        />
+
+
+</RelativeLayout>

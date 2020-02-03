@@ -6,8 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.model.Game
-import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.models.Game
 import com.lucasri.aperomix.view.SelectGameViewHolder
 
 class SelectGameAdapter(var gameList: List<Game>) : RecyclerView.Adapter<SelectGameViewHolder>() {

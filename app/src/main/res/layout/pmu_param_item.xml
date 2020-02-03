@@ -22,7 +22,6 @@
             android:layout_centerHorizontal="true"
             android:textColor="@android:color/black"
             android:textStyle="bold"
-            android:text="Lucas"
             />
 
         <RelativeLayout

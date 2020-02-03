@@ -14,24 +14,36 @@ import android.widget.RelativeLayout
 import androidx.constraintlayout.widget.Constraints
 import com.google.firebase.auth.FirebaseAuth
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.api.UserHelper
 import com.lucasri.aperomix.controllers.activities.MainActivity
 import com.lucasri.aperomix.utils.toast
 import kotlinx.android.synthetic.main.fragment_register.*
 import android.widget.DatePicker
+import android.widget.FrameLayout
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
+import com.lucasri.aperomix.controllers.activities.AccountActivity
+import com.lucasri.aperomix.database.injection.UserViewModelFactory
+import com.lucasri.aperomix.database.repository.UserDataRepository
+import com.lucasri.aperomix.models.User
+import com.lucasri.aperomix.utils.SharedPref
+import com.lucasri.aperomix.view.UserViewModel
 import java.util.*
+import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
 
-class RegisterFragment : UtilsAccountBasefragment() {
+class RegisterFragment : Fragment() {
+
+    private lateinit var userViewModel: UserViewModel
 
     private var passwordGood: Boolean = false
     private var confirmPasswordGood: Boolean = false
+    private lateinit var auth: FirebaseAuth
 
     companion object {
         fun newInstance(): RegisterFragment {
@@ -46,6 +58,8 @@ class RegisterFragment : UtilsAccountBasefragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
+        SharedPref.init(context!!)
+        configureViewModel()
 
         this.displayRegisterButtonIfInputNotNull()
         fragment_register_loading.visibility = View.GONE
@@ -56,7 +70,7 @@ class RegisterFragment : UtilsAccountBasefragment() {
                     fragment_register_loading.visibility = View.VISIBLE
                     activity!!.window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
 
-                    createUserInFirebaseAuthentifiaction(fragment_register_email_edt.text.toString(), fragment_register_password_edt.text.toString())
+                    createUserInFirebase(fragment_register_email_edt.text.toString(), fragment_register_password_edt.text.toString())
 
                 } else context!!.toast(getString(R.string.fragment_register_mustadult_toats))
 
@@ -120,45 +134,32 @@ class RegisterFragment : UtilsAccountBasefragment() {
     }
 
     // --------------------
+    // CONFIGURATION
+    // --------------------
+
+    private fun configureViewModel() {
+        val mViewModelFactory = UserViewModelFactory(UserDataRepository(), Executors.newSingleThreadExecutor())
+        this.userViewModel = ViewModelProviders.of(this, mViewModelFactory).get(UserViewModel::class.java)
+    }
+
+    // --------------------
     // FIREBASE
     // --------------------
 
-    private fun createUserInFirebaseAuthentifiaction(email: String, password: String){
+    private fun createUserInFirebase(email: String, password: String){
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity!!) { task ->
                     if (task.isSuccessful) {
                         Log.d(Constraints.TAG, "createUserWithEmail:success")
-                        createUserInFirestore()
+                        this.userViewModel.createUserInFirestore(getUserInUserModel())
+                        context!!.toast(getString(R.string.fragment_register_sucess))
+                        SharedPref.write(SharedPref.currentUserUid, auth.currentUser!!.uid)
+                        AccountActivity.launchMode = "REGISTER"
+                        launchAccountActivity()
                     } else {
                         Log.w(Constraints.TAG, "createUserWithEmail:failure", task.exception)
                         context!!.toast(getString(R.string.fragment_register_register_faield))
-                    }
-                }
-    }
-
-    private fun createUserInFirestore() {
-        UserHelper.getUsersCollection().document(this.getCurrentUser()!!.uid)
-                .get().addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val document = task.result
-                        if (document!!.exists()) {
-                            context!!.toast("le compte existe déja")
-                        } else {
-                            if (this.getCurrentUser() != null) {
-
-                                val uid = this.getCurrentUser()!!.uid
-                                val username = fragment_register_pseudo_edt.text.toString()
-                                val email = fragment_register_email_edt.text.toString()
-                                val birthday = "${fragment_register_datePicker.dayOfMonth}/${fragment_register_datePicker.month +1}/${fragment_register_datePicker.year}"
-
-                                UserHelper.createUser(uid, username, email, birthday).addOnFailureListener(this.onFailureListener())
-                                fragment_register_loading.visibility = View.GONE
-                                context!!.toast(getString(R.string.fragment_register_register_success))
-                            }
-                        }
-
-                    } else {
-                        context!!.toast("get failed with " + task.exception)
+                        fragment_register_loading.visibility = View.GONE
                     }
                 }
     }
@@ -166,6 +167,18 @@ class RegisterFragment : UtilsAccountBasefragment() {
     // --------------------
     // UTILS
     // --------------------
+
+    private fun getUserInUserModel(): User {
+        return User(
+                auth.currentUser!!.uid,
+                fragment_register_pseudo_edt.text.toString(),
+                fragment_register_email_edt.text.toString(),
+                "${fragment_register_datePicker.dayOfMonth}/${fragment_register_datePicker.month +1}/${fragment_register_datePicker.year}",
+                0,
+                0,
+                0)
+    }
+
 
     fun userIsAdult(view: DatePicker): Boolean {
         val userAge = GregorianCalendar(view.year, view.month, view.dayOfMonth)
@@ -251,8 +264,8 @@ class RegisterFragment : UtilsAccountBasefragment() {
         return result
     }
 
-    private fun launchMainActivity() {
-        val myIntent = Intent(context, MainActivity::class.java)
+    private fun launchAccountActivity() {
+        val myIntent = Intent(context, AccountActivity::class.java)
         startActivity(myIntent)
     }
 }

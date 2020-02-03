@@ -9,13 +9,21 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.lucasri.aperomix.R
 import com.lucasri.aperomix.controllers.activities.MainActivity
-import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.controllers.fragments.EndGameFragment.Companion.ID_PMU_MODE
+import com.lucasri.aperomix.controllers.fragments.EndGameFragment.Companion.launchMode
+import com.lucasri.aperomix.controllers.fragments.EndGameFragment.Companion.messageToDisplay
+import com.lucasri.aperomix.models.Player
 import com.lucasri.aperomix.utils.InitGame
 import kotlinx.android.synthetic.main.fragment_pmu_game.*
 import kotlinx.android.synthetic.main.info_dialog.view.*
 import java.util.*
 
 class PmuGameFragment : Fragment() {
+
+    private val ID_PIC = "PIC"
+    private val ID_COEUR = "COEUR"
+    private val ID_TREFLE = "TREFLE"
+    private val ID_CARO = "CARO"
 
     private val playerList = ArrayList<Player>()
     private val colorList = ArrayList<String>()
@@ -61,7 +69,7 @@ class PmuGameFragment : Fragment() {
 
                     colorList.removeAt(random)
                 } else {
-                    println("no more card")
+                    println(getString(R.string.PmuGameNoMorecard))
                 }
             } else {
                 rank.add(colorList[0]) //Add the last color
@@ -76,7 +84,8 @@ class PmuGameFragment : Fragment() {
                         coef--
                     } //To pass the "0"
                 }
-                displayAlertDialog("TABLEAU DES SCORES :\n\n" + makeStringDisplayDrink())
+                //displayAlertDialog(getString(R.string.PmuGameScoreBoard) + "\n\n" + makeStringDisplayDrink())
+                endGame()
             }
         }
     }
@@ -93,7 +102,7 @@ class PmuGameFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
-            R.id.rule -> displayAlertDialog("COMMENT JOUER : \n\n Cliquer sur piocher, la carte tirée fera avancer une des cartes du milieu (sur laquelle vous avez misée). Une fois que toutes les cartes ont atteint le niveau des cartes se trouvant sur les côtés, celles-ci se dévoilent, celles de gauche font reculer et celles de droite avancer. Le but est de miser sur la carte qui arrive première \n\n 1er : distribut le double de la mise\n\n2ème : distribut la mise\n\n3ème : boit la mise\n\n4ème : boit le double de la mise ")
+            R.id.rule -> displayAlertDialog(getString(R.string.PmuGameHowPlay))
         }
         return super.onOptionsItemSelected(item)
     }
@@ -105,6 +114,12 @@ class PmuGameFragment : Fragment() {
     // ---------------------
     // UTILS
     // ---------------------
+
+    private fun endGame(){
+        launchMode = ID_PMU_MODE
+        messageToDisplay = getString(R.string.PmuGameScoreBoard) + "\n\n" + makeStringDisplayDrink()
+        launchFragmentEndGame()
+    }
 
     fun calculateDrink(color: String, coef: Int) {
         for (i in playerList.indices) {
@@ -118,22 +133,22 @@ class PmuGameFragment : Fragment() {
         val valueTake = playerList[i].takeDrinkNb
 
         when (color) {
-            "PIC" -> if (coef > 0) {
+            ID_PIC -> if (coef > 0) {
                 playerList[i].giveDrinkNb = valueGet + playerList[i].picNbDrink * coef
             } else {
                 playerList[i].takeDrinkNb = valueTake + playerList[i].picNbDrink * coef * -1
             }
-            "COEUR" -> if (coef > 0) {
+            ID_COEUR -> if (coef > 0) {
                 playerList[i].giveDrinkNb = valueGet + playerList[i].coeurNbDrink * coef
             } else {
                 playerList[i].takeDrinkNb = valueTake + playerList[i].coeurNbDrink * coef * -1
             }
-            "TREFLE" -> if (coef > 0) {
+            ID_TREFLE -> if (coef > 0) {
                 playerList[i].giveDrinkNb = valueGet + playerList[i].trefleNbDrink * coef
             } else {
                 playerList[i].takeDrinkNb = valueTake + playerList[i].trefleNbDrink * coef * -1
             }
-            "CARO" -> if (coef > 0) {
+            ID_CARO -> if (coef > 0) {
                 playerList[i].giveDrinkNb = valueGet + playerList[i].caroNbDrink * coef
             } else {
                 playerList[i].takeDrinkNb = valueTake + playerList[i].caroNbDrink * coef * -1
@@ -145,8 +160,8 @@ class PmuGameFragment : Fragment() {
         val message = StringBuilder()
         for (i in playerList.indices) {
             message.append(playerList[i].playerName + " :" + "\n")
-            if (playerList[i].giveDrinkNb != 0) message.append("DONNE : " + playerList[i].giveDrinkNb + " gorgée(s)\n")
-            if (playerList[i].takeDrinkNb != 0) message.append("BOIT : " + playerList[i].takeDrinkNb + " gorgée(s)\n")
+            if (playerList[i].giveDrinkNb != 0) message.append(getString(R.string.PmuGameGive) + playerList[i].giveDrinkNb + getString(R.string.PmuGameDrinkNb))
+            if (playerList[i].takeDrinkNb != 0) message.append(getString(R.string.PmuGameTake) + playerList[i].takeDrinkNb + getString(R.string.PmuGameDrinkNb))
             message.append("\n")
         }
         return message.toString()
@@ -168,7 +183,7 @@ class PmuGameFragment : Fragment() {
 
     private fun upCard(card: String) {
         when (card) {
-            "PIC" -> when (picPosition) {
+            ID_PIC -> when (picPosition) {
                 1 -> {
                     card_pic_1!!.setImageResource(R.drawable.empty_card)
                     card_pic_2!!.setImageResource(R.drawable.card_pic_as)
@@ -201,7 +216,8 @@ class PmuGameFragment : Fragment() {
                     removeAll(colorList, card)
                 }
             }
-            "COEUR" -> when (coeurPosition) {
+
+            ID_COEUR -> when (coeurPosition) {
                 1 -> {
                     card_coeur_1!!.setImageResource(R.drawable.empty_card)
                     card_coeur_2!!.setImageResource(R.drawable.card_coeur_as)
@@ -231,10 +247,11 @@ class PmuGameFragment : Fragment() {
                     card_coeur_1!!.setImageResource(R.drawable.card_coeur)
                     coeurPosition = 7
                     displayRank(card, card_coeur_6)
-                    removeAll(colorList, "COEUR")
+                    removeAll(colorList, card)
                 }
             }
-            "TREFLE" -> when (treflePosition) {
+
+            ID_TREFLE -> when (treflePosition) {
                 1 -> {
                     card_trefle_1!!.setImageResource(R.drawable.empty_card)
                     card_trefle_2!!.setImageResource(R.drawable.card_trefle_as)
@@ -264,10 +281,10 @@ class PmuGameFragment : Fragment() {
                     card_trefle_1!!.setImageResource(R.drawable.card_trefle)
                     treflePosition = 7
                     displayRank(card, card_trefle_6)
-                    removeAll(colorList, "TREFLE")
+                    removeAll(colorList, card)
                 }
             }
-            "CARO" -> when (caroPosition) {
+            ID_CARO -> when (caroPosition) {
                 1 -> {
                     card_caro_1!!.setImageResource(R.drawable.empty_card)
                     card_caro_2!!.setImageResource(R.drawable.card_caro_as)
@@ -297,7 +314,7 @@ class PmuGameFragment : Fragment() {
                     card_caro_1!!.setImageResource(R.drawable.card_caro)
                     caroPosition = 7
                     displayRank(card, card_caro_6)
-                    removeAll(colorList, "CARO")
+                    removeAll(colorList, card)
                 }
             }
         }
@@ -305,7 +322,7 @@ class PmuGameFragment : Fragment() {
 
     private fun backCard(card: String) {
         when (card) {
-            "PIC" -> when (picPosition) {
+            ID_PIC -> when (picPosition) {
                 1 -> {
                     card_pic_1!!.setImageResource(R.drawable.card_pic_as)
                     picPosition = 1
@@ -336,7 +353,7 @@ class PmuGameFragment : Fragment() {
                     picPosition = 5
                 }
             }
-            "COEUR" -> when (coeurPosition) {
+            ID_COEUR -> when (coeurPosition) {
                 1 -> {
                     card_coeur_1!!.setImageResource(R.drawable.card_coeur_as)
                     coeurPosition = 1
@@ -367,7 +384,7 @@ class PmuGameFragment : Fragment() {
                     coeurPosition = 5
                 }
             }
-            "TREFLE" -> when (treflePosition) {
+            ID_TREFLE -> when (treflePosition) {
                 1 -> {
                     card_trefle_1!!.setImageResource(R.drawable.card_trefle_as)
                     treflePosition = 1
@@ -398,7 +415,7 @@ class PmuGameFragment : Fragment() {
                     treflePosition = 5
                 }
             }
-            "CARO" -> when (caroPosition) {
+            ID_CARO -> when (caroPosition) {
                 1 -> {
                     card_caro_1!!.setImageResource(R.drawable.card_caro_as)
                     caroPosition = 1
@@ -434,10 +451,10 @@ class PmuGameFragment : Fragment() {
 
     private fun displayCardRandomAndMove(card: String) {
         when (card) {
-            "PIC" -> moveCardRandomWithCountDown(card_random, R.drawable.card_pic_as, card, true)
-            "COEUR" -> moveCardRandomWithCountDown(card_random, R.drawable.card_coeur_as, card, true)
-            "TREFLE" -> moveCardRandomWithCountDown(card_random, R.drawable.card_trefle_as, card, true)
-            "CARO" -> moveCardRandomWithCountDown(card_random, R.drawable.card_caro_as, card, true)
+            ID_PIC -> moveCardRandomWithCountDown(card_random, R.drawable.card_pic_as, card, true)
+            ID_COEUR -> moveCardRandomWithCountDown(card_random, R.drawable.card_coeur_as, card, true)
+            ID_TREFLE -> moveCardRandomWithCountDown(card_random, R.drawable.card_trefle_as, card, true)
+            ID_CARO -> moveCardRandomWithCountDown(card_random, R.drawable.card_caro_as, card, true)
         }
     }
 
@@ -466,10 +483,10 @@ class PmuGameFragment : Fragment() {
 
     fun displayBackAndUpCardAndMove(card: String, randomCard: ImageView?, up: Boolean) {
         when (card) {
-            "PIC" -> moveCardRandomWithCountDown(randomCard, R.drawable.card_pic, card, up)
-            "COEUR" -> moveCardRandomWithCountDown(randomCard, R.drawable.card_coeur, card, up)
-            "TREFLE" -> moveCardRandomWithCountDown(randomCard, R.drawable.card_trefle, card, up)
-            "CARO" -> moveCardRandomWithCountDown(randomCard, R.drawable.card_caro, card, up)
+            ID_PIC -> moveCardRandomWithCountDown(randomCard, R.drawable.card_pic, card, up)
+            ID_COEUR -> moveCardRandomWithCountDown(randomCard, R.drawable.card_coeur, card, up)
+            ID_TREFLE -> moveCardRandomWithCountDown(randomCard, R.drawable.card_trefle, card, up)
+            ID_CARO -> moveCardRandomWithCountDown(randomCard, R.drawable.card_caro, card, up)
         }
     }
 
@@ -521,7 +538,7 @@ class PmuGameFragment : Fragment() {
         }
     }
 
-    internal fun removeAll(list: MutableList<String>, element: String) {
+    private fun removeAll(list: MutableList<String>, element: String) {
         while (list.contains(element)) {
             list.remove(element)
         }
@@ -535,5 +552,13 @@ class PmuGameFragment : Fragment() {
     private fun launchMainActivity() {
         val myIntent: Intent = Intent(activity, MainActivity::class.java)
         this.startActivity(myIntent)
+    }
+
+    private fun launchFragmentEndGame() {
+        val pmuGameFragment = EndGameFragment()
+        activity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.activity_game_container_frame, pmuGameFragment, "findThisFragment")
+                .addToBackStack(null)
+                .commit()
     }
 }

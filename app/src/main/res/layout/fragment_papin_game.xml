@@ -2,7 +2,7 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/game_view"
+    android:id="@+id/fragment_papin_game_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_below="@+id/activity_game_container_toolbar"
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="PAPIN GAME"
+        android:text="@string/papin_game_title"
         android:textColor="@android:color/black"
         android:textSize="50dp"
         android:textStyle="bold" />
@@ -170,7 +170,6 @@
         android:layout_below="@+id/fragment_papin_game_middle_view"
         android:layout_marginTop="100dp"
         android:gravity="center"
-        android:text="PAPIN GAME"
         android:textColor="@android:color/black"
         android:textSize="40dp"/>
 
@@ -182,7 +181,6 @@
         android:layout_marginBottom="100dp"
         android:layout_above="@+id/fragment_papin_game_middle_view"
         android:gravity="center"
-        android:text="PAPIN GAME"
         android:textColor="@android:color/black"
         android:textSize="40dp"
         android:rotation="180"/>
@@ -194,7 +192,7 @@
         android:layout="@+id/nameGameInverse"
         android:layout_below="@id/fragment_papin_game_name_single"
         android:layout_centerHorizontal="true"
-        android:text="3/52"
+        android:text="1/52"
         />
 
     <TextView
@@ -231,7 +229,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="PAPIN GAME"
+            android:text="@string/papin_game_title"
             android:textAlignment="center"
             android:textColor="@android:color/black"
             android:textSize="50dp"
@@ -243,7 +241,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="80dp"
-            android:text="PAPIN GAME"
+            android:text="@string/papin_game_title"
             android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@android:color/black"
@@ -262,7 +260,6 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="REFERENDUM"
         android:textAlignment="center"
         android:textColor="@android:color/black"
         android:textSize="59dp" />
@@ -352,7 +349,7 @@
         android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="90dp"
-        android:text="Compte à rebours"
+        android:text="@string/PapinGame_compte_rebours"
         android:textSize="@dimen/TextSizeButton"
         android:textColor="@android:color/black"
         android:padding="10dp"
@@ -366,7 +363,7 @@
         android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="60dp"
-        android:text="Compte à rebours"
+        android:text="@string/PapinGame_compte_rebours"
         android:textSize="@dimen/TextSizeButton"
         android:textColor="@android:color/black"
         android:padding="5dp"
@@ -380,7 +377,7 @@
         android:background="@color/colorPrimary"
         android:layout_alignParentTop="true"
         android:layout_marginTop="60dp"
-        android:text="Compte à rebours"
+        android:text="@string/PapinGame_compte_rebours"
         android:textSize="@dimen/TextSizeButton"
         android:textColor="@android:color/black"
         android:padding="5dp"
@@ -396,5 +393,56 @@
         android:layout_alignParentBottom="true"
         android:layout_margin="10dp"
         />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_papin_game_display_papin_game_rule_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        app:cardCornerRadius="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.lucasri.aperomix.views.AperoMixTextView
+                android:id="@+id/fragment_papin_game_display_papin_game_rule_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Règle du papin Game"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="30dp"/>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/fragment_papin_game_display_papin_game_rule__viewPager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fragment_papin_game_display_papin_game_rule_title"
+                android:layout_above="@+id/fragment_papin_game_display_papin_game_rule_understand"
+                />
+
+            <com.lucasri.aperomix.views.AperoMixTextView
+                android:id="@+id/fragment_papin_game_display_papin_game_rule_understand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="C'est compris !"
+                android:padding="10dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/black"
+                android:textSize="30dp"
+                />
+
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>

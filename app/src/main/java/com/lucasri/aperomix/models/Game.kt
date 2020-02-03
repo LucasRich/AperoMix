@@ -1,4 +1,4 @@
-package com.lucasri.aperomix.model
+package com.lucasri.aperomix.models
 
 class Game {
     var name: String? = null

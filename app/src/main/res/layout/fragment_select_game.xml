@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/select_game_view"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -7,8 +7,33 @@
     android:background="@drawable/border_view"
     android:layout_below="@+id/activity_game_container_toolbar">
 
+    <RelativeLayout
+        android:id="@+id/fragment_select_game_upBtn"
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_up_button"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"/>
+
+        <com.lucasri.aperomix.views.AperoMixTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Les jeux AperoMix..."
+            android:textColor="@android:color/black"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="20dp"
+            android:textSize="30sp"/>
+
+    </RelativeLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragment_select_game_recycler_view"
+        android:layout_below="@+id/fragment_select_game_upBtn"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:columnWidth="150dp"

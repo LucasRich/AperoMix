@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     tools:context=".controllers.activities.GameContainer"
     android:background="@drawable/border_view"
-    android:layout_below="@+id/activity_game_container_toolbar">
+    android:layout_below="@+id/activity_game_container_toolbar"
+    android:paddingTop="50dp">
 
         <!-- CARD BACK -->
 
@@ -449,7 +450,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="30dp"
                 android:background="@drawable/border_btn"
-                android:text="PIOCHE"
+                android:text="@string/Pmu_pioche"
                 android:textSize="@dimen/TextSizeButton"
                 android:textColor="@android:color/black"/>
 

@@ -8,7 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.lucasri.aperomix.R
 import com.lucasri.aperomix.controllers.activities.MainActivity
-import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.models.Player
 import com.lucasri.aperomix.utils.InitGame
 import com.lucasri.aperomix.utils.longToast
 import com.lucasri.aperomix.utils.random
@@ -17,7 +17,10 @@ import kotlinx.android.synthetic.main.info_dialog.view.*
 import java.util.ArrayList
 import android.view.animation.AnimationUtils.loadAnimation
 import android.view.animation.Animation
-
+import com.lucasri.aperomix.view.adapter.DisplayImgViewPagerAdapter
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.lucasri.aperomix.controllers.fragments.EndGameFragment.Companion.ID_PAPIN_MODE
+import com.lucasri.aperomix.controllers.fragments.EndGameFragment.Companion.launchMode
 
 class PapinGameFragment: Fragment(){
     private var mediaPlayer = MediaPlayer()
@@ -36,10 +39,10 @@ class PapinGameFragment: Fragment(){
 
     private var infoRule: String? = null
     private var previousRule = "null"
-    private var caseSong: String? = null
 
     private var doubleScreen: Boolean = false
     private var boyAndGirl = true
+    private var papinGame = false
 
     private var textPop: Animation? = null
 
@@ -52,7 +55,7 @@ class PapinGameFragment: Fragment(){
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        fragment_papin_game_rule_txt_single.text = "Cliquez sur l'écran pour commencer et activer le son"
+        fragment_papin_game_rule_txt_single.text = getString(R.string.PapinBegin)
         textPop = loadAnimation(context!!, R.anim.item_animation_pop)
 
         this.initScreen()
@@ -60,7 +63,7 @@ class PapinGameFragment: Fragment(){
         this.askBoyAndGirl()
         this.initPlayerList()
 
-        game_view.setOnClickListener {
+        fragment_papin_game_container.setOnClickListener {
             if (ruleList.isEmpty()) {
                 InitGame.initRuleList(ruleList, boyAndGirl)
             }
@@ -88,7 +91,7 @@ class PapinGameFragment: Fragment(){
                 }
                 passedRuleCounter = passedRuleList.size - 1
             } else {
-                context!!.longToast("Revenez au dernier tour de jeu")
+                context!!.longToast(getString(R.string.Papin_error1))
             }
         }
 
@@ -117,15 +120,15 @@ class PapinGameFragment: Fragment(){
         }
 
         fragment_papin_game_info_btn_single.setOnClickListener {
-            displayAlertDialog(infoRule!!)
+            if (!papinGame) displayAlertDialog(infoRule!!) else displayPapinGameRule()
         }
 
         fragment_papin_game_info_btn_doubleScreen1.setOnClickListener {
-            displayAlertDialog(infoRule!!)
+            if (!papinGame) displayAlertDialog(infoRule!!) else displayPapinGameRule()
         }
 
         fragment_papin_game_info_btn_doubleScreen2.setOnClickListener {
-            displayAlertDialog(infoRule!!)
+            if (!papinGame) displayAlertDialog(infoRule!!) else displayPapinGameRule()
         }
 
         fragment_papin_game_bottom_btn_single.setOnClickListener {
@@ -147,7 +150,7 @@ class PapinGameFragment: Fragment(){
                 initRuleInfo(ruleList[previousRandomValue])
             }
             else {
-                context!!.longToast("La partie n'a pas encore commencé")
+                context!!.longToast(getString(R.string.Papin_error2))
             }
         }
 
@@ -167,7 +170,7 @@ class PapinGameFragment: Fragment(){
             if (count != 0) {
                 displayNavigationRule(true)
             } else {
-                context!!.longToast("La partie n'a pas encore commencé")
+                context!!.longToast(getString(R.string.Papin_error2))
             }
         }
 
@@ -175,7 +178,7 @@ class PapinGameFragment: Fragment(){
             if (count != 0) {
                 displayNavigationRule(true)
             } else {
-                context!!.longToast("La partie n'a pas encore commencé")
+                context!!.longToast(getString(R.string.Papin_error2))
             }
         }
 
@@ -183,9 +186,23 @@ class PapinGameFragment: Fragment(){
             if (count != 0) {
                 displayNavigationRule(true)
             } else {
-                context!!.longToast("La partie n'a pas encore commencé")
+                context!!.longToast(getString(R.string.Papin_error2))
             }
         }
+
+        fragment_papin_game_display_papin_game_rule_understand.setOnClickListener {
+            fragment_papin_game_display_papin_game_rule_container.visibility = View.INVISIBLE
+            fragment_papin_game_container.isEnabled = true
+        }
+
+        fragment_papin_game_display_papin_game_rule__viewPager.addOnPageChangeListener(object : OnPageChangeListener {
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+                if (position == 2) fragment_papin_game_display_papin_game_rule_understand.visibility = View.VISIBLE
+                else fragment_papin_game_display_papin_game_rule_understand.visibility = View.INVISIBLE
+            }
+            override fun onPageSelected(position: Int) {}
+            override fun onPageScrollStateChanged(state: Int) {}
+        })
     }
 
     // ---------------------
@@ -194,7 +211,7 @@ class PapinGameFragment: Fragment(){
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.doubleScreen -> {
+            com.lucasri.aperomix.R.id.doubleScreen -> {
                 if (count != 0) {
                     if (!doubleScreen) {
                         doubleScreen()
@@ -204,7 +221,7 @@ class PapinGameFragment: Fragment(){
                         doubleScreen = false
                     }
                 } else {
-                    context!!.longToast("La partie n'a pas encore commencé")
+                    context!!.longToast(getString(R.string.Papin_error2))
                 }
 
                 return true
@@ -213,7 +230,7 @@ class PapinGameFragment: Fragment(){
                 if (count != 0) {
                     displayNavigationRule(true)
                 } else {
-                    context!!.longToast("La partie n'a pas encore commencé")
+                    context!!.longToast(getString(R.string.Papin_error2))
                 }
 
                 return true
@@ -231,8 +248,9 @@ class PapinGameFragment: Fragment(){
         fragment_papin_game_rule_txt_single.visibility = View.VISIBLE
         fragment_papin_game_counter_single.visibility = View.VISIBLE
         fragment_papin_game_btn_container_single.visibility = View.VISIBLE
-        fragment_papin_game_bottom_btn_single.visibility = View.VISIBLE
 
+        fragment_papin_game_bottom_btn_single.visibility = View.INVISIBLE
+        fragment_papin_game_display_papin_game_rule_container.visibility = View.INVISIBLE
         fragment_papin_game_next_rule_doubleScreen1.visibility = View.INVISIBLE
         fragment_papin_game_next_rule_doubleScreen2.visibility = View.INVISIBLE
         fragment_papin_game_previous_rule_doubleScreen1.visibility = View.INVISIBLE
@@ -279,6 +297,13 @@ class PapinGameFragment: Fragment(){
     // ---------------------
     // UTILS
     // ---------------------
+
+    private fun displayPapinGameRule (){
+        fragment_papin_game_display_papin_game_rule_container.visibility = View.VISIBLE
+        fragment_papin_game_display_papin_game_rule_understand.visibility = View.INVISIBLE
+        fragment_papin_game_display_papin_game_rule__viewPager.adapter = DisplayImgViewPagerAdapter(activity!!.supportFragmentManager)
+        fragment_papin_game_container.isEnabled = false
+    }
 
     private fun displayNavigationRule(display: Boolean){
         if (!doubleScreen){
@@ -367,7 +392,7 @@ class PapinGameFragment: Fragment(){
             displayCounter(navigationRuleCount)
         } else {
             displayNavigationRule(false)
-            displayAlertDialog("LA PARTIE CONTINUE !")
+            displayAlertDialog(getString(R.string.PapinResumeGame))
         }
     }
 
@@ -388,19 +413,17 @@ class PapinGameFragment: Fragment(){
     private fun gameFinish() {
         count = 53
         navigationRuleCount = 53
-        fragment_papin_game_info_btn_single.visibility = View.INVISIBLE
-        fragment_papin_game_bottom_btn_single.visibility = View.VISIBLE
-        fragment_papin_game_bottom_btn_single.text = "Continuer"
-        displayRule("Partie fini!")
-        displayPlayerName("PAIPIN GAME")
+
+        launchMode = ID_PAPIN_MODE
+        launchFragmentEndGame()
     }
 
     private fun askBoyAndGirl() {
         AlertDialog.Builder(context!!)
-                .setTitle("Mixité ?")
-                .setMessage("Êtes vous un groupe mixte ? Juste des garçons, ou juste des filles ?")
-                .setPositiveButton("Mixte") { _, _ -> boyAndGirl = true }
-                .setNegativeButton("Non Mixte") { _, _ -> boyAndGirl = false }
+                .setTitle(getString(R.string.PapinMixteMsg))
+                .setMessage(getString(R.string.PapinMixteOrNot))
+                .setPositiveButton(getString(R.string.PapinMixte)) { _, _ -> boyAndGirl = true }
+                .setNegativeButton(getString(R.string.PapinNotMixte)) { _, _ -> boyAndGirl = false }
                 .show()
     }
 
@@ -454,6 +477,9 @@ class PapinGameFragment: Fragment(){
     }
 
     private fun initRuleInfo(rule: String) {
+        papinGame = false
+        doubleScreenBtnIsClickable(true)
+
         if (!doubleScreen){
             fragment_papin_game_bottom_btn_single.visibility = View.INVISIBLE
             fragment_papin_game_info_btn_single.visibility = View.VISIBLE
@@ -464,64 +490,69 @@ class PapinGameFragment: Fragment(){
             fragment_papin_game_info_btn_doubleScreen2.visibility = View.VISIBLE
         }
 
-        doubleScreenBtnIsClickable(true)
-
         when (rule) {
-            "INVENTE UNE REGLE" -> infoRule = "Le joueur invente une règle. Exemple : Boire de la main gauche, si quelqu'un ne respect pas cette règle il boit une gorgée"
-            "DONNE 2 GORGEES" -> infoRule = "Distribue 2 gorgées"
-            "BOIS 2 GORGEES" -> infoRule = "Bois 2 gorgées"
-            "DONNE 3 GORGEES" -> infoRule = "Distribue 3 gorgées"
-            "BOIS 3 GORGEES" -> infoRule = "Bois 3 gorgées"
-            "LES GARCONS BOIVENT" -> infoRule = "Les garçons boivent 1 gorgée"
-            "LES FILLES BOIVENT" -> infoRule = "Les filles boivent 1 gorgée"
-            "ACOLYTE" -> infoRule = "Choisisser un joueur qui deviendra votre acolyte, celui-ci deviendra votre partenaire de boisson. A chaque fois que l'un de vous deux bois, l'autre l'accompagne (il ne peut y avoir qu'un seul binôme d'acolyte, si la règle tombe sur un autre joueur lui et son partenaire prendront la place des précédents)"
-            "REFERENDUM" -> {
-                infoRule = "Désigner du doigt tous en même temps un joueur, le joueur avec le plus de voie boit une gorgée !"
+            getString(R.string.PapinRuleTitle1) -> infoRule = getString(R.string.PapinRule1)
+            getString(R.string.PapinRuleTitle2) -> infoRule = getString(R.string.PapinRule2)
+            getString(R.string.PapinRuleTitle3) -> infoRule = getString(R.string.PapinRule3)
+            getString(R.string.PapinRuleTitle4) -> infoRule = getString(R.string.PapinRule4)
+            getString(R.string.PapinRuleTitle5) -> infoRule = getString(R.string.PapinRule5)
+            getString(R.string.PapinRuleTitle6) -> infoRule = getString(R.string.PapinRule6)
+            getString(R.string.PapinRuleTitle7) -> infoRule = getString(R.string.PapinRule7)
+            getString(R.string.PapinRuleTitle8) -> infoRule = getString(R.string.PapinRule8)
+            getString(R.string.PapinRuleTitle9) -> {
+                infoRule = getString(R.string.PapinRule9)
                 if (!doubleScreen){
                     fragment_papin_game_bottom_btn_single.visibility = View.VISIBLE
-                    fragment_papin_game_bottom_btn_single.text = "Compte à rebours"
+                    fragment_papin_game_bottom_btn_single.text = getString(R.string.PapinCountdown)
                 } else{
                     fragment_papin_game_bottom_btn_doubleScreen1.visibility = View.VISIBLE
                     fragment_papin_game_bottom_btn_doubleScreen2.visibility = View.VISIBLE
-                    fragment_papin_game_bottom_btn_doubleScreen1.text = "Compte à rebours"
-                    fragment_papin_game_bottom_btn_doubleScreen2.text = "Compte à rebours"
+                    fragment_papin_game_bottom_btn_doubleScreen1.text = getString(R.string.PapinCountdown)
+                    fragment_papin_game_bottom_btn_doubleScreen2.text = getString(R.string.PapinCountdown)
                 }
 
-                caseSong = "countdown"
             }
-            "RAPIDITE : BRAS GAUCHE" -> {
+            getString(R.string.PapinRuleTitle10) -> {
                 doubleScreenBtnIsClickable(false)
-                infoRule = "Le dernier à lever son bras gauche boit une gorgée"
+                infoRule = getString(R.string.PapinRule10)
                 playLeverLeBrasGauche()
             }
-            "RAPIDITE : BRAS DROIT" -> {
+            getString(R.string.PapinRuleTitle11) -> {
                 doubleScreenBtnIsClickable(false)
-                infoRule = "Le dernier à lever son bras droit boit une gorgée"
+                infoRule = getString(R.string.PapinRule11)
                 playLeverLeBrasDroit()
             }
-            "RAPIDITE : JAMBE GAUCHE" -> {
+            getString(R.string.PapinRuleTitle12) -> {
                 doubleScreenBtnIsClickable(false)
-                infoRule = "Le dernier à lever sa jambe gauche boit une gorgée"
+                infoRule = getString(R.string.PapinRule12)
                 playLeverLaJambeGauche()
             }
-            "RAPIDITE : LES BRAS" -> {
+            getString(R.string.PapinRuleTitle13) -> {
                 doubleScreenBtnIsClickable(false)
-                infoRule = "Le dernier à lever ses deux bras boit une gorgée"
+                infoRule = getString(R.string.PapinRule13)
                 playLeverLesDeuxBras()
             }
-            "CHOISIS UN THEME" -> infoRule = "Le joueur choisi un thème exemple : les fleurs. Ensuite chacun votre tour donner un nom de fleur. Le joueur qui perd est celui qui ne trouve plus de nom, donne un nom déja utilisé ou est trop long à trouver un nom. Le joueur perdant boit une gorgée (le joueur dont c'est le tour commence, le sens de rotation est le même que celui de jeu)"
-            "FREEZE" -> infoRule = "Le joueur peut à nimporte quel moment crier FREEZE, je premier joueur à bouger perd et boit une gorgée. Le FREEZE est à usage unique (cligner ou sourire est considéré comme bouger)"
-            "PAPIN GAME" -> infoRule = "REGLE DU PAPIN GAME : Le joueur dont c'est le tour commence. Le joueur donne un objet imaginaire à un des autres joueurs en prononçant le mot suivant TIENS, le joueur recevant devra répondre MERCI CEST DE LA PART DE QUI au joueur lui ayant donné l'objet qui lui répondra CEST DE LA PART DE PAPIN il répondra alors MERCI et donnera l'objet à un autre joueur qui répondra à son tout MERCI CEST DE LA PART DE QUI au joueur qui lui a donné qui lui-même demandera au joueur qui lui a donné demandant CEST DE LA PART DE QUI et lui transmettra la réponse (CEST DE LA PART DE PAPIN). le jeu s'arrête lorsqu'un joueur se trompe de phrase, demande CEST DE LA PART DE QUI ou tout autre phrase du jeu au mauvais joueur.  Afin que le jeu soit plus fun ne suivait pas l'ordre chronologique, faite des croisements ou donner l'objet à la personne vous ayant lui-même  donné l'objet ce qui compliquera grandement les choses ! vous pouvez changer le mot PAPIN par le mot que vous voulez (uniquement le joueur qui a lancé le papin décide du mot et peut change quand il veut)"
-            "DAME DU REGARD" -> infoRule = "Le joueur devient la dame du regard, chaque joueur regardant la dame du regard dans les yeux boit une gorgée (Le joueur reste la dame du regard jusqu'a ce qu'un autre joueur soit désigné à sa place)"
-            "DAME DES QUESTIONS" -> infoRule = "Le joueur devient la dame des questions, chaque joueur répondant à la dame des question dans les yeux boit une gorgée (Le joueur reste la dame des question jusqu'a ce qu'un autre joueur soit désigné à sa place)"
-            "ROI DES POUCES" -> infoRule = "Le joueur devient le roi des pouces, le roi des pouces peut poser son pouce où il veut, le dernier à faire de même boit. Pouvoir à usage unique (S'il pose son pouce sur son téléphone, les joueurs peuvent poser leur pouce sur leur propre téléphone mais s'il pose son pouce sur la bouteille d'eau, tous les joueurs doivent poser leur pouce sur la même bouteille)"
-            "JUSTE PRIX" -> infoRule = "Le joueur choisit un objet et une caractéristique de son choix, les autres joueurs doivent deviner sa caractéristique, le plus éloigné boit. Ex : La taille de la tour Eiffel"
-            "DUEL DE CHI FOU MI" -> infoRule = "Le joueur défi le joueur de son choix, le premier arriver à 3 manche gagnè gagne, c'est donc l'autre joueur qui boit"
+            getString(R.string.PapinRuleTitle14) -> infoRule = getString(R.string.PapinRule14)
+            getString(R.string.PapinRuleTitle15) -> infoRule = getString(R.string.PapinRule15)
+            getString(R.string.PapinRuleTitle16) -> papinGame = true
+            getString(R.string.PapinRuleTitle17) -> infoRule = getString(R.string.PapinRule17)
+            getString(R.string.PapinRuleTitle18) -> infoRule = getString(R.string.PapinRule18)
+            getString(R.string.PapinRuleTitle19) -> infoRule = getString(R.string.PapinRule19)
+            getString(R.string.PapinRuleTitle20) -> infoRule = getString(R.string.PapinRule20)
+            getString(R.string.PapinRuleTitle21) -> infoRule = getString(R.string.PapinRule21)
         }
     }
 
     private fun launchMainActivity() {
         val myIntent: Intent = Intent(activity, MainActivity::class.java)
         this.startActivity(myIntent)
+    }
+
+    private fun launchFragmentEndGame() {
+        val pmuGameFragment = EndGameFragment()
+        activity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.activity_game_container_frame, pmuGameFragment, "findThisFragment")
+                .addToBackStack(null)
+                .commit()
     }
 }

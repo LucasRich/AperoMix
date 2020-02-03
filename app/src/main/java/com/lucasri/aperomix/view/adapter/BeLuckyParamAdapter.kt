@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.models.Player
 import com.lucasri.aperomix.view.BeLuckyParamViewHolder
 
 class BeLuckyParamAdapter (var playerList: MutableList<Player>) : RecyclerView.Adapter<BeLuckyParamViewHolder>() {

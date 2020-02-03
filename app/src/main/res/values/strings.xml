@@ -8,6 +8,8 @@
     <string name="fragment_main_subtitle">Jeu d\'alcool</string>
     <string name="fragment_main_start_btn">Jouer</string>
     <string name="fragment_main_delete_player_error">Vous ne pouvez, jouer à moins de 3 joueurs</string>
+    <string name="fragment_main_player">Joueur </string>
+    <string name="share_txt">Hey, go télécharger AperoMix !! 🥳 Télécharge l\'app et crée toi un compte ! 🎊🎊 \n\n https://play.google.com/store/apps/details?id=com.supercell.clashroyale</string>
 
     <!-- FragmentLogin -->
     <string name="fragment_login_title">Connexion</string>
@@ -16,8 +18,13 @@
     <string name="fragment_login_password">Mot de passe</string>
     <string name="fragment_login_no_account">Vous n\'avez pas encore de compte ?</string>
     <string name="fragment_login_register">Inscrivez vous.</string>
+    <string name="LoginActivity_loading_message_user_login">Connexion en cours\nVeuillez patienter</string>
+    <string name="LoginActivity_input_empty">Veuillez saisir vos identifiants</string>
+    <string name="LoginActivity_login_faield">Email ou mot de passe incorrect</string>
+    <string name="fragmentLoginSucess">Connexion avec succès</string>
 
     <!-- FragmentRegister -->
+    <string name="fragment_register_sucess">Compte créer avec succès</string>
     <string name="fragment_register_title">Inscription</string>
     <string name="fragment_register_email">Adresse email</string>
     <string name="fragment_register_pseudo">Pseudonyme</string>
@@ -37,7 +44,7 @@
     <string name="basefragment_utils_account">Erreur  inconnue</string>
 
     <!-- BeLucky -->
-    <string name="BeLuckyBegin">Bienvenue à BeLucky Land, êtes-vous prêt pour une folle aventure ? \n\n &#127881;&#127866;&#128513;&#128513;&#127866;&#127881;</string>
+    <string name="BeLuckyWelcome">Bienvenue à BeLucky Land, êtes-vous prêt pour une folle aventure ? \n\n &#127881;&#127866;&#128513;&#128513;&#127866;&#127881;</string>
 
     <string name="BeLuckyCase2">Alors on lance comme une fille ? Aller relance ! &#128170;&#127922; </string>
     <string name="BeLuckyCase3">La partie commence bien pour toi ! Bois 2 gorgées et plus vite que ça ! &#127866;</string>
@@ -60,5 +67,101 @@
     <string name="BeLuckyCarde5">&#127808; Carte chance &#127808; \n\nChangement de place avec le joueur qui est les plus avancé ! &#128260;</string>
     <string name="BeLuckyCarde6">&#127808; Carte chance &#127808; \n\nChangement de place avec le joueur qui est les moins avancé ! &#128260;</string>
     <string name="BeLuckyCarde7">&#127808; Carte chance &#127808; \n\nChangement de place avec un joueur aléatoir &#128260;</string>
+
+    <string name="BeLuckyBegin">Commencer !!</string>
+    <string name="BeLuckyEndTour">Tour fini</string>
+    <string name="BeLuckyResume">Continuer</string>
+    <string name="BeLuckyParamSameColor">Vous ne pouvez pas sélectionner deux fois la même couleur !</string>
+    <string name="BeLuckyParamMaxPlayer">Vous ne pouvez pas jouer à plus de dix !</string>
+
+    <string name="BeLucky_fin_de_tour">Fin de tour</string>
+    <string name="BeLucky_choisissez_la_couleur_de_vos_pions">Choisissez la couleur de vos pions !</string>
+    <string name="BeLucky_3_10_joueurs">3 à 10 joueurs</string>
+    <string name="BeLucky_30_minutes_1_heure">30 minutes à 1 heure</string>
+    <string name="BeLucky_jouer">Jouer</string>
+    <string name="BeLucky_description">Description :</string>
+
+    <!-- PapinGame -->
+
+    <string name="PapinBegin">Cliquez sur l\'écran pour commencer et activer le son</string>
+    <string name="Papin_error1">Revenez au dernier tour de jeu</string>
+    <string name="Papin_error2">La partie n\'a pas encore commencé</string>
+    <string name="PapinResumeGame">LA PARTIE CONTINUE !</string>
+    <string name="PapinResume">Continuer</string>
+    <string name="PapinEndGame">Partie fini!</string>
+    <string name="PapinName">PAIPIN GAME</string>
+    <string name="PapinMixteMsg">Mixité ?</string>
+    <string name="PapinMixteOrNot">Êtes vous un groupe mixte ? Juste des garçons, ou juste des filles ?</string>
+    <string name="PapinMixte">Mixte</string>
+    <string name="PapinNotMixte">Non Mixte</string>
+    <string name="PapinRuleTitle1">INVENTE UNE REGLE</string>
+    <string name="PapinRule1">Le joueur invente une règle. Exemple : Boire de la main gauche, si quelqu\'un ne respect pas cette règle il boit une gorgée</string>
+    <string name="PapinRuleTitle2">DONNE 2 GORGEES</string>
+    <string name="PapinRule2">Distribue 2 gorgées</string>
+    <string name="PapinRuleTitle3">BOIS 2 GORGEES</string>
+    <string name="PapinRule3">Bois 2 gorgées</string>
+    <string name="PapinRuleTitle4">DONNE 3 GORGEES</string>
+    <string name="PapinRule4">Distribue 3 gorgées</string>
+    <string name="PapinRuleTitle5">BOIS 3 GORGEES</string>
+    <string name="PapinRule5">Bois 3 gorgées</string>
+    <string name="PapinRuleTitle6">LES GARCONS BOIVENT</string>
+    <string name="PapinRule6">Les garçons boivent 1 gorgée</string>
+    <string name="PapinRuleTitle7">LES FILLES BOIVENT</string>
+    <string name="PapinRule7">Les filles boivent 1 gorgée</string>
+    <string name="PapinRuleTitle8">ACOLYTE</string>
+    <string name="PapinRule8">Choisisser un joueur qui deviendra votre acolyte, celui-ci deviendra votre partenaire de boisson. A chaque fois que l\'un de vous deux bois, l\'autre l\'accompagne (il ne peut y avoir qu\'un seul binôme d\'acolyte, si la règle tombe sur un autre joueur lui et son partenaire prendront la place des précédents)</string>
+    <string name="PapinRuleTitle9">REFERENDUM</string>
+    <string name="PapinRule9">Désigner du doigt tous en même temps un joueur, le joueur avec le plus de voie boit une gorgée !</string>
+    <string name="PapinCountdown">Compte à rebours</string>
+    <string name="PapinRuleTitle10">RAPIDITE : BRAS GAUCHE</string>
+    <string name="PapinRule10">Le dernier à lever son bras gauche boit une gorgée</string>
+    <string name="PapinRuleTitle11">RAPIDITE : BRAS DROIT</string>
+    <string name="PapinRule11">Le dernier à lever son bras droit boit une gorgée</string>
+    <string name="PapinRuleTitle12">RAPIDITE : JAMBE GAUCHE</string>
+    <string name="PapinRule12">Le dernier à lever sa jambe gauche boit une gorgée</string>
+    <string name="PapinRuleTitle13">RAPIDITE : LES BRAS</string>
+    <string name="PapinRule13">Le dernier à lever ses deux bras boit une gorgée</string>
+    <string name="PapinRuleTitle14">CHOISIS UN THEME</string>
+    <string name="PapinRule14">Le joueur choisi un thème exemple : les fleurs. Ensuite chacun votre tour donner un nom de fleur. Le joueur qui perd est celui qui ne trouve plus de nom, donne un nom déja utilisé ou est trop long à trouver un nom. Le joueur perdant boit une gorgée (le joueur dont c\'est le tour commence, le sens de rotation est le même que celui de jeu)</string>
+    <string name="PapinRuleTitle15">FREEZE</string>
+    <string name="PapinRule15">Le joueur peut à nimporte quel moment crier FREEZE, je premier joueur à bouger perd et boit une gorgée. Le FREEZE est à usage unique (cligner ou sourire est considéré comme bouger)</string>
+    <string name="PapinRuleTitle16">PAPIN GAME</string>
+    <string name="PapinRuleTitle17">DAME DU REGARD</string>
+    <string name="PapinRule17">Le joueur devient la dame du regard, chaque joueur regardant la dame du regard dans les yeux boit une gorgée (Le joueur reste la dame du regard jusqu\'a ce qu\'un autre joueur soit désigné à sa place)</string>
+    <string name="PapinRuleTitle18">DAME DES QUESTIONS</string>
+    <string name="PapinRule18">Le joueur devient la dame des questions, chaque joueur répondant à la dame des question dans les yeux boit une gorgée (Le joueur reste la dame des question jusqu\'a ce qu\'un autre joueur soit désigné à sa place)</string>
+    <string name="PapinRuleTitle19">ROI DES POUCES</string>
+    <string name="PapinRule19">Le joueur devient le roi des pouces, le roi des pouces peut poser son pouce où il veut, le dernier à faire de même boit. Pouvoir à usage unique (S\'il pose son pouce sur son téléphone, les joueurs peuvent poser leur pouce sur leur propre téléphone mais s\'il pose son pouce sur la bouteille d\'eau, tous les joueurs doivent poser leur pouce sur la même bouteille)</string>
+    <string name="PapinRuleTitle20">JUSTE PRIX</string>
+    <string name="PapinRule20">Le joueur choisit un objet et une caractéristique de son choix, les autres joueurs doivent deviner sa caractéristique, le plus éloigné boit. Ex : La taille de la tour Eiffel</string>
+    <string name="PapinRuleTitle21">DUEL DE CHI FOU MI</string>
+    <string name="PapinRule21">Le joueur défi le joueur de son choix, le premier arriver à 3 manche gagnè gagne, c\'est donc l\'autre joueur qui boit</string>
+    <string name="papin_game_title">PAPIN GAME</string>
+    <string name="PapinGame_compte_rebours">Compte à rebours</string>
+
+    <!-- PmuGame -->
+
+    <string name="PmuGameNoMorecard">no more card</string>
+    <string name="PmuGameScoreBoard">TABLEAU DES SCORES :</string>
+    <string name="PmuGameHowPlay">COMMENT JOUER :\n\nCliquer sur piocher, la carte tirée fera avancer une des cartes du milieu (sur laquelle vous avez misée). Une fois que toutes les cartes ont atteint le niveau des cartes se trouvant sur les côtés, celles-ci se dévoilent, celles de gauche font reculer et celles de droite avancer. Le but est de miser sur la carte qui arrive première \n\n1er : distribut le double de la mise \n\n2ème : distribut la mise \n\n3ème : boit la mise \n\n4ème : boit le double de la mise</string>
+    <string name="PmuGameGive">DONNE :</string>
+    <string name="PmuGameTake">BOIS :</string>
+    <string name="PmuGameDrinkNb">gorgée(s)\n</string>
+    <string name="PmuParamRule">Que faire ?\n\nCe jeu est un jeu de hasard. Miser le nombre de gorgées de votre choix sur la carte de votre choix. Une fois misé, buvez le nombre de gorgées que vous avez misé. Ensuite cliquez en haut à droite et laissez le jeu faire, vous découvrirez si vous avez misé sur les bons chevaux !</string>
+    <string name="SelectGamePapin">Papin Game</string>
+    <string name="SelectGamePmu">Le PMU</string>
+    <string name="SelectGameBeLucky">Be lucky Game</string>
+    <string name="Pmu_pioche">PIOCHE</string>
+
+    <!-- EndGame -->
+
+    <string name="EndGame_continuer">Continuer</string>
+    <string name="GameDetails_nbPlayer_papin">3 à 8 joueurs</string>
+    <string name="GameDetails_nbPlayer_pmu">A partir de 3 joueurs</string>
+    <string name="GameDetails_duration_papin">30 minute à 1 heure</string>
+    <string name="GameDetails_duration_pmu">5 à 10 minutes</string>
+
+    <string name="GameDetails_desc_papin">Animez vos soirées avec le PapinGame, au menu : \n\n-Défis\n-Minijeux\n-Trahisons\n-Rigolades\n\nN\'hésitez pas à essayer le papinGame, laisser guider et vous ne verrez pas votre soirée passer ! \nPensez à activer l\'affichage multiple pour que tout le monde puisse voir au mieu !!!</string>
+    <string name="GameDetails_desc_pmu">Ce jeu est un jeu de hasard. Miser le nombre de gorgées de votre choix sur la carte de votre choix. Une fois misé, buvez le nombre de gorgées que vous avez misé. Ensuite cliquez en haut à droite et laissez le jeu faire, vous découvrirez si vous avez misé sur les bons chevaux !</string>
 
 </resources>

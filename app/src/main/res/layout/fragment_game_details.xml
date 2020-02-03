@@ -34,7 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/fragment_details_game_img"
-            android:text="Papin game"
             android:textColor="@android:color/black"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -49,25 +48,23 @@
             android:layout_below="@+id/fragment_details_games_title"
             android:layout_toRightOf="@+id/fragment_details_game_img"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:text="3 à 10 joueurs"/>
+            android:layout_marginTop="10dp"/>
 
         <TextView
-            android:id="@+id/fragment_details_duration"
+            android:id="@+id/fragment_details_games_duration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/fragment_details_games_nbPlayer"
             android:layout_toRightOf="@+id/fragment_details_game_img"
-            android:layout_marginLeft="20dp"
-            android:text="30 minutes à 1 heure"/>
+            android:layout_marginLeft="20dp"/>
 
         <Button
             android:id="@+id/fragment_details_games_playBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fragment_details_duration"
+            android:layout_below="@id/fragment_details_games_duration"
             android:layout_marginTop="50dp"
-            android:text="Jouer"
+            android:text="@string/BeLucky_jouer"
             android:textAllCaps="false"
             android:background="@drawable/border_btn"
             android:textStyle="bold"
@@ -89,7 +86,7 @@
             android:layout_marginRight="2dp"
             android:layout_marginLeft="2dp"
             android:layout_below="@id/fragment_details_games_recyclerView"
-            android:text="Description :"
+            android:text="@string/BeLucky_description"
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:textSize="20sp"
@@ -103,7 +100,6 @@
             android:layout_marginRight="2dp"
             android:layout_marginLeft="2dp"
             android:layout_below="@id/fragment_details_games_description_title"
-            android:text="is the most common problem occured in android while especially dealing with bitmaps. This error is thrown by the Java Virtual Machine (JVM) when an object cannot be allocated due to lack of memory space and also, the garbage collector cannot free some space."
             />
 
     </RelativeLayout>

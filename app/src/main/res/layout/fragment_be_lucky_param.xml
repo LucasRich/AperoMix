@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".controllers.activities.GameContainer"
     android:background="@drawable/border_view"
+    android:paddingTop="50dp"
     >
 
     <com.lucasri.aperomix.views.AperoMixTextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Choisissez la couleur de vos pions !"
+        android:text="@string/BeLucky_choisissez_la_couleur_de_vos_pions"
         android:textStyle="bold"
         android:textSize="30dp"
         android:layout_marginTop="30dp"

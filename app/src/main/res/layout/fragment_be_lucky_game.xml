@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/border_view">
+    android:background="@drawable/border_view"
+    android:paddingTop="50dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -355,7 +356,7 @@
                         android:id="@+id/displayTxt"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:text="@string/BeLuckyBegin"
+                        android:text="@string/BeLuckyWelcome"
                         android:textColor="@android:color/black"
                         android:textSize="20dp"/>
 
@@ -371,7 +372,7 @@
                     android:layout_marginRight="20dp"
                     android:background="@drawable/border_btn"
                     android:textSize="@dimen/TextSizeButton"
-                    android:text="Fin de tour"
+                    android:text="@string/BeLucky_fin_de_tour"
                     android:layout_alignParentBottom="true"
                     />
 

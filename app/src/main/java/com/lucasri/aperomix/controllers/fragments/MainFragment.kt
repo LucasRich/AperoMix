@@ -5,25 +5,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.models.Player
 import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
-import android.view.animation.AnimationUtils
 import com.lucasri.aperomix.controllers.activities.AccountActivity
 import com.lucasri.aperomix.utils.toast
 
+
 class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
-    lateinit var adapter: MainFragmentAdapter
+    private lateinit var adapter: MainFragmentAdapter
     private var iterator: Boolean = true
 
     companion object {
-        fun newInstance(): MainFragment {
-            return MainFragment()
-        }
         var playerList = mutableListOf<Player>()
     }
 
@@ -33,6 +31,8 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        this.configureViewPager()
 
         this.initPlayerList()
         this.configureRecyclerView(true)
@@ -49,6 +49,10 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
         fragment_main_account_btn.setOnClickListener {
             launchAccountActivity()
         }
+
+        fragment_main_share_btn.setOnClickListener {
+            shareApp()
+        }
     }
 
     private fun btnAddAnimation(){
@@ -64,6 +68,10 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
     // ---------------------
     // CONFIGURATION
     // ---------------------
+
+    private fun configureViewPager() {
+        //activity_main_viewpager.adapter = DisplayImgViewPagerAdapter(activity!!.supportFragmentManager)
+    }
 
     private fun configureRecyclerView(animation: Boolean) {
         //INIT
@@ -84,7 +92,7 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
         if (playerList.size == 0) {
             for (i in 1..3) {
                 val player = Player()
-                player.playerName = "Joueur $i"
+                player.playerName = getString(R.string.fragment_main_player) + " $i"
                 playerList.add(player)
             }
         }
@@ -107,15 +115,23 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
     // UTILS
     // ---------------------
 
+    private fun shareApp() {
+        val shareIntent = Intent()
+        shareIntent.action = Intent.ACTION_SEND
+        shareIntent.type = "text/plain"
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "test")
+        startActivity(Intent.createChooser(shareIntent, "Share..."))
+    }
+
     private fun addPlayer() {
         val player = Player()
-        var iterator = playerList.size +1
+        var iterator = 1
 
         do {
-            if (playerListSameName("Joueur $iterator")) iterator++
-        } while (playerListSameName("Joueur $iterator"))
+            if (playerListSameName(getString(R.string.fragment_main_player) + " $iterator")) iterator++
+        } while (playerListSameName(getString(R.string.fragment_main_player) + " $iterator"))
 
-        player.playerName = "Joueur $iterator"
+        player.playerName = getString(R.string.fragment_main_player) + " $iterator"
         playerList.add(player)
         configureRecyclerView(false)
     }

@@ -1,16 +1,12 @@
 package com.lucasri.aperomix.view
 
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
-import android.view.ViewParent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.models.Player
 import com.thebluealliance.spectrum.SpectrumDialog
 import kotlinx.android.synthetic.main.fragment_be_lucky_param_item.view.*
-import kotlinx.android.synthetic.main.fragment_main_item.view.*
 
 class BeLuckyParamViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 

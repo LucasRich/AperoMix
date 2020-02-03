@@ -9,8 +9,10 @@ import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasri.aperomix.R
+import com.lucasri.aperomix.controllers.fragments.EndGameFragment.Companion.ID_BELUCKY_MODE
+import com.lucasri.aperomix.controllers.fragments.EndGameFragment.Companion.launchMode
 import com.lucasri.aperomix.view.adapter.BeLuckyGameAdapter
-import com.lucasri.aperomix.model.Player
+import com.lucasri.aperomix.models.Player
 import com.lucasri.aperomix.utils.random
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.*
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.position1
@@ -52,7 +54,7 @@ class BeLuckyGameFragment : Fragment(){
         this.initCaseList()
         this.initCaseImg()
         this.initPlayerPositionDisplay()
-        endButton.text = "Commencer !!"
+        endButton.text = getString(R.string.BeLuckyBegin)
         de.isEnabled = false
 
         /*debugBtn.setOnClickListener {
@@ -67,7 +69,7 @@ class BeLuckyGameFragment : Fragment(){
         endButton.setOnClickListener {
             if (!gameBegin){
                 namePlayer.text = playerList[0].playerName
-                endButton.text = "Tour fini"
+                endButton.text = getString(R.string.BeLuckyEndTour)
                 displayTxt.text = ""
                 de.isEnabled = true
                 gameBegin = true
@@ -99,7 +101,7 @@ class BeLuckyGameFragment : Fragment(){
                     }
 
                     luckyCardAction = ""
-                    endButton.text = "Tour fini"
+                    endButton.text = getString(R.string.BeLuckyEndTour)
                 }
             }
         }
@@ -217,12 +219,12 @@ class BeLuckyGameFragment : Fragment(){
             1 ->{
                 displayTxt.text = getString(R.string.BeLuckyCarde1)
                 luckyCardAction = UP
-                endButton.text = "Continuer"
+                endButton.text = getString(R.string.BeLuckyResume)
             }
             2 ->{
                 displayTxt.text = getString(R.string.BeLuckyCarde2)
                 luckyCardAction = BACK
-                endButton.text = "Continuer"
+                endButton.text = getString(R.string.BeLuckyResume)
 
             }
             3 -> displayTxt.text = getString(R.string.BeLuckyCarde3)
@@ -428,11 +430,15 @@ class BeLuckyGameFragment : Fragment(){
                     if (player.beLuckyCase == 18) counter++
                 }
                 if (counter == playerList.size - 1) {
-                    de.isEnabled = false
-                    endButton.isEnabled = false
+                    endGame()
                 }
             }
         }
+    }
+
+    private fun endGame(){
+        launchMode = ID_BELUCKY_MODE
+        launchFragmentEndGame()
     }
 
     private fun getPositionThanksOtherPlayerPosition(player: Player, case: View){
@@ -487,5 +493,13 @@ class BeLuckyGameFragment : Fragment(){
             9 -> case.position9.colorFilter = null
             10 -> case.position10.colorFilter = null
         }
+    }
+
+    private fun launchFragmentEndGame() {
+        val pmuGameFragment = EndGameFragment()
+        activity!!.supportFragmentManager.beginTransaction()
+                .replace(R.id.activity_game_container_frame, pmuGameFragment, "findThisFragment")
+                .addToBackStack(null)
+                .commit()
     }
 }

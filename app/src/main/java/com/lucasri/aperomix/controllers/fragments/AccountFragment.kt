@@ -2,27 +2,27 @@ package com.lucasri.aperomix.controllers.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.UserHandle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.auth.User
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.api.UserHelper
+import com.lucasri.aperomix.controllers.activities.AccountActivity
 import com.lucasri.aperomix.controllers.activities.RegisterActivity
+import com.lucasri.aperomix.database.injection.UserViewModelFactory
+import com.lucasri.aperomix.database.repository.UserDataRepository
+import com.lucasri.aperomix.models.User
+import com.lucasri.aperomix.utils.SharedPref
+import com.lucasri.aperomix.view.UserViewModel
 import kotlinx.android.synthetic.main.fragment_account.*
-import kotlinx.android.synthetic.main.fragment_login.*
+import java.util.concurrent.Executors
 
-class AccountFragment : UtilsAccountBasefragment(){
+class AccountFragment : Fragment(){
 
-    companion object {
-        fun newInstance(): AccountFragment {
-            return AccountFragment()
-        }
-    }
+    lateinit var userViewModel: UserViewModel
+    lateinit var auth: FirebaseAuth
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
@@ -30,20 +30,48 @@ class AccountFragment : UtilsAccountBasefragment(){
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        SharedPref.init(context!!)
+        configureUserViewModel()
         auth = FirebaseAuth.getInstance()
 
-        UserHelper.getUser(this.getCurrentUser()!!.uid).addOnSuccessListener {
-            //val currentUser = documentSnapshot.toObject(User::class.java)
-            //fragment_account_txt.text = currentUser.getUsername()
+        userViewModel.getUser(SharedPref.read(SharedPref.currentUserUid, "")!!).addOnSuccessListener { documentSnapshot ->
+            val user = documentSnapshot.toObject(User::class.java)
+
+            if (user != null){
+                fragment_account_userName.text = user.userName
+                fragment_account_email.text = user.email
+
+                fragment_account_papinGame.text = user.papinGameCounter.toString()
+
+                fragment_account_pmuGame.text = user.pmuGameCounter.toString()
+
+                fragment_account_beLuckyGame.text = user.beLuckyGameCounter.toString()
+
+                fragment_account_point.text = ((user.papinGameCounter!!+user.pmuGameCounter!!+user.beLuckyGameCounter!!)*5).toString()
+            }
+
+            fragment_account_signout.setOnClickListener {
+                auth.signOut()
+                launchAccountActivity()
+            }
         }
+    }
+
+    // -------------------
+    // CONFIGURATION
+    // -------------------
+
+    private fun configureUserViewModel() {
+        val userViewModelFactory = UserViewModelFactory(UserDataRepository(), Executors.newSingleThreadExecutor())
+        this.userViewModel = ViewModelProviders.of(this, userViewModelFactory).get(UserViewModel::class.java)
     }
 
     // ---------------------
     // UTILS
     // ---------------------
 
-    private fun launchRegisterActivity() {
-        val myIntent: Intent = Intent(context, RegisterActivity::class.java)
+    private fun launchAccountActivity() {
+        val myIntent: Intent = Intent(context, AccountActivity::class.java)
         this.startActivity(myIntent)
     }
 }
