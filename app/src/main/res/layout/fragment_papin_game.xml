@@ -16,7 +16,7 @@
         android:gravity="center"
         android:text="@string/papin_game_title"
         android:textColor="@android:color/black"
-        android:textSize="50dp"
+        android:textSize="@dimen/papin_gameName"
         android:textStyle="bold" />
 
     <LinearLayout
@@ -171,7 +171,7 @@
         android:layout_marginTop="100dp"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="40dp"/>
+        android:textSize="@dimen/papin_ruleTxt_doubleScreen"/>
 
 
     <com.lucasri.aperomix.views.AperoMixTextView
@@ -182,7 +182,7 @@
         android:layout_above="@+id/fragment_papin_game_middle_view"
         android:gravity="center"
         android:textColor="@android:color/black"
-        android:textSize="40dp"
+        android:textSize="@dimen/papin_ruleTxt_doubleScreen"
         android:rotation="180"/>
 
     <TextView
@@ -232,7 +232,7 @@
             android:text="@string/papin_game_title"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="50dp"
+            android:textSize="@dimen/papin_gameName"
             android:textStyle="bold"/>
 
         <com.lucasri.aperomix.views.AperoMixTextView
@@ -245,7 +245,7 @@
             android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:textSize="50dp"
+            android:textSize="@dimen/papin_gameName"
             />
 
 
@@ -262,7 +262,7 @@
         android:layout_marginRight="10dp"
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="59dp" />
+        android:textSize="@dimen/papin_game_rule_single" />
 
     <View
         android:id="@+id/line_double_screen"
@@ -274,7 +274,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/papin_navigationArrow_marginTop"
         android:layout_below="@id/fragment_papin_game_middle_view">
 
         <ImageView
@@ -348,7 +348,7 @@
         android:gravity="center"
         android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="90dp"
+        android:layout_marginBottom="@dimen/papin_btn_single_marginBottom"
         android:text="@string/PapinGame_compte_rebours"
         android:textSize="@dimen/TextSizeButton"
         android:textColor="@android:color/black"
@@ -358,13 +358,13 @@
     <com.lucasri.aperomix.views.AperoMixTextView
         android:id="@+id/fragment_papin_game_bottom_btn_doubleScreen1"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/papin_btn_doubleScreen_height"
         android:gravity="center"
         android:background="@color/colorPrimary"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="@dimen/papin_btn_doubleScreen_margin"
         android:text="@string/PapinGame_compte_rebours"
-        android:textSize="@dimen/TextSizeButton"
+        android:textSize="@dimen/papin_btn_doubleScreen_textSize"
         android:textColor="@android:color/black"
         android:padding="5dp"
         />
@@ -372,13 +372,13 @@
     <com.lucasri.aperomix.views.AperoMixTextView
         android:id="@+id/fragment_papin_game_bottom_btn_doubleScreen2"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/papin_btn_doubleScreen_height"
         android:gravity="center"
         android:background="@color/colorPrimary"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="@dimen/papin_btn_doubleScreen_margin"
         android:text="@string/PapinGame_compte_rebours"
-        android:textSize="@dimen/TextSizeButton"
+        android:textSize="@dimen/papin_btn_doubleScreen_textSize"
         android:textColor="@android:color/black"
         android:padding="5dp"
         android:rotation="180"

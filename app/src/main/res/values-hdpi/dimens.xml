@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="marginRightAndLeftButton">100dp</dimen>
+    <dimen name="marginRightAndLeftButtonMainFragment">40dp</dimen>
+    <dimen name="TextSizeButton">20sp</dimen>
+
+    <dimen name="papin_gameName">25dp</dimen>
+    <dimen name="papin_ruleTxt_doubleScreen">20dp</dimen>
+    <dimen name="papin_game_rule_single">30dp</dimen>
+    <dimen name="papin_btn_single_marginBottom">45dp</dimen>
+    <dimen name="papin_btn_doubleScreen_margin">30dp</dimen>
+    <dimen name="papin_btn_doubleScreen_height">25dp</dimen>
+    <dimen name="papin_btn_doubleScreen_textSize">10sp</dimen>
+    <dimen name="papin_navigationArrow_marginTop">15dp</dimen>
+    <dimen name="selectGame_title_textSize">25sp</dimen>
+
+</resources>
