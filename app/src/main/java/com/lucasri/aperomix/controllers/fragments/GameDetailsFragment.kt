@@ -38,7 +38,7 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
         when(gameName){
             "Papin Game" -> papinGameMode()
             "Le PMU" -> pmuGameMode()
-            "Be lucky Game" -> {}
+            "Be lucky Game" -> beLuckyGameMode()
         }
 
         fragment_details_games_playBtn.setOnClickListener {
@@ -60,6 +60,13 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
     // ---------------------
     // UTILS
     // ---------------------
+
+    private fun beLuckyGameMode(){
+        fragment_details_games_nbPlayer.text = getString(R.string.GameDetails_nbPlayer_papin)
+        fragment_details_games_duration.text = getString(R.string.GameDetails_duration_papin)
+        configureRecyclerView(getBeLuckyPictureList())
+        fragment_details_games_description.text = getString(R.string.Belucky_description_content)
+    }
 
     private fun papinGameMode(){
         fragment_details_games_nbPlayer.text = getString(R.string.GameDetails_nbPlayer_papin)
@@ -94,6 +101,18 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
         pictureList.add(R.drawable.img_pmu_4)
         pictureList.add(R.drawable.img_pmu_5)
         pictureList.add(R.drawable.img_pmu_6)
+
+        return pictureList
+    }
+
+    private fun getBeLuckyPictureList(): ArrayList<Int>{
+        val pictureList = ArrayList<Int>()
+        pictureList.add(R.drawable.img_belucky_1)
+        pictureList.add(R.drawable.img_belucky_2)
+        pictureList.add(R.drawable.img_belucky_3)
+        pictureList.add(R.drawable.img_belucky_4)
+        pictureList.add(R.drawable.img_belucky_5)
+        pictureList.add(R.drawable.img_belucky_6)
 
         return pictureList
     }

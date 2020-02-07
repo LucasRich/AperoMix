@@ -67,11 +67,13 @@ class EndGameFragment : Fragment() {
     // ---------------------
 
     private fun gameCounterIncrementation(game: String){
-        userViewModel.getUser(auth.currentUser!!.uid).addOnSuccessListener {documentSnapshot ->
-            when(game){
-                "PAPIN" -> userViewModel.updatePapinGameCounter(documentSnapshot.get("papinGameCounter").toString().toInt() + 1, auth.currentUser!!.uid)
-                "PMU" -> userViewModel.updatePmuGameCounter(documentSnapshot.get("pmuGameCounter").toString().toInt() + 1, auth.currentUser!!.uid)
-                "BELUCKY" -> userViewModel.updateBeLuckyGameCounter(documentSnapshot.get("beLuckyGameCounter").toString().toInt() + 1, auth.currentUser!!.uid)
+        if (auth.currentUser != null){
+            userViewModel.getUser(auth.currentUser!!.uid).addOnSuccessListener {documentSnapshot ->
+                when(game){
+                    "PAPIN" -> userViewModel.updatePapinGameCounter(documentSnapshot.get("papinGameCounter").toString().toInt() + 1, auth.currentUser!!.uid)
+                    "PMU" -> userViewModel.updatePmuGameCounter(documentSnapshot.get("pmuGameCounter").toString().toInt() + 1, auth.currentUser!!.uid)
+                    "BELUCKY" -> userViewModel.updateBeLuckyGameCounter(documentSnapshot.get("beLuckyGameCounter").toString().toInt() + 1, auth.currentUser!!.uid)
+                }
             }
         }
     }

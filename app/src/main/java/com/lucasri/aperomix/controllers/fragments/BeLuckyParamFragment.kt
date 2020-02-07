@@ -98,7 +98,7 @@ class BeLuckyParamFragment : Fragment() {
         dialogBuilder.setView(dialogView)
 
         //INIT
-        dialogView.text_info.text = ""
+        dialogView.text_info.text = getString(R.string.Belucky_description_content)
 
         //DISPLAY DIALOG
         val alertDialog = dialogBuilder.create()

@@ -7,9 +7,9 @@
     <!-- FragmentMain -->
     <string name="fragment_main_subtitle">Jeu d\'alcool</string>
     <string name="fragment_main_start_btn">Jouer</string>
-    <string name="fragment_main_delete_player_error">Vous ne pouvez, jouer à moins de 3 joueurs</string>
+    <string name="fragment_main_delete_player_error">Vous ne pouvez jouer à moins de 3 joueurs</string>
     <string name="fragment_main_player">Joueur </string>
-    <string name="share_txt">Hey, go télécharger AperoMix !! 🥳 Télécharge l\'app et crée toi un compte ! 🎊🎊 \n\n https://play.google.com/store/apps/details?id=com.supercell.clashroyale</string>
+    <string name="share_txt">Hey, go télécharger AperoMix !! 🥳 Télécharge l\'app et crée-toi un compte ! 🎊🎊 \n\n https://play.google.com/store/apps/details?id=com.supercell.clashroyale</string>
 
     <!-- FragmentLogin -->
     <string name="fragment_login_title">Connexion</string>
@@ -38,7 +38,7 @@
     <string name="fragment_register_register_success">Compte créé avec succès</string>
     <string name="fragment_register_register_faield">Le compte n\'a pas peu être créé</string>
     <string name="fragment_register_register_email_toats">Veuillez entrer une adresse mail valide.</string>
-    <string name="fragment_register_mustadult_toats">Vous devez avoir 18 ou plus pour utiliser cette application</string>
+    <string name="fragment_register_mustadult_toats">Vous devez avoir 18 ans ou plus pour utiliser cette application</string>
 
     <!-- UtilsAccountBasefragment -->
     <string name="basefragment_utils_account">Erreur  inconnue</string>
@@ -46,19 +46,19 @@
     <!-- BeLucky -->
     <string name="BeLuckyWelcome">Bienvenue à BeLucky Land, êtes-vous prêt pour une folle aventure ? \n\n &#127881;&#127866;&#128513;&#128513;&#127866;&#127881;</string>
 
-    <string name="BeLuckyCase2">Alors on lance comme une fille ? Aller relance ! &#128170;&#127922; </string>
+    <string name="BeLuckyCase2">Alors on lance comme une fille ? Allez relance ! &#128170;&#127922; </string>
     <string name="BeLuckyCase3">La partie commence bien pour toi ! Bois 2 gorgées et plus vite que ça ! &#127866;</string>
     <string name="BeLuckyCase4">Retour case départ pour toi ! &#128074; \nEt au passage bois 1 gorgée &#127866;</string>
     <string name="BeLuckyCase7">Retour case départ pour toi ! &#128074; \nEt au passage bois 1 gorgée &#127866;</string>
-    <string name="BeLuckyCase8">Bah dis donc, tu étais à deux doigts d\'arriver au tunnel &#128527; \nCa sera pour le prochain tour ! En attendant bois 3 gorgées ! &#127866;</string>
-    <string name="BeLuckyCase9">Hop là, pas si vite ! &#9995; \nSi tu veux aller de l\'autre côté tu dois d\'abord payer la taxe de tunnel. Bois 1 gorgée par joueur ayant déjà utilisé ce tunnel, si tu es le premier bois 2 gorgées pour le mettre en marche ! &#127866;</string>
+    <string name="BeLuckyCase8">Bah dis donc, tu étais à deux doigts d\'arriver au tunnel &#128527; \nÇa sera pour le prochain tour ! En attendant bois 3 gorgées ! &#127866;</string>
+    <string name="BeLuckyCase9">Hop là, pas si vite ! &#9995; \nSi tu veux aller de l\'autre côté tu dois d\'abord payer la taxe de tunnel. Bois 1 gorgée pour chaque joueur ayant déjà utilisé ce tunnel, si tu es le premier bois 2 gorgées pour le mettre en marche ! &#127866;</string>
     <string name="BeLuckyCase10">Bienvenue de l\'autre côté ! Tous les joueurs qui n\'ont pas encore pris le tunnel boivent une gorgée, à la vôtre les nazes ! &#127866;</string>
-    <string name="BeLuckyCase11">Aie aie aie ! \nJ\'en connais un(e) qui va pouvoir se venger de toutes les crasses que les autres joueurs lui ont faites ! &#128520; \ndistrubu 3 gorgées &#127866;</string>
-    <string name="BeLuckyCase12">Aie aie aie ! \nJ\'en connais un(e) qui va pouvoir se venger de toutes les crasses que les autres joueurs lui ont faites ! &#128520; \ndistrubu 4 gorgées &#127866;</string>
+    <string name="BeLuckyCase11">Aie aie aie ! \nJ\'en connais un(e) qui va pouvoir se venger de toutes les crasses que les autres joueurs lui ont faites ! &#128520; \nDistrubue 3 gorgées &#127866;</string>
+    <string name="BeLuckyCase12">Aie aie aie ! \nJ\'en connais un(e) qui va pouvoir se venger de toutes les crasses que les autres joueurs lui ont faites ! &#128520; \nDistrubue 4 gorgées &#127866;</string>
     <string name="BeLuckyCase15">Tu pensais peut-être gagner directement sans boire un dernier coup ? &#128514;&#128514; \nC\'est pas le genre de la maison, aller bois 3 gorgées &#127866;</string>
     <string name="BeLuckyCase16">Tu pensais peut-être gagner directement sans boire un dernier coup ? &#128514;&#128514; \nC\'est pas le genre de la maison, aller bois 4 gorgées &#127866;</string>
-    <string name="BeLuckyCase17">Aie ! Coup dur pour toi.. Tu retourne au tunnel, ca t\'apprendra à vouloir griller les étapes ! Bois 2 gorgées au passage &#127866;</string>
-    <string name="BeLuckyCase18">&#127881; BIEN JOUÉ &#127881; \n\nQui l\'eu cru, nous avons un gagnant ! Aller champion distribu aux joueurs de ton choix autant de gorgées qu\'il reste de joueur &#127866;</string>
+    <string name="BeLuckyCase17">Aie ! Coup dur pour toi.. Tu retournes au tunnel, ça t\'apprendra à vouloir griller les étapes ! Bois 2 gorgées au passage &#127866;</string>
+    <string name="BeLuckyCase18">&#127881; BIEN JOUÉ &#127881; \n\nQui l\'eu cru, nous avons un gagnant ! Allez champion distribue aux joueur de ton choix autant de gorgées qu\'il reste de joueurs &#127866;</string>
 
     <string name="BeLuckyCarde1">&#127808; Carte chance &#127808; \n\nAvance de 3 cases !</string>
     <string name="BeLuckyCarde2">&#127808; Carte chance &#127808; \n\nRecule de 3 cases !</string>
@@ -80,6 +80,8 @@
     <string name="BeLucky_30_minutes_1_heure">30 minutes à 1 heure</string>
     <string name="BeLucky_jouer">Jouer</string>
     <string name="BeLucky_description">Description :</string>
+
+    <string name="Belucky_description_content">Le BeLucky est un jeu de soirée, dans le style d\'un jeu de plateau. Le but du jeu est donc d\'arriver le plus vite possible sur la dernière case, pour cela il faudra éviter les cartes piège qui vous feront reculer !</string>
 
     <!-- PapinGame -->
 
@@ -135,7 +137,7 @@
     <string name="PapinRuleTitle20">JUSTE PRIX</string>
     <string name="PapinRule20">Le joueur choisit un objet et une caractéristique de son choix, les autres joueurs doivent deviner sa caractéristique, le plus éloigné boit. Ex : La taille de la tour Eiffel</string>
     <string name="PapinRuleTitle21">DUEL DE CHI FOU MI</string>
-    <string name="PapinRule21">Le joueur défi le joueur de son choix, le premier arriver à 3 manche gagnè gagne, c\'est donc l\'autre joueur qui boit</string>
+    <string name="PapinRule21">Le joueur défit le joueur de son choix, le premier arrivé à 3 manches remportées gagne, c\'est donc l\'autre joueur qui boit</string>
     <string name="papin_game_title">PAPIN GAME</string>
     <string name="PapinGame_compte_rebours">Compte à rebours</string>
 
@@ -143,11 +145,11 @@
 
     <string name="PmuGameNoMorecard">no more card</string>
     <string name="PmuGameScoreBoard">TABLEAU DES SCORES :</string>
-    <string name="PmuGameHowPlay">COMMENT JOUER :\n\nCliquer sur piocher, la carte tirée fera avancer une des cartes du milieu (sur laquelle vous avez misée). Une fois que toutes les cartes ont atteint le niveau des cartes se trouvant sur les côtés, celles-ci se dévoilent, celles de gauche font reculer et celles de droite avancer. Le but est de miser sur la carte qui arrive première \n\n1er : distribut le double de la mise \n\n2ème : distribut la mise \n\n3ème : boit la mise \n\n4ème : boit le double de la mise</string>
+    <string name="PmuGameHowPlay">COMMENT JOUER :\n\nCliquer sur piocher, la carte tirée fera avancer une des cartes du milieu (sur laquelle vous avez misée). Une fois que toutes les cartes ont atteint le niveau des cartes se trouvant sur les côtés, celles-ci se dévoilent, celles de gauche font reculer et celles de droite avancer. Le but est de miser sur la carte qui arrive première \n\n1er : distribue le double de la mise \n\n2ème : distribut la mise \n\n3ème : boit la mise \n\n4ème : boit le double de la mise</string>
     <string name="PmuGameGive">DONNE :</string>
     <string name="PmuGameTake">BOIS :</string>
     <string name="PmuGameDrinkNb">gorgée(s)\n</string>
-    <string name="PmuParamRule">Que faire ?\n\nCe jeu est un jeu de hasard. Miser le nombre de gorgées de votre choix sur la carte de votre choix. Une fois misé, buvez le nombre de gorgées que vous avez misé. Ensuite cliquez en haut à droite et laissez le jeu faire, vous découvrirez si vous avez misé sur les bons chevaux !</string>
+    <string name="PmuParamRule">Que faire ?\n\nCe jeu est un jeu de hasard. Miser le nombre de gorgées de votre choix sur la carte de votre choix. Une fois que vous avez misé, buvez le nombre de gorgées que vous avez misé. Ensuite cliquez en haut à droite et laissez le jeu faire, vous découvrirez si vous avez misé sur les bons chevaux !</string>
     <string name="SelectGamePapin">Papin Game</string>
     <string name="SelectGamePmu">Le PMU</string>
     <string name="SelectGameBeLucky">Be lucky Game</string>
@@ -161,7 +163,7 @@
     <string name="GameDetails_duration_papin">30 minute à 1 heure</string>
     <string name="GameDetails_duration_pmu">5 à 10 minutes</string>
 
-    <string name="GameDetails_desc_papin">Animez vos soirées avec le PapinGame, au menu : \n\n-Défis\n-Minijeux\n-Trahisons\n-Rigolades\n\nN\'hésitez pas à essayer le papinGame, laisser guider et vous ne verrez pas votre soirée passer ! \nPensez à activer l\'affichage multiple pour que tout le monde puisse voir au mieu !!!</string>
-    <string name="GameDetails_desc_pmu">Ce jeu est un jeu de hasard. Miser le nombre de gorgées de votre choix sur la carte de votre choix. Une fois misé, buvez le nombre de gorgées que vous avez misé. Ensuite cliquez en haut à droite et laissez le jeu faire, vous découvrirez si vous avez misé sur les bons chevaux !</string>
+    <string name="GameDetails_desc_papin">Animez vos soirées avec le PapinGame, au menu : \n\n-Défis\n-Minijeux\n-Trahisons\n-Rigolades\n\nN\'hésitez pas à essayer le papinGame, laisser vous guider et vous ne verrez pas votre soirée passer ! \nPensez à activer l\'affichage multiple pour que tout le monde puisse voir au mieux !!!</string>
+    <string name="GameDetails_desc_pmu">Ce jeu est un jeu de hasard. Miser le nombre de gorgées de votre choix sur la carte de votre choix. Une fois que vous avez misé, buvez le nombre de gorgées que vous avez misé. Ensuite cliquez en haut à droite et laissez le jeu faire, vous découvrirez si vous avez misé sur les bons chevaux !</string>
 
 </resources>

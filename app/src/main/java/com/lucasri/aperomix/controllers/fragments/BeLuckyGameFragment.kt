@@ -6,6 +6,7 @@ import android.os.CountDownTimer
 import android.view.*
 import android.view.animation.AnimationUtils
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.lucasri.aperomix.R
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.be_lucky_case_left.view.*
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.position1
 import kotlinx.android.synthetic.main.be_lucky_case_left.view.position10
 import kotlinx.android.synthetic.main.fragment_be_lucky_game.*
+import kotlinx.android.synthetic.main.info_dialog.view.*
 import kotlin.collections.ArrayList
 
 @Suppress("NAME_SHADOWING")
@@ -137,6 +139,7 @@ class BeLuckyGameFragment : Fragment(){
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
+            R.id.rule -> displayAlertDialog(getString(R.string.Belucky_description_content))
         }
         return super.onOptionsItemSelected(item)
     }
@@ -148,6 +151,20 @@ class BeLuckyGameFragment : Fragment(){
     // ---------------------
     // UTILS
     // ---------------------
+
+    private fun displayAlertDialog(message: String) {
+        val dialogBuilder = AlertDialog.Builder(context!!)
+        val inflater = this.layoutInflater
+        val dialogView = inflater.inflate(R.layout.info_dialog, null)
+        dialogBuilder.setView(dialogView)
+
+        //INIT
+        dialogView.text_info.text = message
+
+        //DISPLAY DIALOG
+        val alertDialog = dialogBuilder.create()
+        alertDialog.show()
+    }
 
     private fun initEndTurn(){
         namePlayer.text = playerList[iterator].playerName

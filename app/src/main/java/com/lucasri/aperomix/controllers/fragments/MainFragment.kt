@@ -119,7 +119,7 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
         val shareIntent = Intent()
         shareIntent.action = Intent.ACTION_SEND
         shareIntent.type = "text/plain"
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "test")
+        shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_txt))
         startActivity(Intent.createChooser(shareIntent, "Share..."))
     }
 
