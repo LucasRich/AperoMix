@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.lucasri.aperomix.R
 import com.lucasri.aperomix.controllers.fragments.BeLuckyParamFragment
+import com.lucasri.aperomix.controllers.fragments.EndGameFragment.Companion.ID_PAPIN_MODE
+import com.lucasri.aperomix.controllers.fragments.EndGameFragment.Companion.launchMode
 import com.lucasri.aperomix.controllers.fragments.PapinGameFragment
 import com.lucasri.aperomix.controllers.fragments.PmuParamFragment
 
@@ -72,9 +74,29 @@ class GameContainer : AppCompatActivity() {
     private fun leaveGame() {
         AlertDialog.Builder(this)
                 .setMessage("Êtes vous sûr de vouloir quitter la partie ?")
-                .setPositiveButton("Quitter") { dialog, which -> launchMainActivity() }
+                .setPositiveButton("Quitter") { dialog, which ->
+                    launchMainActivity()
+                    resetPapinGame()
+                }
                 .setNegativeButton("Annuler") { dialog, which -> }
                 .create().show()
+    }
+
+    private fun resetPapinGame(){
+        PapinGameFragment.ruleList.clear()
+        PapinGameFragment.passedRuleList.clear()
+
+        PapinGameFragment.playerCounter = 0
+        PapinGameFragment.navigationRulePlayerCounter = 0
+        PapinGameFragment.count = 0
+        PapinGameFragment.navigationRuleCount = 0
+        PapinGameFragment.random = 0
+        PapinGameFragment.previousRandomValue = 0
+
+        PapinGameFragment.infoRule = null
+        PapinGameFragment.previousRule = "null"
+
+        PapinGameFragment.papinGame = false
     }
 
     private fun launchFragmentPapinGame() {

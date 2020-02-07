@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.lucasri.aperomix.views.AperoMixEditText
+                android:id="@+id/fragment_register_email_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_edt"
+                android:hint="@string/fragment_register_email"
+                android:padding="15dp"
+                android:layout_margin="15dp"
+                android:inputType="textEmailAddress"/>
+
+            <EditText
+                android:id="@+id/fragment_register_pseudo_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_register_email_edt"
+                android:background="@drawable/background_edt"
+                android:hint="@string/fragment_register_pseudo"
+                android:padding="15dp"
+                android:layout_margin="15dp"
+                android:inputType="textCapSentences"/>
+
+            <TextView
+                android:id="@+id/fragment_register_info_password"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="15dp"
+                android:layout_below="@+id/fragment_register_pseudo_edt"
+                android:textColor="@android:color/black"
+                android:text="@string/fragment_register_password_info"
+                android:textSize="10dp"/>
+
+            <EditText
+                android:id="@+id/fragment_register_password_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_register_info_password"
+                android:background="@drawable/background_edt"
+                android:hint="@string/fragment_login_password"
+                android:padding="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                android:inputType="textPassword"/>
+
+            <EditText
+                android:id="@+id/fragment_register_confirmpassword_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_register_password_edt"
+                android:background="@drawable/background_edt"
+                android:hint="@string/fragment_register_confirmpassword"
+                android:padding="15dp"
+                android:layout_margin="15dp"
+                android:inputType="textPassword"/>
+
+            <TextView
+                android:id="@+id/fragment_register_birthday"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_register_confirmpassword_edt"
+                android:hint="@string/fragment_register_birthday"
+                android:padding="15dp"
+                android:textSize="18dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="15dp"
+                android:inputType="phone"/>
+
+            <DatePicker
+                android:id="@+id/fragment_register_datePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_register_birthday"
+                android:datePickerMode="spinner"
+                android:layout_marginTop="-20dp"
+                android:calendarViewShown="false"
+                android:layout_centerHorizontal="true"/>
+
+            <TextView
+                android:id="@+id/fragment_register_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_register_datePicker"
+                android:hint="@string/fragment_register_confirm"
+                android:textSize="14dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:inputType="phone"/>
+
+            <CheckBox
+                android:id="@+id/fragment_register_confirmadult_checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/fragment_register_datePicker"
+                android:layout_toRightOf="@id/fragment_register_confirm"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="15dp"/>
+
+            <Button
+                android:id="@+id/fragment_register_next_btn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_below="@id/fragment_register_confirmadult_checkBox"
+                android:background="@drawable/border_btn"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/fragment_register_next"
+                android:textAllCaps="false"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+    <ProgressBar
+        android:background="@android:color/white"
+        android:id="@+id/fragment_register_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:layout_centerInParent="true"
+        android:padding="50dp"
+        />
+
+</RelativeLayout>

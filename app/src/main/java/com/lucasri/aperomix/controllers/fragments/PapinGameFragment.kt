@@ -24,44 +24,49 @@ import com.lucasri.aperomix.controllers.fragments.EndGameFragment.Companion.laun
 
 class PapinGameFragment: Fragment(){
     private var mediaPlayer = MediaPlayer()
-
-    private val playerList = ArrayList<Player>()
-    private val ruleList = ArrayList<String>()
-    private val passedRuleList = ArrayList<String>()
-
-    private var playerCounter = 0
-    private var navigationRulePlayerCounter: Int = 0
-    private var passedRuleCounter: Int = 0
-    private var count = 0
-    private var navigationRuleCount: Int = 0
-    private var random: Int = 0
-    private var previousRandomValue: Int = 0
-
-    private var infoRule: String? = null
-    private var previousRule = "null"
-
-    private var doubleScreen: Boolean = false
-    private var boyAndGirl = true
-    private var papinGame = false
-
     private var textPop: Animation? = null
+    private var boyAndGirl = true
+    private var passedRuleCounter: Int = 0
+    private var doubleScreen: Boolean = false
+
+    companion object{
+        val playerList = ArrayList<Player>()
+
+        var ruleList = ArrayList<String>()
+        var passedRuleList = ArrayList<String>()
+
+        var playerCounter = 0
+        var navigationRulePlayerCounter: Int = 0
+        var count = 0
+        var navigationRuleCount: Int = 0
+        var random: Int = 0
+        var previousRandomValue: Int = 0
+
+        var infoRule: String? = null
+        var previousRule = "null"
+
+        var papinGame = false
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_papin_game, container, false)
         setHasOptionsMenu(true)
-        this.initPlayerList()
-
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        fragment_papin_game_rule_txt_single.text = getString(R.string.PapinBegin)
         textPop = loadAnimation(context!!, R.anim.item_animation_pop)
-
         this.initScreen()
         this.displayNavigationRule(false)
-        this.askBoyAndGirl()
-        this.initPlayerList()
+
+        if (count == 0){
+            fragment_papin_game_rule_txt_single.text = getString(R.string.PapinBegin)
+            this.askBoyAndGirl()
+            this.initPlayerList()
+        } else {
+            displayRule(passedRuleList[passedRuleList.size - 1])
+            displayCounter(count)
+        }
 
         fragment_papin_game_container.setOnClickListener {
             if (ruleList.isEmpty()) {
@@ -298,6 +303,23 @@ class PapinGameFragment: Fragment(){
     // UTILS
     // ---------------------
 
+    private fun newGame(){
+        ruleList.clear()
+        passedRuleList.clear()
+
+        playerCounter = 0
+        navigationRulePlayerCounter = 0
+        count = 0
+        navigationRuleCount = 0
+        random = 0
+        previousRandomValue = 0
+
+        infoRule = null
+        previousRule = "null"
+
+        papinGame = false
+    }
+
     private fun displayPapinGameRule (){
         fragment_papin_game_display_papin_game_rule_container.visibility = View.VISIBLE
         fragment_papin_game_display_papin_game_rule_understand.visibility = View.INVISIBLE
@@ -415,6 +437,7 @@ class PapinGameFragment: Fragment(){
         navigationRuleCount = 53
 
         launchMode = ID_PAPIN_MODE
+        newGame()
         launchFragmentEndGame()
     }
 

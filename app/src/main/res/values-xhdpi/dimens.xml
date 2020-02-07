@@ -14,5 +14,13 @@
     <dimen name="papin_btn_doubleScreen_textSize">20sp</dimen>
     <dimen name="papin_navigationArrow_marginTop">50dp</dimen>
     <dimen name="selectGame_title_textSize">30sp</dimen>
+    <dimen name="login_title_marginTop">100dp</dimen>
+    <dimen name="login_registerBtn_textSize">13sp</dimen>
+    <dimen name="login_title_textSize">50sp</dimen>
+    <dimen name="login_edtTxt_textSize">18sp</dimen>
+    <dimen name="login_loginBtn_height">60sp</dimen>
+
+    <dimen name="account_title_marginTop">20dp</dimen>
+    <dimen name="account_marginTop">60dp</dimen>
 
 </resources>

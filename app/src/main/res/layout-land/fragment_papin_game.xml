@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_papin_game_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_below="@+id/activity_game_container_toolbar"
+    android:background="@drawable/border_view">
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/fragment_papin_game_name_single"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/papin_game_title"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/papin_gameName"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:id="@+id/fragment_papin_game_btn_container_single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="5dp"
+            android:visibility="gone"
+            app:cardBackgroundColor="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/fragment_papin_game_double_screen_btn_single"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_mobile_double_screen_48dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/fragment_papin_game_navigate_btn_single"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_replay_black_48dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment_papin_game_btn_container_doubleScreen1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:visibility="gone"
+        android:layout_below="@+id/fragment_papin_game_counter_doubleScreen1">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/fragment_papin_game_double_screen_btn_doubleScreen1"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_mobile_single_screen_48dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/fragment_papin_game_navigate_btn_doubleScreen1"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_replay_black_48dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/fragment_papin_game_info_btn_doubleScreen1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/ic_info_48dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fragment_papin_game_btn_container_doubleScreen2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="30dp"
+        android:layout_above="@+id/fragment_papin_game_counter_doubleScreen2"
+        android:visibility="gone"
+        android:rotation="180">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/fragment_papin_game_double_screen_btn_doubleScreen2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_mobile_single_screen_48dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="5dp"
+            app:cardBackgroundColor="@color/colorPrimary">
+
+            <ImageView
+                android:id="@+id/fragment_papin_game_navigate_btn_doubleScreen2"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:padding="5dp"
+                android:src="@drawable/ic_replay_black_48dp"/>
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/fragment_papin_game_info_btn_doubleScreen2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="3dp"
+            android:layout_toLeftOf="@+id/fragment_papin_game_btn"
+            android:src="@drawable/ic_info_48dp"
+            />
+
+    </LinearLayout>
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/fragment_papin_game_rule_txt_doubleScreen1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fragment_papin_game_middle_view"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:visibility="gone"
+        android:textSize="@dimen/papin_ruleTxt_doubleScreen"/>
+
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/fragment_papin_game_rule_txt_doubleScreen2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:layout_above="@+id/fragment_papin_game_middle_view"
+        android:gravity="center"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/papin_ruleTxt_doubleScreen"
+        android:visibility="gone"
+        android:rotation="180"/>
+
+    <TextView
+        android:id="@+id/fragment_papin_game_counter_single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout="@+id/nameGameInverse"
+        android:layout_below="@id/fragment_papin_game_name_single"
+        android:layout_centerHorizontal="true"
+        android:text="1/52"
+        />
+
+    <TextView
+        android:id="@+id/fragment_papin_game_counter_doubleScreen1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout="@+id/nameGameInverse"
+        android:layout_below="@id/fragment_papin_game_middle_view"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:text="1/52"
+        />
+
+    <TextView
+        android:id="@+id/fragment_papin_game_counter_doubleScreen2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout="@+id/nameGameInverse"
+        android:layout_above="@id/fragment_papin_game_middle_view"
+        android:layout_centerHorizontal="true"
+        android:rotation="180"
+        android:visibility="gone"
+        android:text="1/52"
+        />
+
+    <RelativeLayout
+        android:id="@+id/fragment_papin_game_middle_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"
+        android:layout_centerVertical="true">
+
+        <com.lucasri.aperomix.views.AperoMixTextView
+            android:id="@+id/fragment_papin_game_name_doubleScreen2"
+            android:rotation="180"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/papin_game_title"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/papin_gameName"
+            android:visibility="gone"
+            android:textStyle="bold"/>
+
+        <com.lucasri.aperomix.views.AperoMixTextView
+            android:id="@+id/fragment_papin_game_name_doubleScreen1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:text="@string/papin_game_title"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:visibility="gone"
+            android:textSize="@dimen/papin_gameName"
+            />
+
+
+
+    </RelativeLayout>
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/fragment_papin_game_rule_txt_single"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/papin_game_rule_single" />
+
+    <View
+        android:id="@+id/line_double_screen"
+        android:layout_width="wrap_content"
+        android:layout_height="4dp"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:background="@color/colorPrimary" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/papin_navigationArrow_marginTop"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            app:srcCompat="@drawable/ic_arrow_left"
+            android:tint="@android:color/black"
+            android:id="@+id/fragment_papin_game_previous_rule_single"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentLeft="true"/>
+
+        <ImageView
+            app:srcCompat="@drawable/ic_arrow_right"
+            android:tint="@android:color/black"
+            android:id="@+id/fragment_papin_game_next_rule_single"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_below="@+id/fragment_papin_game_counter_doubleScreen1">
+
+        <ImageView
+            android:id="@+id/fragment_papin_game_previous_rule_doubleScreen1"
+            app:srcCompat="@drawable/ic_arrow_left"
+            android:tint="@android:color/black"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"/>
+
+        <ImageView
+            android:id="@+id/fragment_papin_game_next_rule_doubleScreen1"
+            app:srcCompat="@drawable/ic_arrow_right"
+            android:tint="@android:color/black"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_above="@+id/fragment_papin_game_counter_doubleScreen2">
+
+        <ImageView
+            android:id="@+id/fragment_papin_game_next_rule_doubleScreen2"
+            app:srcCompat="@drawable/ic_arrow_left"
+            android:tint="@android:color/black"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"/>
+
+        <ImageView
+            android:id="@+id/fragment_papin_game_previous_rule_doubleScreen2"
+            app:srcCompat="@drawable/ic_arrow_right"
+            android:tint="@android:color/black"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/fragment_papin_game_bottom_btn_single"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:background="@drawable/border_btn"
+        android:layout_alignParentBottom="true"
+        android:text="@string/PapinGame_compte_rebours"
+        android:textSize="@dimen/TextSizeButton"
+        android:textColor="@android:color/black"
+        android:padding="10dp"
+        />
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/fragment_papin_game_bottom_btn_doubleScreen1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/papin_btn_doubleScreen_height"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/papin_btn_doubleScreen_margin"
+        android:text="@string/PapinGame_compte_rebours"
+        android:textSize="@dimen/papin_btn_doubleScreen_textSize"
+        android:textColor="@android:color/black"
+        android:padding="5dp"
+        android:visibility="gone"
+        />
+
+    <com.lucasri.aperomix.views.AperoMixTextView
+        android:id="@+id/fragment_papin_game_bottom_btn_doubleScreen2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/papin_btn_doubleScreen_height"
+        android:gravity="center"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/papin_btn_doubleScreen_margin"
+        android:text="@string/PapinGame_compte_rebours"
+        android:textSize="@dimen/papin_btn_doubleScreen_textSize"
+        android:textColor="@android:color/black"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:rotation="180"
+        />
+
+    <ImageView
+        android:id="@+id/fragment_papin_game_info_btn_single"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_info_48dp"
+        android:layout_toLeftOf="@+id/fragment_papin_game_btn_container_single"
+        android:layout_marginTop="24dp"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_papin_game_display_papin_game_rule_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="200dp"
+        android:layout_marginRight="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="10dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.lucasri.aperomix.views.AperoMixTextView
+                android:id="@+id/fragment_papin_game_display_papin_game_rule_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Règle du papin Game"
+                android:padding="10dp"
+                android:textColor="@android:color/black"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:textSize="30dp"/>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/fragment_papin_game_display_papin_game_rule__viewPager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fragment_papin_game_display_papin_game_rule_title"
+                android:layout_above="@+id/fragment_papin_game_display_papin_game_rule_understand"
+                />
+
+            <com.lucasri.aperomix.views.AperoMixTextView
+                android:id="@+id/fragment_papin_game_display_papin_game_rule_understand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:text="C'est compris !"
+                android:padding="10dp"
+                android:layout_centerHorizontal="true"
+                android:textColor="@android:color/black"
+                android:textSize="30dp"
+                />
+
+        </RelativeLayout>
+
+
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
