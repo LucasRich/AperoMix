@@ -1,6 +1,5 @@
 package com.lucasri.aperomix.controllers.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,15 +12,14 @@ import com.lucasri.aperomix.controllers.activities.MainActivity
 import com.lucasri.aperomix.controllers.activities.MainActivity.Companion.afterGame
 import com.lucasri.aperomix.database.injection.UserViewModelFactory
 import com.lucasri.aperomix.database.repository.UserDataRepository
-import com.lucasri.aperomix.utils.SharedPref
+import com.lucasri.aperomix.utils.launchActivity
 import com.lucasri.aperomix.view.UserViewModel
 import kotlinx.android.synthetic.main.fragment_end_game.*
 import java.util.concurrent.Executors
-import javax.annotation.meta.When
 
 class EndGameFragment : Fragment() {
 
-    lateinit var userViewModel: UserViewModel
+    private lateinit var userViewModel: UserViewModel
     lateinit var auth: FirebaseAuth
 
     companion object{
@@ -49,7 +47,7 @@ class EndGameFragment : Fragment() {
 
         fragment_end_game_btn.setOnClickListener {
             afterGame = true
-            launchMainActivity()
+            context!!.launchActivity(MainActivity())
         }
     }
 
@@ -79,29 +77,32 @@ class EndGameFragment : Fragment() {
     }
 
     private fun papinGameMode(){
-        fragment_end_game_GameName.text = "PAPIN GAME"
+        //Init views
+        fragment_end_game_GameName.text = getString(R.string.endGame_gameName_papin)
         fragment_end_game_message.textSize = 60F
         fragment_end_game_message.text = getString(R.string.PapinEndGame)
+
+        //Increment game counter
         gameCounterIncrementation("PAPIN")
     }
 
     private fun pmuMode(){
-        fragment_end_game_GameName.text = "Le PMU"
+        //Init views
+        fragment_end_game_GameName.text = getString(R.string.endGame_gameName_PMU)
         fragment_end_game_message.textSize = 20F
         fragment_end_game_message.text = messageToDisplay
+
+        //Increment game counter
         gameCounterIncrementation("PMU")
     }
 
     private fun beLuckyGameMode(){
-        fragment_end_game_GameName.text = "BE LUCKY GAME"
+        //Init views
+        fragment_end_game_GameName.text = getString(R.string.endGame_gameName_BeLucky)
         fragment_end_game_message.textSize = 60F
         fragment_end_game_message.text = getString(R.string.PapinEndGame)
+
+        //Increment game counter
         gameCounterIncrementation("BELUCKY")
     }
-
-    private fun launchMainActivity() {
-        val myIntent: Intent = Intent(activity, MainActivity::class.java)
-        this.startActivity(myIntent)
-    }
-
 }

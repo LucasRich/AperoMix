@@ -1,6 +1,5 @@
 package com.lucasri.aperomix.controllers.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,7 +14,7 @@ import com.lucasri.aperomix.controllers.activities.AccountActivity
 import com.lucasri.aperomix.controllers.activities.RegisterActivity
 import com.lucasri.aperomix.database.injection.UserViewModelFactory
 import com.lucasri.aperomix.database.repository.UserDataRepository
-import com.lucasri.aperomix.utils.SharedPref
+import com.lucasri.aperomix.utils.launchActivity
 import com.lucasri.aperomix.utils.toast
 import com.lucasri.aperomix.view.UserViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
@@ -34,30 +33,16 @@ class LoginFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
         this.configureViewModel()
-        SharedPref.init(context!!)
 
         fragment_login_login_btn.setOnClickListener {
             if (fragment_login_email_edt.text.toString() != "" && fragment_login_password_edt.text.toString() != ""){
-                this.displayProgressBarLayout(true)
-                auth.signInWithEmailAndPassword(fragment_login_email_edt.text.toString(), fragment_login_password_edt.text.toString())
-                        .addOnCompleteListener(activity!!) { task ->
-                            if (task.isSuccessful) {
-                                Log.d(Constraints.TAG, "signInWithEmail:success")
-                                context!!.toast(getString(R.string.fragmentLoginSucess))
-                                AccountActivity.launchMode = "LOGIN"
-                                SharedPref.write(SharedPref.currentUserUid, auth.currentUser!!.uid)
-                                launchAccountActivity()
-                            } else {
-                                Log.w(Constraints.TAG, "signInWithEmail:failure", task.exception)
-                                displayProgressBarLayout(false)
-                                context!!.toast(getString(R.string.LoginActivity_login_faield))
-                            }
-                        }
+                displayProgressBarLayout(true)
+                singIn(fragment_login_email_edt.text.toString(), fragment_login_password_edt.text.toString())
             } else context!!.toast(getString(R.string.LoginActivity_input_empty))
         }
 
         fragment_login_register_btn.setOnClickListener {
-            launchRegisterActivity()
+            context!!.launchActivity(RegisterActivity())
         }
     }
 
@@ -74,21 +59,21 @@ class LoginFragment : Fragment(){
     // UTILS
     // ---------------------
 
-    private fun displayProgressBarLayout(enable: Boolean){
-        if (enable) {
-            fragment_login_progressBar.visibility = View.VISIBLE
-        } else {
-            fragment_login_progressBar.visibility = View.GONE
+    private fun singIn(email: String?, password: String?){
+        auth.signInWithEmailAndPassword(email!!, password!!).addOnCompleteListener(activity!!) { task ->
+            if (task.isSuccessful) {
+                Log.d(Constraints.TAG, "signInWithEmail:success")
+                context!!.toast(getString(R.string.fragmentLoginSucess))
+                context!!.launchActivity(AccountActivity())
+            } else {
+                Log.w(Constraints.TAG, "signInWithEmail:failure", task.exception)
+                displayProgressBarLayout(false)
+                context!!.toast(getString(R.string.LoginActivity_login_faield))
+            }
         }
     }
 
-    private fun launchRegisterActivity() {
-        val myIntent: Intent = Intent(context, RegisterActivity::class.java)
-        this.startActivity(myIntent)
-    }
-
-    private fun launchAccountActivity() {
-        val myIntent: Intent = Intent(context, AccountActivity::class.java)
-        this.startActivity(myIntent)
+    private fun displayProgressBarLayout(enable: Boolean){
+        if (enable) fragment_login_progressBar.visibility = View.VISIBLE else fragment_login_progressBar.visibility = View.GONE
     }
 }

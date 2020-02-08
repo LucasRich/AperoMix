@@ -15,11 +15,7 @@ class UserViewModel(private val userDataSource: UserDataRepository, private val 
     // INSERT
     // -------------------
 
-    fun createUserInFirestore(user: User): String{
-        var result = ""
-        executor.execute { result = userDataSource.createUserInFirestore(user) }
-        return result
-    }
+    fun createUserInFirestore(user: User){ executor.execute { userDataSource.createUserInFirestore(user) } }
 
     // -------------------
     // GET
@@ -27,10 +23,6 @@ class UserViewModel(private val userDataSource: UserDataRepository, private val 
 
     fun getUser(uid: String): Task<DocumentSnapshot>{
         return userDataSource.getUser(uid)
-    }
-
-    fun getAllUser(): Task<QuerySnapshot> {
-        return userDataSource.getAllUser()
     }
 
     // -------------------

@@ -25,7 +25,7 @@
                 android:resource="@xml/provider_paths"/>
         </provider>
 
-        <activity android:name=".controllers.activities.GameContainer"
+        <activity android:name=".controllers.activities.GameContainerActivity"
             android:parentActivityName=".controllers.activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

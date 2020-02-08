@@ -18,23 +18,15 @@ class UserDataRepository() {
     // INSERT
     // -------------------
 
-    fun createUserInFirestore(user: User): String {
-        var returnValue = "null"
+    fun createUserInFirestore(user: User){
         getUsersCollection().document(user.uid!!)
             .get().addOnCompleteListener { task ->
                 if (task.isSuccessful) {
                     val document = task.result
                     if (document!!.exists()) {
-                        returnValue = "Account already exist"
-                    } else {
-                        getUsersCollection().document(user.uid!!).set(user)
-                        returnValue = "success"
-                        }
-                } else {
-                    returnValue = "get failed with ${task.exception}"
+                    } else getUsersCollection().document(user.uid!!).set(user)
                 }
             }
-        return returnValue
     }
 
     // -------------------

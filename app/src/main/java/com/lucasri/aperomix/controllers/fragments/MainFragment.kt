@@ -13,8 +13,11 @@ import com.lucasri.aperomix.models.Player
 import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import com.lucasri.aperomix.controllers.activities.AccountActivity
+import com.lucasri.aperomix.controllers.activities.GameContainerActivity
+import com.lucasri.aperomix.utils.launchActivity
+import com.lucasri.aperomix.utils.launchFragment
 import com.lucasri.aperomix.utils.toast
-
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
@@ -32,8 +35,6 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        this.configureViewPager()
-
         this.initPlayerList()
         this.configureRecyclerView(true)
 
@@ -42,12 +43,11 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
         }
 
         fragment_main_addPlayer.setOnClickListener {
-            btnAddAnimation()
             addPlayer()
         }
 
         fragment_main_account_btn.setOnClickListener {
-            launchAccountActivity()
+            context!!.launchActivity(AccountActivity())
         }
 
         fragment_main_share_btn.setOnClickListener {
@@ -68,10 +68,6 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
     // ---------------------
     // CONFIGURATION
     // ---------------------
-
-    private fun configureViewPager() {
-        //activity_main_viewpager.adapter = DisplayImgViewPagerAdapter(activity!!.supportFragmentManager)
-    }
 
     private fun configureRecyclerView(animation: Boolean) {
         //INIT
@@ -120,16 +116,16 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
         shareIntent.action = Intent.ACTION_SEND
         shareIntent.type = "text/plain"
         shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.share_txt))
-        startActivity(Intent.createChooser(shareIntent, "Share..."))
+        startActivity(Intent.createChooser(shareIntent, "Share"))
     }
 
     private fun addPlayer() {
+        btnAddAnimation()
         val player = Player()
         var iterator = 1
 
-        do {
-            if (playerListSameName(getString(R.string.fragment_main_player) + " $iterator")) iterator++
-        } while (playerListSameName(getString(R.string.fragment_main_player) + " $iterator"))
+        //check if the player does not already exist
+        do if (playerListSameName(getString(R.string.fragment_main_player) + " $iterator")) iterator++ while (playerListSameName(getString(R.string.fragment_main_player) + " $iterator"))
 
         player.playerName = getString(R.string.fragment_main_player) + " $iterator"
         playerList.add(player)
@@ -145,14 +141,6 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
     }
 
     private fun launchSelectGameFragment() {
-        val fragment = SelectGameFragment()
-        val transaction = activity!!.supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.activity_main_frame, fragment)
-        transaction.commit()
-    }
-
-    private fun launchAccountActivity() {
-        val myIntent: Intent = Intent(context!!, AccountActivity::class.java)
-        this.startActivity(myIntent)
+        activity!!.supportFragmentManager.beginTransaction().replace(R.id.activity_main_frame, SelectGameFragment()).commit()
     }
 }

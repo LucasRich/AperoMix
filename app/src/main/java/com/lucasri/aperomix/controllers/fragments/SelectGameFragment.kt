@@ -14,12 +14,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import android.view.animation.AnimationUtils
 import com.lucasri.aperomix.controllers.activities.MainActivity
 import com.lucasri.aperomix.utils.ItemClickSupport
+import com.lucasri.aperomix.utils.launchActivity
 
 
 class SelectGameFragment : Fragment() {
 
     private var adapter: SelectGameAdapter? = null
-    var gameList = mutableListOf<Game>()
+    private var gameList = mutableListOf<Game>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_select_game, container, false)
@@ -31,7 +32,7 @@ class SelectGameFragment : Fragment() {
         this.configureRecyclerView()
 
         fragment_select_game_upBtn.setOnClickListener {
-            launchMainActivity()
+            context!!.launchActivity(MainActivity())
         }
     }
 
@@ -54,9 +55,7 @@ class SelectGameFragment : Fragment() {
         ItemClickSupport.addTo(fragment_select_game_recycler_view, R.layout.fragment_select_game_item)
                 .setOnItemClickListener { recyclerView, position, v ->
                     GameDetailsFragment.gameName = gameList[position].name
-                    GameDetailsFragment
-                            .newInstance()
-                            .show(activity!!.supportFragmentManager, "DETAILS_GAMES")
+                    GameDetailsFragment().show(activity!!.supportFragmentManager, "DETAILS_GAMES")
                 }
     }
 
@@ -64,14 +63,5 @@ class SelectGameFragment : Fragment() {
         gameList.add(Game(getString(R.string.SelectGamePapin), R.drawable.logo_v1))
         gameList.add(Game(getString(R.string.SelectGamePmu), R.drawable.logo_v1))
         gameList.add(Game(getString(R.string.SelectGameBeLucky), R.drawable.logo_v1))
-    }
-
-    // ---------------------
-    // UTILS
-    // ---------------------
-
-    private fun launchMainActivity() {
-        val myIntent: Intent = Intent(activity, MainActivity::class.java)
-        this.startActivity(myIntent)
     }
 }

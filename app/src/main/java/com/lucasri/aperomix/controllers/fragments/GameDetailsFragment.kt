@@ -9,7 +9,9 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.Nullable
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.lucasri.aperomix.controllers.activities.GameContainer
+import com.lucasri.aperomix.controllers.activities.GameContainerActivity
+import com.lucasri.aperomix.controllers.activities.GameContainerActivity.Companion.launchMode
+import com.lucasri.aperomix.utils.launchActivity
 import com.lucasri.aperomix.view.adapter.GameDetailsAdapter
 import kotlinx.android.synthetic.main.fragment_game_details.*
 
@@ -17,13 +19,8 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
 
     private var adapter: GameDetailsAdapter? = null
 
-    // FOR CONSTRUCTING
     companion object {
         var gameName : String? = null
-
-        fun newInstance(): GameDetailsFragment {
-            return GameDetailsFragment()
-        }
     }
 
     @Nullable
@@ -32,17 +29,11 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
     }
 
     override fun onViewCreated(view: View, @Nullable savedInstanceState: Bundle?) {
-
-        fragment_details_games_title.text = gameName
-
-        when(gameName){
-            "Papin Game" -> papinGameMode()
-            "Le PMU" -> pmuGameMode()
-            "Be lucky Game" -> beLuckyGameMode()
-        }
+        initView()
 
         fragment_details_games_playBtn.setOnClickListener {
-            launchGame(gameName!!, view)
+            launchMode = gameName
+            context!!.launchActivity(GameContainerActivity())
         }
     }
 
@@ -61,7 +52,18 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
     // UTILS
     // ---------------------
 
+    private fun initView(){
+        fragment_details_games_title.text = gameName
+
+        when(gameName){
+            "Papin Game" -> papinGameMode()
+            "Le PMU" -> pmuGameMode()
+            "Be lucky Game" -> beLuckyGameMode()
+        }
+    }
+
     private fun beLuckyGameMode(){
+        //Init views
         fragment_details_games_nbPlayer.text = getString(R.string.GameDetails_nbPlayer_papin)
         fragment_details_games_duration.text = getString(R.string.GameDetails_duration_papin)
         configureRecyclerView(getBeLuckyPictureList())
@@ -69,6 +71,7 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
     }
 
     private fun papinGameMode(){
+        //Init views
         fragment_details_games_nbPlayer.text = getString(R.string.GameDetails_nbPlayer_papin)
         fragment_details_games_duration.text = getString(R.string.GameDetails_duration_papin)
         configureRecyclerView(getPapinPictureList())
@@ -76,6 +79,7 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
     }
 
     private fun pmuGameMode(){
+        //Init views
         fragment_details_games_nbPlayer.text = getString(R.string.GameDetails_nbPlayer_pmu)
         fragment_details_games_duration.text = getString(R.string.GameDetails_duration_pmu)
         configureRecyclerView(getPmuPictureList())
@@ -83,6 +87,7 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
     }
 
     private fun getPapinPictureList(): ArrayList<Int>{
+        //Init pictures list
         val pictureList = ArrayList<Int>()
         pictureList.add(R.drawable.img_papin_1)
         pictureList.add(R.drawable.img_papin_2)
@@ -94,6 +99,7 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
     }
 
     private fun getPmuPictureList(): ArrayList<Int>{
+        //Init pictures list
         val pictureList = ArrayList<Int>()
         pictureList.add(R.drawable.img_pmu_1)
         pictureList.add(R.drawable.img_pmu_2)
@@ -106,6 +112,7 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
     }
 
     private fun getBeLuckyPictureList(): ArrayList<Int>{
+        //Init pictures list
         val pictureList = ArrayList<Int>()
         pictureList.add(R.drawable.img_belucky_1)
         pictureList.add(R.drawable.img_belucky_2)
@@ -116,16 +123,4 @@ class GameDetailsFragment : BottomSheetDialogFragment(){
 
         return pictureList
     }
-
-    private fun launchGame(gameTitle: String, viewClicked: View) {
-
-        val myIntent = Intent(context, GameContainer::class.java)
-        val bundle = Bundle()
-
-        bundle.putString("startParameter", gameTitle)
-        myIntent.putExtras(bundle)
-
-        startActivity(myIntent)
-    }
-
 }

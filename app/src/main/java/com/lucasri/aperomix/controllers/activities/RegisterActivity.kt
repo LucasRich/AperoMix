@@ -6,12 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.lucasri.aperomix.R
 import com.lucasri.aperomix.controllers.fragments.RegisterFragment
-import com.lucasri.aperomix.utils.addFragment
+import com.lucasri.aperomix.utils.launchFragment
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity(){
 
-    private var toolbar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +18,7 @@ class RegisterActivity : AppCompatActivity(){
 
         this.configureToolbar()
 
-        addFragment(RegisterFragment.newInstance(), activity_register_frame.id)
+        launchFragment(RegisterFragment(), activity_register_frame.id)
     }
 
     // ---------------------
@@ -27,9 +26,7 @@ class RegisterActivity : AppCompatActivity(){
     // ---------------------
 
     private fun configureToolbar() {
-        this.toolbar = findViewById<View>(R.id.activity_register_toolbar) as Toolbar
-        setSupportActionBar(toolbar)
-        val ab = supportActionBar
-        ab!!.setDisplayHomeAsUpEnabled(true)
+        setSupportActionBar(activity_register_toolbar as Toolbar)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 }

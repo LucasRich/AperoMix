@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controllers.activities.GameContainer"
+    tools:context=".controllers.activities.GameContainerActivity"
     android:background="@drawable/border_view"
     android:layout_below="@+id/activity_game_container_toolbar"
     android:paddingTop="50dp">

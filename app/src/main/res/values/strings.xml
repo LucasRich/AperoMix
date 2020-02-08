@@ -162,8 +162,17 @@
     <string name="GameDetails_nbPlayer_pmu">A partir de 3 joueurs</string>
     <string name="GameDetails_duration_papin">30 minute à 1 heure</string>
     <string name="GameDetails_duration_pmu">5 à 10 minutes</string>
+    <string name="endGame_gameName_papin">PAPIN GAME</string>
+    <string name="endGame_gameName_PMU">Le PMU</string>
+    <string name="endGame_gameName_BeLucky">BE LUCKY GAME</string>
 
     <string name="GameDetails_desc_papin">Animez vos soirées avec le PapinGame, au menu : \n\n-Défis\n-Minijeux\n-Trahisons\n-Rigolades\n\nN\'hésitez pas à essayer le papinGame, laisser vous guider et vous ne verrez pas votre soirée passer ! \nPensez à activer l\'affichage multiple pour que tout le monde puisse voir au mieux !!!</string>
     <string name="GameDetails_desc_pmu">Ce jeu est un jeu de hasard. Miser le nombre de gorgées de votre choix sur la carte de votre choix. Une fois que vous avez misé, buvez le nombre de gorgées que vous avez misé. Ensuite cliquez en haut à droite et laissez le jeu faire, vous découvrirez si vous avez misé sur les bons chevaux !</string>
+
+    <!-- GameContainerActivity -->
+
+    <string name="GameContainer_leave_message">Êtes vous sûr de vouloir quitter la partie ?</string>
+    <string name="GameContainer_leave">Quitter</string>
+    <string name="GameContainer_cancel">Annuler</string>
 
 </resources>

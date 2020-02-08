@@ -36,14 +36,15 @@ class PapinGameFragment: Fragment(){
         var passedRuleList = ArrayList<String>()
 
         var playerCounter = 0
-        var navigationRulePlayerCounter: Int = 0
         var count = 0
-        var navigationRuleCount: Int = 0
-        var random: Int = 0
-        var previousRandomValue: Int = 0
+        var random = 0
+
+        var navigationPlayerCounter = 0
+        var navigationCount = 0
 
         var infoRule: String? = null
-        var previousRule = "null"
+        var previousRule: String? = null
+        var previousRandomValue = 0
 
         var papinGame = false
     }
@@ -59,41 +60,28 @@ class PapinGameFragment: Fragment(){
         this.initScreen()
         this.displayNavigationRule(false)
 
-        if (count == 0){
-            fragment_papin_game_rule_txt_single.text = getString(R.string.PapinBegin)
-            this.askBoyAndGirl()
-            this.initPlayerList()
-        } else {
-            displayRule(passedRuleList[passedRuleList.size - 1])
-            displayCounter(count)
-        }
+        if (count == 0) startGame() else resumeGame()
 
         fragment_papin_game_container.setOnClickListener {
-            if (ruleList.isEmpty()) {
-                InitGame.initRuleList(ruleList, boyAndGirl)
-            }
+            //Init rule list
+            if (ruleList.isEmpty()) InitGame.initRuleList(ruleList, boyAndGirl)
 
-            if (count == navigationRuleCount) {
-                displayNavigationRule(false)
-                count++
-                navigationRuleCount = count
-
+            if (count == navigationCount) {
                 if (count < 53) {
+                    displayNavigationRule(false)
+                    count++
+                    navigationCount = count
                     displayCounter(count)
 
                     if (playerList.isNotEmpty()) {
                         displayPlayerName(playerList[playerCounter].playerName)
-                        navigationRulePlayerCounter = playerCounter
+                        navigationPlayerCounter = playerCounter
                         playerCounter++
 
-                        if (playerCounter == playerList.size) {
-                            playerCounter = 0
-                        }
+                        if (playerCounter == playerList.size) playerCounter = 0
                     }
                     play()
-                } else {
-                    gameFinish()
-                }
+                } else gameFinish()
                 passedRuleCounter = passedRuleList.size - 1
             } else {
                 context!!.longToast(getString(R.string.Papin_error1))
@@ -137,15 +125,15 @@ class PapinGameFragment: Fragment(){
         }
 
         fragment_papin_game_bottom_btn_single.setOnClickListener {
-            if (count > 52) launchMainActivity() else playCountDown()
+            playCountDown()
         }
 
         fragment_papin_game_bottom_btn_doubleScreen1.setOnClickListener {
-            if (count > 52) launchMainActivity() else playCountDown()
+            playCountDown()
         }
 
         fragment_papin_game_bottom_btn_doubleScreen2.setOnClickListener {
-            if (count > 52) launchMainActivity() else playCountDown()
+            playCountDown()
         }
 
         fragment_papin_game_double_screen_btn_single.setOnClickListener {
@@ -216,14 +204,14 @@ class PapinGameFragment: Fragment(){
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            com.lucasri.aperomix.R.id.doubleScreen -> {
+            R.id.doubleScreen -> {
                 if (count != 0) {
-                    if (!doubleScreen) {
+                    doubleScreen = if (!doubleScreen) {
                         doubleScreen()
-                        doubleScreen = true
+                        true
                     } else {
                         initScreen()
-                        doubleScreen = false
+                        false
                     }
                 } else {
                     context!!.longToast(getString(R.string.Papin_error2))
@@ -303,20 +291,30 @@ class PapinGameFragment: Fragment(){
     // UTILS
     // ---------------------
 
+    private fun startGame(){
+        fragment_papin_game_rule_txt_single.text = getString(R.string.PapinBegin)
+        this.askBoyAndGirl()
+        this.initPlayerList()
+    }
+
+    private fun resumeGame(){
+        displayRule(passedRuleList[passedRuleList.size - 1])
+        displayCounter(count)
+    }
+
     private fun newGame(){
         ruleList.clear()
         passedRuleList.clear()
 
         playerCounter = 0
-        navigationRulePlayerCounter = 0
+        navigationPlayerCounter = 0
         count = 0
-        navigationRuleCount = 0
+        navigationCount = 0
         random = 0
         previousRandomValue = 0
 
         infoRule = null
-        previousRule = "null"
-
+        previousRule = null
         papinGame = false
     }
 
@@ -387,32 +385,45 @@ class PapinGameFragment: Fragment(){
 
     private fun displayPreviousRule() {
         if (passedRuleCounter > 0) {
-            navigationRulePlayerCounter--
 
-            if (navigationRulePlayerCounter < 0) navigationRulePlayerCounter = playerList.size - 1
-
-            displayPlayerName(playerList[navigationRulePlayerCounter].playerName)
+            //Incrementation
+            navigationPlayerCounter--
             passedRuleCounter--
+            navigationCount--
+
+            //Scroll the player list upside down
+            if (navigationPlayerCounter < 0) navigationPlayerCounter = playerList.size - 1
+
+            displayPlayerName(playerList[navigationPlayerCounter].playerName)
             displayRule(passedRuleList[passedRuleCounter])
+            displayCounter(navigationCount)
+
+            //init display info
             initRuleInfo(passedRuleList[passedRuleCounter])
-            navigationRuleCount--
-            displayCounter(navigationRuleCount)
         }
     }
 
     private fun displayNextRule() {
         if (passedRuleCounter < passedRuleList.size - 1) {
-            navigationRulePlayerCounter++
 
-            if (navigationRulePlayerCounter > playerList.size - 1) navigationRulePlayerCounter = 0
-
-            displayPlayerName(playerList[navigationRulePlayerCounter].playerName)
+            //Incrementation
+            navigationPlayerCounter++
             passedRuleCounter++
+            navigationCount++
+
+            //Scroll the player list
+            if (navigationPlayerCounter > playerList.size - 1) navigationPlayerCounter = 0
+
+            //Display
+            displayPlayerName(playerList[navigationPlayerCounter].playerName)
             displayRule(passedRuleList[passedRuleCounter])
+            displayCounter(navigationCount)
+
+            //init display info
             initRuleInfo(passedRuleList[passedRuleCounter])
-            navigationRuleCount++
-            displayCounter(navigationRuleCount)
+
         } else {
+            //Back to the game
             displayNavigationRule(false)
             displayAlertDialog(getString(R.string.PapinResumeGame))
         }
@@ -434,7 +445,7 @@ class PapinGameFragment: Fragment(){
 
     private fun gameFinish() {
         count = 53
-        navigationRuleCount = 53
+        navigationCount = 53
 
         launchMode = ID_PAPIN_MODE
         newGame()
@@ -564,11 +575,6 @@ class PapinGameFragment: Fragment(){
             getString(R.string.PapinRuleTitle20) -> infoRule = getString(R.string.PapinRule20)
             getString(R.string.PapinRuleTitle21) -> infoRule = getString(R.string.PapinRule21)
         }
-    }
-
-    private fun launchMainActivity() {
-        val myIntent: Intent = Intent(activity, MainActivity::class.java)
-        this.startActivity(myIntent)
     }
 
     private fun launchFragmentEndGame() {

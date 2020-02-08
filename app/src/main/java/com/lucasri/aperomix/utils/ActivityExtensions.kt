@@ -1,28 +1,23 @@
 package com.lucasri.aperomix.utils
 
-import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.lucasri.aperomix.R
 
 inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
     beginTransaction().func().commit()
 }
 
-fun AppCompatActivity.addFragment(fragment: Fragment, frameId: Int){
-    supportFragmentManager.inTransaction { add(frameId, fragment) }
+fun AppCompatActivity.launchFragment(fragment: Fragment, frameId: Int){
+    supportFragmentManager.inTransaction { replace(frameId, fragment) }
 }
 
-fun AppCompatActivity.replaceFragment(fragment: Fragment, frameId: Int) {
-    supportFragmentManager.inTransaction{replace(frameId, fragment)}
-}
+fun Context.launchActivity(activity: AppCompatActivity) { this.startActivity(Intent(this, activity::class.java)) }
 
 fun Context.toast(message: CharSequence) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 
@@ -51,3 +46,4 @@ fun random(min: Int, max: Int): Int {
 
     return nbRandom.toInt()
 }
+

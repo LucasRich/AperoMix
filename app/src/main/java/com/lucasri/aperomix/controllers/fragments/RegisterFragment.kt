@@ -1,7 +1,5 @@
 package com.lucasri.aperomix.controllers.fragments
 
-import android.content.ContentValues.TAG
-import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -14,27 +12,19 @@ import android.widget.RelativeLayout
 import androidx.constraintlayout.widget.Constraints
 import com.google.firebase.auth.FirebaseAuth
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.controllers.activities.MainActivity
 import com.lucasri.aperomix.utils.toast
 import kotlinx.android.synthetic.main.fragment_register.*
 import android.widget.DatePicker
-import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.google.firebase.FirebaseException
-import com.google.firebase.FirebaseTooManyRequestsException
-import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthProvider
 import com.lucasri.aperomix.controllers.activities.AccountActivity
 import com.lucasri.aperomix.database.injection.UserViewModelFactory
 import com.lucasri.aperomix.database.repository.UserDataRepository
 import com.lucasri.aperomix.models.User
-import com.lucasri.aperomix.utils.SharedPref
+import com.lucasri.aperomix.utils.launchActivity
 import com.lucasri.aperomix.view.UserViewModel
 import java.util.*
 import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
 
 
 class RegisterFragment : Fragment() {
@@ -45,12 +35,6 @@ class RegisterFragment : Fragment() {
     private var confirmPasswordGood: Boolean = false
     private lateinit var auth: FirebaseAuth
 
-    companion object {
-        fun newInstance(): RegisterFragment {
-            return RegisterFragment()
-        }
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         setHasOptionsMenu(true)
         return inflater.inflate(R.layout.fragment_register, container, false)
@@ -58,7 +42,6 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
-        SharedPref.init(context!!)
         configureViewModel()
 
         this.displayRegisterButtonIfInputNotNull()
@@ -67,6 +50,7 @@ class RegisterFragment : Fragment() {
         fragment_register_next_btn.setOnClickListener {
             if (android.util.Patterns.EMAIL_ADDRESS.matcher(fragment_register_email_edt.text).matches()){
                 if (userIsAdult(fragment_register_datePicker) && fragment_register_confirmadult_checkBox.isChecked){
+
                     fragment_register_loading.visibility = View.VISIBLE
                     activity!!.window.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
 
@@ -147,15 +131,12 @@ class RegisterFragment : Fragment() {
     // --------------------
 
     private fun createUserInFirebase(email: String, password: String){
-        auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(activity!!) { task ->
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(activity!!) { task ->
                     if (task.isSuccessful) {
                         Log.d(Constraints.TAG, "createUserWithEmail:success")
-                        this.userViewModel.createUserInFirestore(getUserInUserModel())
                         context!!.toast(getString(R.string.fragment_register_sucess))
-                        SharedPref.write(SharedPref.currentUserUid, auth.currentUser!!.uid)
-                        AccountActivity.launchMode = "REGISTER"
-                        launchAccountActivity()
+                        this.userViewModel.createUserInFirestore(getUserInUserModel())
+                        context!!.launchActivity(AccountActivity())
                     } else {
                         Log.w(Constraints.TAG, "createUserWithEmail:failure", task.exception)
                         context!!.toast(getString(R.string.fragment_register_register_faield))
@@ -262,10 +243,5 @@ class RegisterFragment : Fragment() {
             if (char.toInt() in 57 downTo 48) result = true
         }
         return result
-    }
-
-    private fun launchAccountActivity() {
-        val myIntent = Intent(context, AccountActivity::class.java)
-        startActivity(myIntent)
     }
 }
