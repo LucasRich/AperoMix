@@ -1,13 +1,11 @@
 package com.lucasri.aperomix.controllers.fragments
 
-import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.lucasri.aperomix.R
-import com.lucasri.aperomix.controllers.activities.MainActivity
 import com.lucasri.aperomix.models.Player
 import com.lucasri.aperomix.utils.InitGame
 import com.lucasri.aperomix.utils.longToast
@@ -63,23 +61,14 @@ class PapinGameFragment: Fragment(){
         if (count == 0) startGame() else resumeGame()
 
         fragment_papin_game_container.setOnClickListener {
-            //Init rule list
+            //Init rule list if she's not
             if (ruleList.isEmpty()) InitGame.initRuleList(ruleList, boyAndGirl)
 
+            //Check if not navigation mode
             if (count == navigationCount) {
+                //check if game not finish
                 if (count < 53) {
-                    displayNavigationRule(false)
-                    count++
-                    navigationCount = count
-                    displayCounter(count)
-
-                    if (playerList.isNotEmpty()) {
-                        displayPlayerName(playerList[playerCounter].playerName)
-                        navigationPlayerCounter = playerCounter
-                        playerCounter++
-
-                        if (playerCounter == playerList.size) playerCounter = 0
-                    }
+                    displayAndIncrementsPrincipalVar()
                     play()
                 } else gameFinish()
                 passedRuleCounter = passedRuleList.size - 1
@@ -362,6 +351,7 @@ class PapinGameFragment: Fragment(){
         }
     }
 
+    //Get random number
     private fun getRandom(){
         if (ruleList.size > 4) {
             do {
@@ -374,6 +364,7 @@ class PapinGameFragment: Fragment(){
         }
     }
 
+    //Dispkay random rule and init rule info
     private fun play() {
         getRandom()
         displayRule(ruleList[random])
@@ -381,6 +372,21 @@ class PapinGameFragment: Fragment(){
         previousRule = ruleList[random]
         initRuleInfo(ruleList[random])
         ruleList.removeAt(random)
+    }
+
+    private fun displayAndIncrementsPrincipalVar(){
+        displayNavigationRule(false)
+        count++
+        navigationCount = count
+        displayCounter(count)
+
+        if (playerList.isNotEmpty()) {
+            displayPlayerName(playerList[playerCounter].playerName)
+            navigationPlayerCounter = playerCounter
+            playerCounter++
+
+            if (playerCounter == playerList.size) playerCounter = 0
+        }
     }
 
     private fun displayPreviousRule() {

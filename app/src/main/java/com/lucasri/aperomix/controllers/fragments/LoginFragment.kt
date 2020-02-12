@@ -5,12 +5,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.Constraints
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.auth.FirebaseAuth
 import com.lucasri.aperomix.R
 import com.lucasri.aperomix.controllers.activities.AccountActivity
+import com.lucasri.aperomix.controllers.activities.MainActivity
 import com.lucasri.aperomix.controllers.activities.RegisterActivity
 import com.lucasri.aperomix.database.injection.UserViewModelFactory
 import com.lucasri.aperomix.database.repository.UserDataRepository
@@ -33,6 +35,8 @@ class LoginFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         auth = FirebaseAuth.getInstance()
         this.configureViewModel()
+
+        if (MainActivity.dynamicLinkMode) dynamicLinkMode()
 
         fragment_login_login_btn.setOnClickListener {
             if (fragment_login_email_edt.text.toString() != "" && fragment_login_password_edt.text.toString() != ""){
@@ -58,6 +62,13 @@ class LoginFragment : Fragment(){
     // ---------------------
     // UTILS
     // ---------------------
+
+    private fun dynamicLinkMode(){
+        MainActivity.dynamicLinkMode = false
+        AlertDialog.Builder(context!!)
+                .setMessage(getString(R.string.DynamicLink_message_account))
+                .show()
+    }
 
     private fun singIn(email: String?, password: String?){
         auth.signInWithEmailAndPassword(email!!, password!!).addOnCompleteListener(activity!!) { task ->

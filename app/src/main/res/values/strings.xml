@@ -9,7 +9,7 @@
     <string name="fragment_main_start_btn">Jouer</string>
     <string name="fragment_main_delete_player_error">Vous ne pouvez jouer à moins de 3 joueurs</string>
     <string name="fragment_main_player">Joueur </string>
-    <string name="share_txt">Hey, go télécharger AperoMix !! 🥳 Télécharge l\'app et crée-toi un compte ! 🎊🎊 \n\n https://play.google.com/store/apps/details?id=com.supercell.clashroyale</string>
+    <string name="share_txt">https://aperomix.page.link/Tbeh</string>
 
     <!-- FragmentLogin -->
     <string name="fragment_login_title">Connexion</string>
@@ -175,4 +175,12 @@
     <string name="GameContainer_leave">Quitter</string>
     <string name="GameContainer_cancel">Annuler</string>
 
+    <!-- DynamicLinkMode -->
+
+    <string name="DynamicLink_message_chat">Bienvenue sur le chat, ici vous pouvez communiquer avec la communauté ApéroMix, n\'hésitez pas! &#128513;</string>
+    <string name="DynamicLink_message_account">N\'hésitez pas à vous connecter ou vous créer un compte afin de faire partie de la communauté ApéroMix et ainsi pouvoir accéder au chat !</string>
+
+    <!-- Chat -->
+
+    <string name="Chat_error">Vous devez être connecté pour accéder au chat de la communauté.</string>
 </resources>

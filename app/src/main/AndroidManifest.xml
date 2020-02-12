@@ -27,18 +27,23 @@
 
         <activity android:name=".controllers.activities.GameContainerActivity"
             android:parentActivityName=".controllers.activities.MainActivity">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".controllers.activities.MainActivity"/>
         </activity>
+
         <activity android:name=".controllers.activities.MainActivity"
-            android:windowSoftInputMode="adjustPan">
+            android:windowSoftInputMode="adjustResize">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
+
         <activity android:name=".controllers.activities.AccountActivity">
 
             <meta-data

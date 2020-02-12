@@ -37,10 +37,9 @@ class UserDataRepository() {
         return getUsersCollection().document(uid).get()
     }
 
-    fun getAllUser(): Task<QuerySnapshot> {
+    fun getAllUser(): Query {
         return getUsersCollection()
             .orderBy("firstname")
-            .get()
     }
 
     // -------------------

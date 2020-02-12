@@ -8,21 +8,21 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.lucasri.aperomix.R
 import com.lucasri.aperomix.models.Player
 import com.lucasri.aperomix.view.adapter.MainFragmentAdapter
 import kotlinx.android.synthetic.main.fragment_main.*
 import com.lucasri.aperomix.controllers.activities.AccountActivity
-import com.lucasri.aperomix.controllers.activities.GameContainerActivity
 import com.lucasri.aperomix.utils.launchActivity
-import com.lucasri.aperomix.utils.launchFragment
+import com.lucasri.aperomix.utils.longToast
 import com.lucasri.aperomix.utils.toast
-import kotlinx.android.synthetic.main.activity_main.*
 
 class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
     private lateinit var adapter: MainFragmentAdapter
     private var iterator: Boolean = true
+    private lateinit var auth: FirebaseAuth
 
     companion object {
         var playerList = mutableListOf<Player>()
@@ -34,12 +34,13 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        auth = FirebaseAuth.getInstance()
 
         this.initPlayerList()
         this.configureRecyclerView(true)
 
         fragment_main_start_btn.setOnClickListener {
-            launchSelectGameFragment()
+            launchFragment(SelectGameFragment())
         }
 
         fragment_main_addPlayer.setOnClickListener {
@@ -52,6 +53,10 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
 
         fragment_main_share_btn.setOnClickListener {
             shareApp()
+        }
+
+        fragment_main_chat_btn.setOnClickListener{
+            if (auth.currentUser != null) launchFragment(ChatFragment()) else context!!.longToast(getString(R.string.Chat_error))
         }
     }
 
@@ -140,7 +145,7 @@ class MainFragment : Fragment(), MainFragmentAdapter.Listener {
         return result
     }
 
-    private fun launchSelectGameFragment() {
-        activity!!.supportFragmentManager.beginTransaction().replace(R.id.activity_main_frame, SelectGameFragment()).commit()
+    private fun launchFragment(fragment: Fragment) {
+        activity!!.supportFragmentManager.beginTransaction().replace(R.id.activity_main_frame, fragment).commit()
     }
 }

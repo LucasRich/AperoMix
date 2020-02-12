@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import java.text.SimpleDateFormat
+import java.util.*
 
 inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> FragmentTransaction) {
     beginTransaction().func().commit()
@@ -25,6 +27,11 @@ fun Context.longToast(message: CharSequence) = Toast.makeText(this, message, Toa
 
 fun isTablet(context: Context): Boolean {
     return context.resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
+}
+
+fun getCurrentDate(): Date {
+    val currentDate = SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(Date())
+    return SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse(currentDate)
 }
 
 fun random(min: Int, max: Int, valueToIgnore: Int): Int {

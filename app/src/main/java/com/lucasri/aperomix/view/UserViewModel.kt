@@ -25,6 +25,10 @@ class UserViewModel(private val userDataSource: UserDataRepository, private val 
         return userDataSource.getUser(uid)
     }
 
+    fun getAllUser(): Query {
+        return userDataSource.getAllUser()
+    }
+
     // -------------------
     // UPDATE
     // -------------------

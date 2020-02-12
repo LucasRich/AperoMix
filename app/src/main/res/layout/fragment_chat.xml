@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:cardCornerRadius="10dp"
+        android:outlineSpotShadowColor="@color/colorPrimary"
+        android:outlineAmbientShadowColor="@color/colorPrimary"
+        android:layout_above="@+id/container2">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/background">
+
+            <RelativeLayout
+                android:id="@+id/fragment_chat_upBtn"
+                android:layout_width="match_parent"
+                android:layout_height="56dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_up_button"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"/>
+
+                <com.lucasri.aperomix.views.AperoMixTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Chat ApéroMix"
+                    android:layout_centerVertical="true"
+
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/selectGame_title_textSize" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/container1"
+                android:layout_below="@+id/fragment_chat_upBtn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="10dp">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fragment_chat_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container2"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        >
+
+        <EditText
+            android:id="@+id/fragment_chat_msgEdt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/fragment_chat_sendBtn"
+            android:hint="Aa"
+            android:inputType="textMultiLine|textCapSentences"
+            android:padding="5dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/background_edt"/>
+
+        <ImageView
+            android:id="@+id/fragment_chat_sendBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_send"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

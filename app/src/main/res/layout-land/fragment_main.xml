@@ -68,7 +68,7 @@
                 app:srcCompat="@drawable/ic_account" />
 
             <ImageView
-                android:id="@+id/fragment_main_support_btn"
+                android:id="@+id/fragment_main_chat_btn"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:padding="10dp"

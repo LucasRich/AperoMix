@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/fragment_chat_item_layout_otherMessage"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        >
+
+        <TextView
+            android:id="@+id/fragment_chat_item_otherMessage"
+            android:layout_below="@+id/fragment_chat_item_otherInfos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:minWidth="95dp"
+            android:padding="15dp"
+            android:textSize="16dp"
+            android:text="uhfriufhruif"
+            android:background="@drawable/border_message_other"/>
+
+        <TextView
+            android:id="@+id/fragment_chat_item_otherInfos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-13dp"
+            android:layout_marginLeft="2dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:text="Lucas"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/fragment_chat_item_layout_myMessage"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        >
+
+        <TextView
+            android:id="@+id/fragment_chat_item_myMessage"
+            android:layout_below="@+id/fragment_chat_item_myInfos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            android:minWidth="95dp"
+            android:padding="15dp"
+            android:textSize="16dp"
+            android:text="uhfriufhruif"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/border_my_message"/>
+
+        <TextView
+            android:id="@+id/fragment_chat_item_myInfos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-13dp"
+            android:layout_marginRight="2dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@android:color/white"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:text="Lucas"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

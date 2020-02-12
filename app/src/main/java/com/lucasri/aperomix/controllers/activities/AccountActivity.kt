@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.dynamiclinks.FirebaseDynamicLinks
 import com.lucasri.aperomix.R
 import com.lucasri.aperomix.controllers.fragments.AccountFragment
 import com.lucasri.aperomix.controllers.fragments.LoginFragment
 import com.lucasri.aperomix.database.injection.UserViewModelFactory
 import com.lucasri.aperomix.database.repository.UserDataRepository
+import com.lucasri.aperomix.utils.launchActivity
 import com.lucasri.aperomix.utils.launchFragment
 import com.lucasri.aperomix.view.UserViewModel
 import kotlinx.android.synthetic.main.activity_account.*
