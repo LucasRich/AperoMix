@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "99462478649",
+    "firebase_url": "https://aperomix-2f22f.firebaseio.com",
+    "project_id": "aperomix-2f22f",
+    "storage_bucket": "aperomix-2f22f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99462478649:android:f53aeea32e2b82f28006e8",
+        "android_client_info": {
+          "package_name": "com.lucasri.aperomix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "99462478649-n5cbakluap7t25ck70jo8f7d1b7aftbh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.lucasri.aperomix",
+            "certificate_hash": "7aa4e5b818a03fe0791cd6504b10828aa4054070"
+          }
+        },
+        {
+          "client_id": "99462478649-go1q15a86ab9vgrv86potj89c6sn9fr8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALtIJ2gw4R-_UFYg05HJiDg2HJcOY6zMs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "99462478649-go1q15a86ab9vgrv86potj89c6sn9fr8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
