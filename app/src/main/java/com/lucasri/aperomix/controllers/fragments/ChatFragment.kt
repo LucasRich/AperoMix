@@ -30,7 +30,7 @@ import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_chat.*
 import java.util.concurrent.Executors
 
-class ChatFragment : Fragment(), ChatAdapter.Listener{
+class ChatFragment : Fragment(){
 
     private lateinit var userViewModel: UserViewModel
     private lateinit var chatViewModel: ChatViewModel
@@ -81,7 +81,7 @@ class ChatFragment : Fragment(), ChatAdapter.Listener{
     }
 
     private fun configureRecyclerView() {
-        this.chatAdapter = ChatAdapter(generateOptionsForAdapter(chatViewModel.getAllMessages()), this, auth.currentUser!!.uid)
+        this.chatAdapter = ChatAdapter(generateOptionsForAdapter(chatViewModel.getAllMessages()), auth.currentUser!!.uid)
         chatAdapter!!.registerAdapterDataObserver(object : RecyclerView.AdapterDataObserver() {
             override fun onItemRangeInserted(positionStart: Int, itemCount: Int) {
                 fragment_chat_recyclerView.smoothScrollToPosition(chatAdapter!!.itemCount) // Scroll to bottom on new messages
@@ -97,10 +97,6 @@ class ChatFragment : Fragment(), ChatAdapter.Listener{
                 .setQuery(query, Message::class.java)
                 .setLifecycleOwner(this)
                 .build()
-    }
-
-    override fun onClickDeleteButton(position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     // ---------------------

@@ -12,14 +12,7 @@ import com.lucasri.aperomix.models.Message
 import com.lucasri.aperomix.models.User
 import com.lucasri.aperomix.view.ChatViewHolder
 
-class ChatAdapter (options: FirestoreRecyclerOptions<Message>, callbacks: Listener, private val idCurrentUser: String) : FirestoreRecyclerAdapter<Message, ChatViewHolder>(options) {
-
-    interface Listener {
-        fun onClickDeleteButton(position: Int)
-    }
-
-    private var callback: Listener? = callbacks
-
+class ChatAdapter (options: FirestoreRecyclerOptions<Message>, private val idCurrentUser: String) : FirestoreRecyclerAdapter<Message, ChatViewHolder>(options) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChatViewHolder {
         val context: Context = parent.context
@@ -31,9 +24,5 @@ class ChatAdapter (options: FirestoreRecyclerOptions<Message>, callbacks: Listen
 
     override fun onBindViewHolder(@NonNull holder: ChatViewHolder, position: Int, @NonNull model: Message) {
         holder.updateWithMessage(model, this.idCurrentUser)
-    }
-
-    fun updateData() {
-        this.notifyDataSetChanged()
     }
 }
